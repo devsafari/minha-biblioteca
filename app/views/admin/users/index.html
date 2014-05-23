@@ -1,0 +1,62 @@
+{% extends '../layout.html' %}
+
+{% block title %}Usuários{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Usuários<small> cadastrados no sistema</small></h1><br />
+  <a href='/admin/users/new' class='btn btn-success'>Novo usuário</a>
+</div>
+
+<div class="table-responsive libraries-index">
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>Nome</th>
+	      <th>Email</th>
+	      <th>Data de cadastro</th>
+	      <th class="td-actions">Ações</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for user in users %}
+	  		<tr {% if loop.first %} class="first"{% endif %} {% if loop.last %} class="last"{% endif %}>
+	  		  
+	  		  <td>{{ user.name }} </td>
+	  		  <td>{{ user.email }} </td>
+	  		  <td>{{ user.created_at|date('d/M/Y H:i:s') }}</td>
+
+	  		  <td class="td-actions">
+		  		  <div class="btn-group">
+		  		    <a class="btn btn btn-primary" href="#"><i class="icon-plusr icon-white"></i>Ações</a>
+		  		    <a class="btn btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+		  		    <ul class="dropdown-menu">
+					  <li>
+		  		      	<a href="/admin/user/edit/{{ user.id }}">
+		  		      		<i class="icon-pencil"> Editar</i>
+		  		      	</a>
+		  		      </li>
+		  		      <li>
+		  		      	<a href="/admin/user/{{ user.id }}" method="delete" data-parent='tr'>
+		  		      		<i class="icon-trash"> Deletar</i>
+		  		      	</a>
+		  		      </li>
+		  		    </ul>
+		  		  </div>
+	  		  </td>
+	  		</tr>
+	  	{% endfor %}
+	  </tbody>
+	</table>
+</div>
+
+{% endblock %}
+
+{% block head_styles %}
+<style>
+	table .td-actions {
+		width:100px;
+	}
+</style>
+{% endblock %}

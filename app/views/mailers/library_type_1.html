@@ -1,0 +1,59 @@
+<div class='mail-body' style='margin:0;padding:0;'>
+	<div class="header">
+		<div class="wrapper" style='text-align:center;background-color:#FF3334;padding:10px;'>
+			<p>
+				<a href="http://euquerominhabiblioteca.herokuapp.com/" target="_blank">
+					<img src="http://euquerominhabiblioteca.herokuapp.com/public/assets/images/common/logo-eu-quero-minha-biblioteca.png" alt="Eu Quero Minha Biblioteca"><br />
+				</a>
+			</p>
+		</div>
+	</div>
+	<div class="wrapper body">
+		<table class="fields" cellpadding="10" cellspacing="5">
+			<tr>
+				<td><strong>Categoria:</strong></td>
+				<td><em>{{category.name}}</em></td></tr>
+			</tr>
+			<tr>
+				<td><strong>Nome:</strong></td>
+				<td><em>{{name}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Email:</strong></td>
+				<td><em>{{email}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Profissão:</strong></td>
+				<td><em>{{occupation}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Estado:</strong></td>
+				<td><em>{{address.state.name}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Cidade:</strong></td>
+				<td><em>{{address.city.name}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Endereço completo:</strong></td>
+				<td><em>{{address.formatted_address}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Instituição:</strong></td>
+				<td><em>{{institution_name}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Data:</strong></td>
+				<td><em>{{date}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>IP:</strong></td>
+				<td><em>{{ip}}</em></td>
+			</tr>
+			<tr>
+				<td><strong>Origem:</strong></td>
+				<td><em>{{origin}}</em></td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,300 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Eu Quero Minha Biblioteca | {% block title %}{% endblock %} </title>
+        
+        {% block meta %}
+        <!-- Search Engine -->
+        <meta name="description" content="Todas as instituições de ensino públicas e privadas do Brasil deverão possuir biblioteca até 2020. Esse agora é um direito garantido por Lei.">
+        <meta name="keywords" content="biblioteca, lei 12.444/10, livros, instituições, ensino, publicas,privadas,cadastrar,eu apoio,minha biblioteca,eu quero,mapa, bibliotecas">
+        <meta name="author" content=""/>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- FB -->
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Eu Quero Minha Biblioteca!"/>
+        <meta property="og:url" content="{{ host }}" />
+        <meta property="og:image" content="{{ host }}/public/assets/fb-share.jpeg"/>
+        <meta property="og:site_name" content="Eu Quero Minha Biblioteca!"/>
+        <meta property="og:description" content="Veja o vídeo que apresenta o projeto Eu Quero Minha Biblioteca! #euquerominhabiblioteca http://goo.gl/8oO9u8" />
+        
+        {% endblock %}
+
+        <link rel="canonical" href="{{ host }}">
+        <link rel="shortcut icon" href="{{ host }}/public/favicon.ico"/>
+        
+        <!-- iOS -->
+        <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+        
+        <!--[if lt IE 9]>
+          <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js">
+        <![endif]-->
+
+        <link rel="stylesheet" href="/public/assets/styles/main.css?v=2">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        {% block head_styles %}
+        {% endblock %}
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCq8rUudODS1xJdAglyU6Mn1f61wIwemPs&sensor=true&libraries=places"></script>
+    </head>
+    <body>
+    <!--[if lt IE 10]>
+        <p class="browsehappy">Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href="http://browsehappy.com/" target="_blank">atualize seu nevegador</a> para ter uma experiência completa neste site.</p>
+    <![endif]-->
+    <div id="fb-root"></div>
+    {% block yield %} {% endblock %}
+
+    <section class="section contact" id="contact_section">
+        <article class="wrapper contact-form-wrapper">
+            <header>
+                <h3>Contato</h3>
+            </header>
+            <div class="steps">
+                <form action="contact/" method="POST" id="contact_form" class='form'>
+                    <fieldset id="step_1" class='step subject square-radio'>
+                        <legend>Sobre qual assunto você quer falar?</legend>
+                        <nav class="nav-subject">
+                            <ul class="inline-list">
+                                <li class="radio-wrapper first">
+                                    <input type="radio" name="contact[subject]" value="1" id="contact_subject_1" required="required">
+                                    <label for="contact_subject_1">PARCERIAS</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[subject]" value="2" id="contact_subject_2" required="required">
+                                    <label for="contact_subject_2">DÚVIDAS SOBRE<br /> A CAMPANHA</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[subject]" value="3" id="contact_subject_3" required="required">
+                                    <label for="contact_subject_3">PEDIDOS DE <br />MATERIAIS</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[subject]" value="4" id="contact_subject_4" required="required">
+                                    <label for="contact_subject_4">DÚVIDAS SOBRE <br />CADASTRO</label>
+                                </li>
+                                <li class="radio-wrapper last">
+                                    <input type="radio" name="contact[subject]" value="5" id="contact_subject_5" required="required">
+                                    <label for="contact_subject_5">PROBLEMAS NO SITE</label>
+                                </li>
+                            </ul>
+                        </nav>
+                    </fieldset>
+                    <fieldset id="step_2" class='step area circle-radio'>
+                        <legend>Qual a sua área?</legend>
+                        <nav class='nav-area'>
+                            <ul class='inline-list'>
+                                <li class="radio-wrapper first">
+                                    <input type="radio" name="contact[area]" value="1" id="contact_area_1" required="required">
+                                    <label for="contact_area_1">CIDADÃOS</label>
+                                </li>
+                                <li class="radio-wrapper last">
+                                    <input type="radio" name="contact[area]" value="2" id="contact_area_2" required="required">
+                                    <label for="contact_area_2">PODER PÚBLICO</label>               
+                                </li>
+                            </ul>
+                        </nav>
+                    </fieldset>
+                    <fieldset id="step_3" class='step question_type square-small-radio'>
+                        <legend>Como você classificaria sua pergunta?</legend>
+
+                        <nav class='nav-questions'>
+                            <ul class='inline-list'>
+                                <li class="radio-wrapper first">
+                                    <input type="radio" name="contact[question_type]" value="1" id="contact_question_1">
+                                    <label for="contact_question_1">ACERVO</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="2" id="contact_question_2" required="required">
+                                    <label for="contact_question_2">ESCLARECIMENTO</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="3" id="contact_question_3" required="required">
+                                    <label for="contact_question_3">PROMOÇÃO DE LEITURA</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="4" id="contact_question_4" required="required">
+                                    <label for="contact_question_4">COALIZAÇÃO</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="5" id="contact_question_5" required="required">
+                                    <label for="contact_question_5">PEDIDO DE CAMISETA</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="6" id="contact_question_6" required="required">
+                                    <label for="contact_question_6">PROBLEMAS NO SITE</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="7" id="contact_question_7" required="required">
+                                    <label for="contact_question_7">ESPAÇO E INFRAESTRUTURA</label>
+                                </li>
+                                <li class="radio-wrapper">
+                                    <input type="radio" name="contact[question_type]" value="8" id="contact_question_8" required="required">
+                                    <label for="contact_question_8">PEDIDO DE DOAÇÃO</label>
+                                </li>
+                                <li class="radio-wrapper last">
+                                    <input type="radio" name="contact[question_type]" value="9" id="contact_question_9" required="required">
+                                    <label for="contact_question_9">NÃO SABE INFORMAR</label>
+                                </li>
+                            </ul>
+                        </nav>
+                    </fieldset>
+
+                    <fieldset id="step_4" class='step contact-form'>
+                        <legend>Envie sua mensagem</legend>
+                        <nav class="nav-contact">
+                            <ul>
+                                <li class="field-wrapper first">
+                                    <label for="contact_name">Nome</label>
+                                    <input type="text" required='required' placeholder="Seu nome" name="contact[name]" id="contact_name">
+                                </li>
+                                <li class="field-wrapper">
+                                    <label for="contact_email">E-mail</label>
+                                    <input type="email" required='required' placeholder="Seu email" name="contact[email]" id="contact_email">
+                                </li>
+                                <li class="field-wrapper">
+                                    <label for="contact_message">Mensagem</label>
+                                    <textarea id="contact_message" required='required' placeholder="Sua mensagem" name="contact[message]"></textarea>
+                                </li>
+                                <li class="field-wrapper last">
+                                    <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                                    <input type="submit" value="ENVIAR" class='submit-green'>
+                                </li>
+                            </ul>
+                        </nav>
+                    </fieldset>
+                </form>
+            </div>
+        </article>
+    </section>
+    <footer class="footer">
+        <div class="footer-wrapper wrapper">
+            <div class="footer-section first">
+                <section class="contact">
+                    <header><h1>Contato</h1></header>
+                    <nav class="links">
+                        <ul><li><a href="#" title="Fale conosco" class='contact-form-toggle'>> Fale conosco</a></li></ul>
+                    </nav>
+                </section>
+                <section class="social-networks">
+                    <header><h1>Redes sociais</h1></header>
+
+                    <nav class="social-links">
+                        <ul class="inline-list">
+                            <li class="facebook"><a href="https://facebook.com/euquerominhabiblioteca" title="Facebook Eu Quero Minha Biblioteca" target="_blank" ></a></li>
+                            <li class="twitter"><a href="https://twitter.com/QueroBiblioteca" title="Twitter Eu Quero Minha Biblioteca" target="_blank"></a></li>
+                            <li class="youtube"><a href="http://www.youtube.com/user/institutoecofuturo" title="Youtube Eu Quero Minha Biblioteca" target="_blank"></a></li>
+                            <li class="google"><a href="https://plus.google.com/u/0/103013996503927771237/about" title="Google+ Eu Quero Minha Biblioteca" target="_blank"></a></li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+            <div class="footer-section">
+                <section class="menu">
+                    <header><h1>Menu</h1></header>
+                    <nav class="footer-menu">
+                        <ul id='footer-links'>
+                            <li class='first'><a href="#home">Vídeo</a></li>
+                            <li><a href="#sobre-o-projeto">A Campanha</a></li>
+                            <li><a href="#participe">Inscreva-se</a></li>
+                            <li><a href="#resultados">Adesões</a></li>
+                            <li><a href="#divulgue">Imprensa</a></li>
+                            <li class='last'><a href="#oriente-se">Participe</a></li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+            <div class="footer-section last">
+                <section class="downloads">
+                    <header><h1>downloads</h1></header>
+                    <nav class="downloads-nav">
+                        <ul>
+                            <li class="header">
+                                <span class="header-text">Material de apoio</span>
+                            </li>
+                            <li><a href="http://www.euquerominhabiblioteca.org.br/public/materiais/infografico_14042014.pdf" target="_blank">&gt; Cidadãos</a></li>
+                            <li><a href="http://www.euquerominhabiblioteca.org.br/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">&gt; Gestores Públicos</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="downloads-nav">
+                        <ul>
+                            <li class="header">
+                                <a href="http://www.euquerominhabiblioteca.org.br/public/materiais/material_divulgacao.zip" target="_blank">
+                                    <span class="header-text">Material de divulgação</span>
+                                </a>
+                            </li>
+                            <li><a href="#divulgue">&gt; Banners de divulgação</a></li>
+                        </ul>
+                    </nav>
+                </section>
+                <section class="imprensa">
+                    <header><h1>IMPRENSA <a href="/public/materiais/imprensa.pdf" target="_blank" title="Acesse aqui o Release da Campanha"><img src="/public/assets/images/common/imprensa_download.png" alt="Baixe informações sobre a campanha." style="margin-bottom: -10px;margin-left: 17px;"></a></h1></header>
+                    <nav class="imprensa-nav">
+                        <ul>
+                            <li><span style='font-weight:600;'>GWA Comunicação Integrada<br/>Vanessa Fontes</span></li>
+                            <li><span>Tel: 3030-3000</span></li>
+                            <li><a href="mailto:vanessaf@gwa.com.br?subject=[Imprensa] Eu Quero Minha Biblioteca">E-mail: vanessaf@gwa.com.br</a></li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </div>
+    </footer>
+    <div id="background-mask"></div>
+    <div id="form-logger">
+        <div class="header">
+            <h2 class="message-header"></h2>
+        </div>
+        <p class="message-body"></p>
+    </div>
+    <div id="modal">
+        <div class="modal-content wrapper">
+           <div class="inner-content" id="modal-infografico">
+               <img src="infografico-euquerominhabiblioteca.png" alt="Infográfico eu quero minha biblioteca">
+           </div>
+           <div class="inner-content" id="cidadaos-info">
+            <img src="infografico-euquerominhabiblioteca.png" alt="Infográfico eu quero minha biblioteca">
+           </div>
+           <div class="inner-content" id="gestores-publicos-info">
+            <img src="infografico-euquerominhabiblioteca.png" alt="Infográfico eu quero minha biblioteca">
+           </div>
+        </div>
+    </div>
+
+    <script src="/public/assets/scripts/vendor.js"></script>
+    <script src="/public/assets/scripts/markers-cluster.js"></script>
+    <script src="/public/assets/scripts/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1438737853008671";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    {% block footer_scripts %} {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+{% extends '../layout.html' %}
+
+{% block title %}Mensagens{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Mensagens <small>Todas as mensagens enviada pelo site - Página {{ current_page }} de {{ total_pages }} </small></h1>
+</div>
+
+<div class="pull-right">
+	<div class="export pull-right">
+			<a class="btn btn-success" href="{{ host }}/admin/contacts/export.xls"><i class="icon-large icon-download-alt
+		"></i> Exportar XLS</a>
+	</div>
+</div>
+
+<div class="table-responsive contacts-index">
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>Nome</th>
+	      <th>Email</th>
+	      <th>Assunto</th>
+	      <th>Area</th>
+	      <th>Tipo de pergunta</th>
+	      <th>Data</th>
+	      <th class="td-actions">Ações</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for contact in contacts %}
+	  		<tr {% if loop.first %} class="first"{% endif %} {% if loop.last %} class="last"{% endif %}>
+	  		  
+	  		  <td>{{ contact.name }} </td>
+	  		  <td>{{ contact.email }} </td>
+	  		  <td>{{ contact.subject }} </td>
+	  		  <td>{{ contact.area }} </td>
+	  		  <td>{{ contact.constants.QUESTIONS[contact.question_type] }}</td>
+	  		  <td>{{ contact.created_at|date('d/M/Y H:i:s') }}</td>
+
+	  		  <td class="td-actions">
+		  		  <div class="btn-group">
+		  		    <a class="btn btn btn-primary" href="#"><i class="icon-plusr icon-white"></i>Ações</a>
+		  		    <a class="btn btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+		  		    <ul class="dropdown-menu">
+		  		      <li>
+		  		      	<a href="/admin/contact/{{ contact.id }}">
+		  		      		<i class="icon-eye-open"> Visualizar </i>
+		  		      	</a>
+		  		      </li>
+		  		      <li>
+		  		      	<a href="/admin/contact/{{ contact.id }}" method="delete" data-parent='tr'>
+		  		      		<i class="icon-trash"> Deletar</i>
+		  		      	</a>
+		  		      </li>
+		  		    </ul>
+		  		  </div>
+	  		  </td>
+	  		</tr>
+	  	{% endfor %}
+	  </tbody>
+	</table>
+
+	<ul class="pagination pagination-lg pull-right">
+	  <li><a href="/admin/contacts/page/{{ first_page }}">&larr;</a></li>
+	  	{{ pagination_itens|raw }}
+	  <li><a href="/admin/contacts/page/{{ last_page }}">&rarr;</a></li>
+	</ul>
+
+</div>
+
+{% endblock %}
+
+{% block head_styles %}
+<style>
+	table .td-actions {
+		width:100px;
+	}
+</style>
+{% endblock %}

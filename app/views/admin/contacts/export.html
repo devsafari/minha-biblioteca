@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Nome</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Assunto</Data></Cell>
+        <Cell><Data ss:Type="String">Area</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo de Pergunta</Data></Cell>
+        <Cell><Data ss:Type="String">Mensagem</Data></Cell>
+        <Cell><Data ss:Type="String">Data</Data></Cell>
+      </Row>
+      {% for contact in contacts %}
+        <Row>
+        <Cell><Data ss:Type="String">{{ contact.name }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ contact.email }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ contact.subject}}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ contact.area }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ contact.constants.QUESTIONS[contact.question_type]  }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ contact.message|raw  }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ contact.created_at|date('d/M/Y H:i:s')  }}</Data></Cell>
+        </Row>
+      {% endfor %}
+    </Table>
+  </Worksheet>
+</Workbook>

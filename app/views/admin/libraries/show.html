@@ -1,0 +1,71 @@
+{% extends '../layout.html' %}
+
+{% block title %}Visualização de Biblioteca{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Bibliotecas <small> {{ library.name }} </small></h1>
+</div>
+
+<div class="form-container center-block">
+    
+    <div class="content clearfix span6">
+        
+        <div class="field">
+            <span class="field-name">Nome:</span>
+            <span class="field-value"> {{ library.name }} </span>
+        </div>
+        
+        <div class="field">
+            <span class="field-name">Email:</span>
+            <span class="field-value"> {{ library.email }} </span>
+        </div>
+        
+        <div class="field">
+            <span class="field-name">Nome da instituição:</span>
+            <span class="field-value"> {{ library.institution_name }} </span>
+        </div>
+        
+        <div class="field">
+            <span class="field-name">Cargo / Profissão:</span>
+            <span class="field-value"> {{ library.occupation }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Categoria:</span>
+            <span class="field-value"> {{ library.category.name }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Endereço:</span>
+            <span class="field-value"> {{ library.address.formatted_address }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Data de cadastro:</span>
+            <span class="field-value"> {{ library.created_at|date('d/M/Y H:i:s') }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Ultima atualização:</span>
+            <span class="field-value"> {{ library.updated_at|date('d/M/Y H:i:s') }} </span>
+        </div>
+
+        <div class="field actions">
+            <a href="/admin/library/edit/{{ library.id }}" class="button btn btn-success btn-large">Editar</a>
+            <a method="delete" data-redirect="/admin/libraries/" href="/admin/library/{{ library.id }}" class="button btn btn-danger btn-large">Deletar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head_styles %}
+    <style>
+        .field {margin-bottom: 10px;}
+        .field-name {font-weight: 900;}
+        .field-value {margin-left: 5px;}
+        .field.actions  {margin-top:20px;}
+        .field.actions .btn { margin-right:10px;}
+    </style>
+{% endblock %}

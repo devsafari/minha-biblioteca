@@ -1,0 +1,143 @@
+ <!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Admin | Eu Quero Minha Biblioteca - {% block title %}{% endblock %}</title>
+        
+        <!-- Search Engine -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Rafael Fidelis <pactodigital>"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        <link rel="canonical" href="{{ view_data.host }}">
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        
+        <!-- iOS -->
+        <link rel="apple-touch-icon" href="/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link href="/public/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/public/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+        <link href="/public/admin/bootstrap/css/font-awesome.css" rel="stylesheet">
+        <link href="/public/admin/bootstrap/css/style.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        {% block head_styles %}{% endblock %}
+        
+    </head>
+    <body>
+
+    <!--[if lt IE 10]>
+        <p class="browsehappy">Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href="http://browsehappy.com/" target="_blank">atualize seu nevegador</a> para ter uma experiência completa neste site.</p>
+    <![endif]-->
+        
+    <div class="row">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                
+                <div class="container">
+                    
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    
+                    <a class="brand" href="/admin">Ecofuturo | {% block title %} {% endblock %}</a>        
+                    {% if user_id %}
+                        <div class="nav-collapse">
+                            <ul class="nav pull-right">
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-user"></i> {{ user_name }} <b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="/admin/logout/">Sair</a></li>
+                                  </ul>
+                                </li>
+                            </ul>
+                        </div> 
+                    {% endif %}
+                </div>
+            </div>
+        </div>        
+    </div>
+    
+    {% if user_id %}
+        <div class="subnavbar">
+          <div class="subnavbar-inner">
+            <div class="container">
+              <ul class="mainnav">
+                {# 
+                    TODO:  a better implementation 
+                #}
+                <li {% if current_path == 'dashboard' %} class="active" {% endif %}>
+                    <a href="/admin/dashboard/">
+                    <i class="icon-dashboard"></i>
+                    <span>Dashboard</span> </a> 
+                </li>
+                <li {% if current_path == 'library' || current_path == 'libraries' %} class="active" {% endif %}>
+                    <a href="/admin/libraries/">
+                    <i class="icon-book"></i
+                    ><span>Bibliotecas</span> 
+                </a> </li>
+                <li {% if current_path == 'users' || current_path == 'user' %} class="active" {% endif %}>
+                    <a href="/admin/users">
+                    <i class="icon-user"></i
+                    ><span>Usuários</span> 
+                </a></li>
+                <li {% if current_path == 'contacts' || current_path == 'contact' %} class="active" {% endif %}>
+                    <a href="/admin/contacts">
+                    <i class="icon-envelope"></i
+                    ><span>Mensagens</span> 
+                </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    
+    <div class="container">
+        {% if session_message %}
+            <div class="row">
+                 <div class="span12">
+                       <div class="alerts" style='margin-top:1.5em;'>
+                         {{ session_message|safe }}
+                       </div>
+                 </div>
+            </div>
+        {% endif %}
+        {% block yield %}{% endblock %}
+    </div>
+
+    <div id="background-mask"></div>
+    <div id="form-logger">
+        <div class="header">
+            <h2 class="message-header"></h2>
+        </div>
+        <p class="message-body"></p>
+    </div>
+
+    <script>
+        var CSRF_TOKEN = "{{ csrf_token }}";
+    </script>
+
+    <script src="/public/admin/bootstrap/js/jquery-1.7.2.min.js"></script> 
+    <script src="/public/admin/bootstrap/js/bootstrap.js"></script>     
+    <script src="/public/admin/bootstrap/js/base.js"></script>
+    
+   {% block footer_scripts %}{% endblock %}
+    </body>
+</html>

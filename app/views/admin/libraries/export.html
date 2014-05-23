@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Nome</Data></Cell>
+        <Cell><Data ss:Type="String">Profissão/Cargo</Data></Cell>
+        <Cell><Data ss:Type="String">Nome da instituição/Partido</Data></Cell>
+        <Cell><Data ss:Type="String">Categoria</Data></Cell>
+        <Cell><Data ss:Type="String">Estado</Data></Cell>
+        <Cell><Data ss:Type="String">Cidade</Data></Cell>
+        <Cell><Data ss:Type="String">Região</Data></Cell>
+        <Cell><Data ss:Type="String">Endereço completo</Data></Cell>
+        <Cell><Data ss:Type="String">Latitude</Data></Cell>
+        <Cell><Data ss:Type="String">Longitude</Data></Cell>
+        <Cell><Data ss:Type="String">Data de cadastro</Data></Cell>
+        <Cell><Data ss:Type="String">Data de atualização</Data></Cell>
+      </Row>
+      {% for library in libraries %}
+        <Row>
+        <Cell><Data ss:Type="String">{{ library.name }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.occupation }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.institution_name}}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.category.name }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.address.state.name }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.address.city.name }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.address.state.region }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.address.formatted_address }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.address.coordinates.lat }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.address.coordinates.lng }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.created_at|date('d/M/Y H:i:s')  }}</Data></Cell>
+        <Cell><Data ss:Type="String">{{ library.updated_at|date('d/M/Y H:i:s')  }}</Data></Cell>
+        </Row>
+      {% endfor %}
+    </Table>
+  </Worksheet>
+</Workbook>

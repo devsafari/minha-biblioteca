@@ -1,0 +1,65 @@
+{% extends '../layout.html' %}
+
+{% block title %}Visualização de Mensagem{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Mensagem <small> de {{ contact.name }} </small></h1>
+</div>
+
+<div class="form-container center-block">
+    
+    <div class="content clearfix span6">
+        
+        <div class="field">
+            <span class="field-name">Nome:</span>
+            <span class="field-value"> {{ contact.name }} </span>
+        </div>
+        
+        <div class="field">
+            <span class="field-name">Email:</span>
+            <span class="field-value"> {{ contact.email }} </span>
+        </div>
+        
+        <div class="field">
+            <span class="field-name">Assunto:</span>
+            <span class="field-value"> {{ contact.subject }} </span>
+        </div>
+        
+        <div class="field">
+            <span class="field-name">Area:</span>
+            <span class="field-value"> {{ contact.area }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Tipo de pergunta:</span>
+            <span class="field-value"> {{ contact.constants.QUESTIONS[contact.question_type] }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Mensagem:</span><br />
+            <span class="field-value"> {{ contact.message|raw }} </span>
+        </div>
+
+        <div class="field">
+            <span class="field-name">Data:</span>
+            <span class="field-value"> {{ contact.created_at|date('d/M/Y H:i:s') }} </span>
+        </div>
+
+        <div class="field actions">
+            <a method="delete" data-redirect="/admin/contacts" href="/admin/contact/{{ contact.id }}" class="button btn btn-danger btn-large">Deletar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head_styles %}
+    <style>
+        .field {margin-bottom: 10px;}
+        .field-name {font-weight: 900;}
+        .field-value {margin-left: 5px;}
+        .field.actions  {margin-top:20px;}
+        .field.actions .btn { margin-right:10px;}
+    </style>
+{% endblock %}

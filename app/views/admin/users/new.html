@@ -1,0 +1,50 @@
+{% extends '../layout.html' %}
+
+{% block title %}Novo usuário{% endblock %}
+
+{% block yield %}
+<div class="account-container center-block register">
+    
+    <div class="content clearfix">
+        
+        <form action="/admin/users/" method="post" id="login_form">
+            
+            <h1>Novo usuário</h1>
+           <div class="login-fields">
+            
+            <p>Crie uma nova conta para acesso ao administrativo</p>
+            
+            <div class="field">
+                <label for="user_name">Nome:</label>
+                <input type="text" id="user_name" name="user[name]" value="" placeholder="Seu nome" class="login" required='required' />
+            </div>
+
+            <div class="field">
+                <label for="user_email">Email:</label>
+                <input type="email" id="user_email" name="user[email]" value="" placeholder="Email" class="login" required="required"/>
+            </div>
+            
+            <div class="field">
+                <label for="user_password">Senha:</label>
+                <input type="password" id="user_password" name="user[password]" value="" placeholder="Senha" class="login" required="required"/>
+            </div>
+            
+            <div class="field">
+                <label for="user_confirm_password">Confirmação de Senha:</label>
+                <input type="password" id="user_confirm_password" name="user[password_confirmation]" value="" placeholder="Confirmação de senha" class="login" required="required"/>
+                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+            </div>
+
+           </div>
+
+           <div class="login-actions">                               
+                <button class="button btn btn-primary btn-large">Registrar</button>
+           </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block head_styles %}
+<link href="/public/admin/bootstrap/css/pages/signin.css" rel="stylesheet" type="text/css">
+{% endblock %}

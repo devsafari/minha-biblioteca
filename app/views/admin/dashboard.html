@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block yield %}
+
+<div class="row">
+	<div class="span6">
+		<div class="widget widget-nopad">
+	        
+	        <div class="widget-header"> <i class="icon-list-alt"></i>
+	          <h3>Estatisticas do site</h3>
+	        </div>
+
+	        <div class="widget-content">
+	          <div class="widget big-stats-container">
+	            <div class="widget-content">
+	              <h6 class="bigstats">
+	              	Estatisticas do site (novas bibliotecas, novos contatos, likes no fb)
+	              </h6>
+	              <div id="big_stats" class="cf">
+
+	                <div class="stat"> <i class="icon-book"></i> 
+	                	<span class="value">{{ total_libraries }} </span>
+	                </div>
+	                
+	                <div class="stat"> <i class="icon-thumbs-up-alt"></i> 
+	                	<span class="value"> {{ fb_total_likes }}</span>
+	                </div>
+	                
+	                <div class="stat"> <i class="icon-envelope"></i>
+	                	<span class="value"> {{ total_contacts }} </span>
+	                </div>
+	              </div>
+	            </div>	            
+	          </div>
+	        </div>
+	      </div>	
+	</div>
+</div>
+{% endblock %}
+
+{% block head_styles %}
+<link href="/public/admin/bootstrap/css/pages/dashboard.css" rel="stylesheet" type="text/css">
+{% endblock %}

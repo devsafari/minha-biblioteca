@@ -1,0 +1,84 @@
+{% extends '../layout.html' %}
+
+{% block title %}Edição de biblioteca{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Bibliotecas <small>Edição de biblioteca {{ library.name }} </small></h1>
+</div>
+
+<div class="form-container center-block">
+    
+    <div class="content clearfix span6">
+        
+        <form action="/admin/library/{{ library.id }}" method="post" id="edit_library_form">
+            <input type="hidden" name="_method" value="put" />
+            <fieldset class="field">
+                <label for="library_name">Nome</label>
+                <input type="text" id="library_name" name="library[name]" value="{{ library.name }}" required="required"/>
+            </fieldset>      
+            <fieldset class="field">
+                <label for="library_email">Email</label>
+                <input type="email" id="library_email" name="library[email]" value="{{ library.email }}" required="required"/>
+            </fieldset>
+            <fieldset class="field">
+                <label for="library_occupation">Profissão/Cargo</label>
+                <input type="text" id="library_occupation" name="library[occupation]" value="{{ library.occupation }}" required="required"/>
+            </fieldset> 
+            <fieldset class="field">
+                <label for="library_institution_name">Nome da instituição</label>
+                <input type="text" id="library_institution_name" name="library[institution_name]" value="{{ library.institution_name }}" required="required"/>
+            </fieldset> 
+            <fieldset class="field">
+            	<label for="library_category">Categoria</label>
+            	<select name="library[category]" id="library_category">
+            		{% for category in Object.keys(library.constants.CATEGORIES) %}
+            			<option value="{{ category }}" {% if category == library.category.id %} selected='selected' {% endif %} > {{ library.constants.CATEGORIES[category] }}</option>
+            		{% endfor %}
+            	</select>
+            </fieldset>
+
+            <div class="actions">                                    
+                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                <button class="button btn btn-success btn-large">Atualizar</button>
+                <a method="delete" data-redirect="/admin/libraries/" href="/admin/library/{{ library.id }}" class="button btn btn-danger btn-large">Deletar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block head_styles %}
+ 	<style>
+        .field {
+            margin-bottom:15px;
+        }
+        
+		.field input[type="text"] ,.field input[type="email"],.field select {
+			font-family: 'Open Sans';
+			font-size: 13px;
+			color: #8e8d8d;
+			padding: 10px;
+			background-color: #fdfdfd;
+			width: 255px;
+			display: block;
+			margin: 0;
+		}
+		.field input {
+			box-shadow: inset 2px 2px 4px #f1f1f1;
+		}
+
+		.field select {
+			width: 275px;
+		}
+
+		.field select option {
+			color: #8e8d8d;
+		}
+
+		.button {
+			margin-top: 18px;
+		}
+	</style>
+{% endblock %}

@@ -1,0 +1,39 @@
+{
+  "name": "iwantmylibrary",
+  "description": "Eu quero minha biblioteca!",
+  "author": "Rafael Fidelis <rafa_fidelis@yahoo.com.br>",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.7",
+    "express-namespace": "~0.1.1",
+    "nodemon": "1.0.*",
+    "nedb": "~0.9.3",
+    "extend": "latest",
+    "validator": "3.2.0",
+    "nodemailer": "0.6.*",
+    "mu2": "0.5.*",
+    "geocoder": "0.1.*",
+    "strftime": "0.7.*",
+    "bcrypt": "0.7.7",
+    "passport": "0.1.*",
+    "passport-local": "0.1.*",
+    "mongoose": "3.8.*",
+    "mandrill-api": "1.0.*",
+    "consolidate": "0.10.0",
+    "swig": "1.3.*",
+    "connect-flash": "0.1.*",
+    "connect-redis": "~1.4.6",
+    "jake": "~0.7.6",
+    "underscore.string": "~2.3.3",
+    "redis": "~0.10.0",
+    "mongodb": "~1.3.23"
+  },
+  "main": "server.js",
+  "devDependencies": {
+    "glob": "~3.2.8"
+  }
+}

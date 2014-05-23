@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "uf": "AC",
+    "nome": "Acre",
+    "regiao": "Norte"
+  },
+  {
+    "id": 2,
+    "uf": "AL",
+    "nome": "Alagoas",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 3,
+    "uf": "AM",
+    "nome": "Amazonas",
+    "regiao": "Norte"
+  },
+  {
+    "id": 4,
+    "uf": "AP",
+    "nome": "Amapá",
+    "regiao": "Norte"
+  },
+  {
+    "id": 5,
+    "uf": "BA",
+    "nome": "Bahia",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 6,
+    "uf": "CE",
+    "nome": "Ceará",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 7,
+    "uf": "DF",
+    "nome": "Distrito Federal",
+    "regiao": "Centro Oeste"
+  },
+  {
+    "id": 8,
+    "uf": "ES",
+    "nome": "Espírito Santo",
+    "regiao": "Sudeste"
+  },
+  {
+    "id": 9,
+    "uf": "GO",
+    "nome": "Goiás",
+    "regiao": "Centro Oeste"
+  },
+  {
+    "id": 10,
+    "uf": "MA",
+    "nome": "Maranhão",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 11,
+    "uf": "MG",
+    "nome": "Minas Gerais",
+    "regiao": "Sudeste"
+  },
+  {
+    "id": 12,
+    "uf": "MS",
+    "nome": "Mato Grosso do Sul",
+    "regiao": "Centro Oeste"
+  },
+  {
+    "id": 13,
+    "uf": "MT",
+    "nome": "Mato Grosso",
+    "regiao": "Centro Oeste"
+  },
+  {
+    "id": 14,
+    "uf": "PA",
+    "nome": "Pará",
+    "regiao": "Norte"
+  },
+  {
+    "id": 15,
+    "uf": "PB",
+    "nome": "Paraíba",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 16,
+    "uf": "PE",
+    "nome": "Pernambuco",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 17,
+    "uf": "PI",
+    "nome": "Piauí",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 18,
+    "uf": "PR",
+    "nome": "Paraná",
+    "regiao": "Sul"
+  },
+  {
+    "id": 19,
+    "uf": "RJ",
+    "nome": "Rio de Janeiro",
+    "regiao": "Sudeste"
+  },
+  {
+    "id": 20,
+    "uf": "RN",
+    "nome": "Rio Grande do Norte",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 21,
+    "uf": "RO",
+    "nome": "Rondônia",
+    "regiao": "Norte"
+  },
+  {
+    "id": 22,
+    "uf": "RR",
+    "nome": "Roraima",
+    "regiao": "Norte"
+  },
+  {
+    "id": 23,
+    "uf": "RS",
+    "nome": "Rio Grande do Sul",
+    "regiao": "Sul"
+  },
+  {
+    "id": 24,
+    "uf": "SC",
+    "nome": "Santa Catarina",
+    "regiao": "Sul"
+  },
+  {
+    "id": 25,
+    "uf": "SE",
+    "nome": "Sergipe",
+    "regiao": "Nordeste"
+  },
+  {
+    "id": 26,
+    "uf": "SP",
+    "nome": "São Paulo",
+    "regiao": "Sudeste"
+  },
+  {
+    "id": 27,
+    "uf": "TO",
+    "nome": "Tocantins",
+    "regiao": "Norte"
+  }
+]

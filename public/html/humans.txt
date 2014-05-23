@@ -1,0 +1,22 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Rafael Fidelis -- Front End Developer -- @fidelisrafael  http://defidelis.herokuapp.com
+    Rafael Fidelis -- Back End Developer -- @fidelisrafael http://defidelis.herokuapp.com
+
+# THANKS
+	
+	Pacto Digital (http://pactodigital.com)
+    Rafael Prada.
+    Safari (http://safari.to)
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr
+    Yeoman, GruntJS , Bower
+    Sass
+    Node.js, MongoDB, Redis
+    Heroku
