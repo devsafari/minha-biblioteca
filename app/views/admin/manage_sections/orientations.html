@@ -12,16 +12,16 @@
     <div class="content clearfix span10">
         <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="put" />
+            <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
             <fieldset class="field">
                 {% if section.getKeyValue('image') %}
                     <figure class="image-thumb">
                         <a href="/uploads/original/{{ section.getKeyValue('image') }}" target="_blank">
-                            <img src="/uploads/thumb/{{ section.getKeyValue('image') }}" alt="Imagem atual">
-                            <figcaption>Imagem atual</figcaption>
+                            <img src="/uploads/thumb/{{ section.getKeyValue('image') }}">
                         </a>
                     </figure>
                 {% endif %}
-                <label for="image">Alterar imagem</label>
+                <label for="image">Alterar imagem de fundo</label>
                 <input type="file" id="image" name="section[image]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
             </fieldset>
 
@@ -32,13 +32,12 @@
                             <a href="/uploads/original/{{ section.getKeyValue('file_orientiations_' + index) }}" target="_blank">Abrir arquivo PDF#{{ index }}</a>
                         </div>
                     {% endif %}
-                    <label for="file_orientations_{{ index }}">Alterar arquivo #{{ index }}</label>
+                    <label for="file_orientations_{{ index }}">Alterar arquivo de {{ -_labels.orientationsFilenames[index] }}</label>
                     <input type="file" id="file_orientations_{{ index }}" name="section[file_orientiations_{{ index }}]" class="span6" accept="application/pdf"/>
                 </fieldset> 
             {% endfor %}
 
-            <div class="actions">                                    
-                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+            <div class="actions">
                 <button class="button btn btn-success btn-large">Salvar</button>
                 <a href="/admin/" class="button btn btn-default btn-large">Voltar</a>
             </div>

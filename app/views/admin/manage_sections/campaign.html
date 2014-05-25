@@ -12,12 +12,24 @@
     <div class="content clearfix span10">
         <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="put" />
-            {% for text in [1,2,3] %}
-                <fieldset class="field">
-                    <label for="text_{{ text }}">Texto {{ text }}</label>
-                    <textarea class="span10" id="text_{{ text }}" name="section[text_{{ text }}]" required="required" class="span6"/>{{ section.getKeyValue('text_' + text) }}</textarea>
-                </fieldset>  
-            {% endfor %}
+            <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+            <div id="texts-wrapper">
+                {% for text in range %}
+                    <fieldset class="field span8">
+                        <label for="text_{{ text }}">Texto #{{ loop.index }}</label>
+                        <textarea class="span10" id="text_{{ text }}" name="section[text_{{ text }}]" class="span6"/>{{ section.getKeyValue('text_' + text) }}</textarea>
+                        <div class="span8">
+                            <a href="/admin/manage/{{ current_section}}/text_{{ text }}" data-parent="fieldset" data-method="delete" class="btn btn-danger">
+                                <i class="icon-large icon-remove"></i> Deletar</a>
+                        </div>
+                    </fieldset>
+                {% endfor %}
+            </div>
+            <div class="actions">
+                <a href="#" class="button btn btn-info btn-large" id="add_new_resource" data-template="#new_text_template" data-target="#texts-wrapper" data-limit='5'>
+                    <i class="icon-large icon-plus"></i>Adicionar</a> 
+            </div>
+            <hr>
             <header><h3>Textos do "box amarelo"</h3></header><br />
             {% for box_text in [1,2,3] %}
                 <fieldset class="field">
@@ -30,8 +42,7 @@
                 {% if section.getKeyValue('image') %}
                     <figure class="image-thumb">
                         <a href="/uploads/original/{{ section.getKeyValue('image') }}" target="_blank">
-                            <img src="/uploads/thumb/{{ section.getKeyValue('image') }}" alt="Imagem atual">
-                            <figcaption>Imagem atual</figcaption>
+                            <img src="/uploads/thumb/{{ section.getKeyValue('image') }}">
                         </a>
                     </figure>
                 {% endif %}
@@ -39,12 +50,18 @@
                 <input type="file" id="top_image" name="section[image]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
             </fieldset>  
 
-            <div class="actions">                                    
-                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+            <div class="actions">
                 <button class="button btn btn-success btn-large">Salvar</button>
                 <a href="/admin/" class="button btn btn-default btn-large">Voltar</a>
             </div>
         </form>
+        <script type="text/template" id="new_text_template">
+            <fieldset class="field">
+                <label for="text_#{index}">Texto ##{index}</label>
+                <textarea class="span10" id="text_#{index}" name="section[text_#{index}]" class="span6"/>
+                </textarea>
+            </fieldset>
+        </script>
     </div>
 </div>
 

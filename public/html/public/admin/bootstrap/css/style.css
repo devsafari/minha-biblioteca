@@ -12,6 +12,10 @@ body {
 	background: #f9f6f1;
 	font: 13px/1.7em 'Open Sans';
 }
+
+body [class*="span"] {
+	margin-left:0;
+}
     
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
@@ -29,6 +33,10 @@ form .field {
 
 form .field label {
 	font-weight: bold;
+}
+
+.template-wrapper {
+  display: none;
 }
     
 input,

@@ -36,7 +36,12 @@
         <![endif]-->
 
         {% block head_styles %}{% endblock %}
+        {% block head_scripts %}{% endblock %}
 
+        <script>
+            var TOTAL_RESOURCES = {{ range.length; }}
+        </script>
+        
         <style type="text/css" media="screen">
 
             .subnavbar .dropdown .dropdown-menu .bs-callout-danger {
@@ -124,8 +129,6 @@
                         <li><a href="/admin/manage/campaign/">A campanha</a></li>
                         <li><a href="/admin/manage/share/">Divulgue</a></li>
                         <li><a href="/admin/manage/orientations/">Orientações</a></li>
-                        <li class="divider"></li>
-                        <li> <a href="#">Editar Patrocinadores</a> </li>
                         <li class="divider"></li>
                         <li><a href="/admin/manage/sponsors/">Patrocinadores</a></li>
                         <li><a href="/admin/manage/advisers/">Divulgadores</a></li>

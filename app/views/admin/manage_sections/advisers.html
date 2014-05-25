@@ -12,39 +12,54 @@
     <div class="content clearfix span10">
         <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="put" />
-            {% for adviser in [1,2] %}
-                <fieldset class="field">
-                    <div class="span8">
+            <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+            <div id="fields-wrapper">
+                {% for adviser in range %}
+                    <fieldset class="field">
                         {% if section.getKeyValue('adviser_image_' + adviser) %}
-                            <figure class="image-thumb">
-                                <a href="/uploads/original/{{ section.getKeyValue('adviser_image_' + adviser) }}" target="_blank">
-                                    <img src="/uploads/thumb/{{ section.getKeyValue('adviser_image_' + adviser) }}" alt="Imagem atual">
-                                </a>
-                            </figure>
+                            <div class="span8">
+                                <figure class="image-thumb">
+                                    <a href="/uploads/original/{{ section.getKeyValue('adviser_image_' + adviser) }}" target="_blank">
+                                        <img src="/uploads/thumb/{{ section.getKeyValue('adviser_image_' + adviser) }}">
+                                    </a>
+                                </figure>
+                            </div>
                         {% endif %}
-                    </div>
-                    <div class="span4">
-                        <label for="adviser_link_{{ adviser }}">Link do divulgador #{{ adviser }}
-                        </label>
-                        <input type="text" id="adviser_link_{{ adviser }}" name="section[adviser_link_{{ adviser }}]" class="span6"  value="{{ section.getKeyValue('adviser_link_' + adviser) }}" />
+                        <div class="span4">
+                            <label for="adviser_link_{{ adviser }}">Link do divulgador #{{ loop.index }}</label>
+                            <input type="text" id="adviser_link_{{ adviser }}" name="section[adviser_link_{{ adviser }}]" class="span6"  value="{{ section.getKeyValue('adviser_link_' + adviser) }}" />
 
-                        <label for="adviser_{{ adviser }}">Imagem do divulgador #{{ adviser }}</label>
-                        <input type="file" id="adviser_{{ adviser }}" name="section[adviser_image_{{ adviser }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
-                    </div>
-                    {% if section.getKeyValue('adviser_image_' + adviser) %}
-                        <div class="span8">
-                            <a href="/admin/manage/{{ current_section}}/adviser_image_{{ adviser }}/?_keys=adviser_link_{{ adviser }}"  data-parent="fieldset" data-method="delete" class="btn btn-danger">
-                                <i class="icon-large icon-remove"></i> Deletar</a>
+                            <label for="adviser_{{ adviser }}">Imagem do divulgador #{{ loop.index }}</label>
+                            <input type="file" id="adviser_{{ adviser }}" name="section[adviser_image_{{ adviser }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                         </div>
-                    {% endif %}
-                </fieldset>  
-            {% endfor %}
-            <div class="actions">                                    
-                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                        {% if section.getKeyValue('adviser_image_' + adviser) %}
+                            <div class="span8">
+                                <a href="/admin/manage/{{ current_section}}/adviser_image_{{ adviser }}/?_keys=adviser_link_{{ adviser }}"  data-parent="fieldset" data-method="delete" class="btn btn-danger">
+                                    <i class="icon-large icon-remove"></i> Deletar</a>
+                            </div>
+                        {% endif %}
+                    </fieldset>  
+                {% endfor %}
+            </div>
+            <div class="actions">
+                <a href="#" class="button btn btn-info btn-large" id="add_new_resource" data-template="#new_resource_template" data-target="#fields-wrapper">
+                    <i class="icon-large icon-plus"></i>Adicionar
+                </a>                                  
                 <button class="button btn btn-success btn-large">Salvar</button>
                 <a href="/admin/" class="button btn btn-default btn-large">Voltar</a>
             </div>
         </form>
+        <script type="text/template" id="new_resource_template">
+             <fieldset class="field">
+                <div class="span4">
+                    <label for="adviser_link_#{index}">Link do divulgador ##{index}</label>
+                    <input type="text" id="adviser_link_#{index}" name="section[adviser_link_#{index}]" class="span6"/>
+
+                    <label for="adviser_#{index}">Imagem do divulgador ##{index}</label>
+                    <input type="file" id="adviser_#{index}" name="section[adviser_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                </div>
+            </fieldset>
+        </script>
     </div>
 </div>
 

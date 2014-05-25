@@ -100,6 +100,34 @@ var setSectionFields = function(section, fields,callback) {
     return callback.call(null, section);
   })
 }
+var getIdByKeysInitials = function(section) {
+  var base_fields = {
+    sponsors: "sponsor_link_",
+    coalizadores: "coalizador_link_",
+    advisers: "adviser_link_",
+    campaign: "text_"
+  }
+  var base  = base_fields[section.key],
+      _keys = [];
+
+  if(base) {
+    var fields = section.fields.map(function(field) { return field.key });
+    var regexp = new RegExp("^" + base, 'i');
+
+    fields.forEach(function(key, index) {
+      var found = key.match(regexp);
+      if(found && section.getKeyValue(key)) {
+        _keys.push(key.replace(found.shift(), ''))
+      }
+    })
+  }
+  
+  return _keys;
+}
+
+var getRange = function(section) {
+  return getIdByKeysInitials(section);
+}
 
 module.exports = {
   validSection: validSection,
@@ -107,5 +135,7 @@ module.exports = {
   filterUploads: filterUploads,
   normalizeFields: normalizeFields,
   uploadAllFiles: uploadAllFiles,
-  setSectionFields: setSectionFields
+  setSectionFields: setSectionFields,
+  _labels: { orientationsFilenames: { citizens: "Cidadãos", public_managers: "Gestores Públicos" }},
+  getRange: getRange
 }
