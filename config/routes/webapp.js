@@ -24,7 +24,7 @@ module.exports = (function() {
                  // helper method
                  res.locals.getKeysByInitials = helper.getKeysByInitials;
                  res.locals.replaceSymbol     = helper.replaceSymbol;
-                 res.locals.sections.share.ga = ["?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde","&utm_medium=banner&utm_campaign=250x250_azul","?utm_source=site&utm_medium=banner&utm_campaign=728x90","?utm_source=site&utm_medium=banner&utm_campaign=selo_1","?utm_source=site&utm_medium=banner&utm_campaign=selo_2"]
+                 res.locals.sections.share.ga = [null,"?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde","&utm_medium=banner&utm_campaign=250x250_azul","?utm_source=site&utm_medium=banner&utm_campaign=728x90","?utm_source=site&utm_medium=banner&utm_campaign=selo_1","?utm_source=site&utm_medium=banner&utm_campaign=selo_2"]
                  // just to not escape HTML
                  res.locals.putsHTML          = function(text) { return text ; }
                  

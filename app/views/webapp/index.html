@@ -371,16 +371,17 @@
 	            </header>
 	            <div class="banners-wrapper">
 	                <nav class="banners">
-	                    <ul class="inline-list banners-list">
-	                    	{% for banner in getKeysByInitials(sections.share, "banner_") %}
-	                        	<li class="banner" id="banner-{{ loop.index }}">
-	                        		{% if banner %}
-	                        	    	<a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca'"><img src="{{host}}/uploads/original/{{ banner }} " alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
-	                        	    {% else %}
-	                        	    	<a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca'"><img src="{{host}}/public/assets/images/banners/banner-{{ loop.index }}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
-	                        	    {% endif %}
-	                        	</li>
-	                        {% endfor %}
+	                	<ul class="inline-list banners-list">
+	                		{% for banner in getKeysByInitials(sections.share, "banner_") %}
+	                		<li class="banner" id="banner-{{ loop.index }}">
+	                			{% if banner %}
+		                		    <a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="{{host}}/uploads/original/{{ sections.share['banner_' + loop.index] }}" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
+	                			{% else %}
+		                		    <a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-{{ loop.index}}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
+	                			{% endif %}
+	                		</li>
+
+	                		{% endfor %}
 	                    </ul>
 	                </nav>
 	            </div>
@@ -430,7 +431,7 @@
 	                    	{% if sections.orientations && sections.orientations.file_orientiations_public_managers %}
 	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank">Cidadãos</a>
 	                    	{% else %}
-	                    		<a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">Gestores Públicos st</a>
+	                    		<a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">Gestores Públicos</a>
 	                    	{% endif %}
 	                    </li>
 	                </ul>
