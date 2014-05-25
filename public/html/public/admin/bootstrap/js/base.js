@@ -17,10 +17,12 @@ $(function () {
 
 		var self = $(this);
 
-		var parent = self.parents(self.data('parent'))
+		var parent = self.parents(self.data('parent')).first()
 		,	url    = self.attr('href');
 
-		if(confirm('Você realmente deseja deletar este item?')) {
+		var defaultMessage = 'Você realmente deseja deletar este item?';
+
+		if(confirm(self.data('message') || defaultMessage)) {
 			$.ajax({url: url, data: {_csrf: CSRF_TOKEN} , type: "DELETE" , dataType: 'json'}).done(function(data) {
 				if(data.message) alert(data.message);
 				if(data.success) {

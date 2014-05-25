@@ -69,6 +69,8 @@ self.setup = function(app) {
       app.put("/:section/?", admin.manage.update_section);
     })
 
+    app.delete("/cache/?", admin.delete_cache);
+
     app.namespace('/library', function() {
       app.get('/edit/:id/?', admin.libraries.edit)
       app.put('/:id/?', admin.libraries.update)
