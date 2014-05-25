@@ -6,9 +6,10 @@
 <div class="site-container">
 	<button id="go-top"></button>
 	<div class="main-content-container">
-	    <section id="home" class='section parallax' data-scroll-event='hideGoTopButton' data-force='true'>
+	    <section id="home" class='section parallax' data-scroll-event='hideGoTopButton' data-force='true' {% if sections.top && sections.top.image %} style="background-image: url(/uploads/original/{{ sections.top.image }})" {% endif %}
+	    >
 	        <div id="video-wrapper">
-	            <iframe width="420" height="315" id="video" src="//www.youtube.com/embed/lchkOT3IIs4?rel=0&amp;controls=0&amp;showinfo=0&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>
+	            <iframe width="420" height="315" id="video" src="{{ sections.top.video_link }}?rel=0&amp;controls=0&amp;showinfo=0&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>
 	        </div>
 	        <article class="header wrapper">
 	            <div class="play-icon" id="video-play"></div>
@@ -61,30 +62,20 @@
 	                <div class="sub-header">
 	                    <div id="text-slide-wrapper">
 	                        <ul id="slide-texts" class="inline-list">
-	                            <li class='current'>
-	                                <p>
-	                                    A Campanha Eu Quero Minha Biblioteca busca compartilhar informações com gestores públicos  e sociedade civil pela universalização de bibliotecas em escolas.
-	                                </p>
-	                            </li>
-	                            <li>
-	                                <p>
-	                                    Saber ler com gosto e competência é a base para o acesso a todo conhecimento e a biblioteca em escola é o principal meio de acesso gratuito aos livros.
-	                                </p>
-	                            </li>
-	                            <li>
-	                                <p>
-	                                    A universalização das bibliotecas em instituições de ensino públicas e privadas é um direito previsto na lei 12.244/10.
-	                                </p>
-	                            </li>
+	                            {% for text in getKeysByInitials(sections.campaign, "text_") %}
+	                        	<li {% if loop.first %} class='current' {% endif %}>
+	                        	    <p>{{ text }}</p>
+	                        	</li>
+	                        	{% endfor %}
 	                        </ul>
 	                    </div>
 	                </div>
 
 	                <nav class="boxes-nav">
 	                    <ul class="inline-list" id="boxes_nav">
-	                        <li class="current"></li>
-	                        <li></li>
-	                        <li></li>
+	                        <li class="current">&nbsp;</li>
+	                        <li>&nbsp;</li>
+	                        <li>&nbsp;</li>
 	                    </ul>
 	                </nav>
 	            </header>
@@ -96,30 +87,18 @@
 	                </ul>
 	            </nav>
 	        </article>
-	        <article class="wrapper bg-wrap parallax" data-velocity="3" id="boxes-wrapper">
+	        <article class="wrapper bg-wrap parallax" data-velocity="3" id="boxes-wrapper"  {% if sections.campaign && sections.campaign.image %} style="background-image: url(/uploads/original/{{ sections.campaign.image }})" {% endif %}>
 	            <ul class="boxes inline-list">
 	                <li class="box first">
-	                    <header>
-	                        <h4>
-	                            POR QUE TER UMA UMA BIBLIOTECA NA ESCOLA
-	                        </h4>
-	                    </header>
+	                    <header><h4>POR QUE TER UMA UMA BIBLIOTECA NA ESCOLA</h4></header>
 	                    <span class="icon"></span>
 	                </li>
 	                <li class='box'>
-	                    <header>
-	                        <h4>
-	                            O QUE DIZ A LEI?
-	                        </h4>
-	                    </header>
+	                    <header><h4>O QUE DIZ A LEI?</h4></header>
 	                    <span class="icon"></span>
 	                </li>
 	                <li class="box last">
-	                    <header>
-	                        <h4>
-	                            LINHAS DE AÇÃO
-	                        </h4>
-	                    </header>
+	                    <header><h4>LINHAS DE AÇÃO</h4></header>
 	                    <span class="icon"></span>
 	                </li>
 	            </ul>
@@ -148,30 +127,13 @@
 
 	            <nav id="box-desc-contents" style='display: none;'>
 	                <ul class='contents'>
-				             <li>
-								<ul class="gray-circle-list">
-									<li><span class='circle'></span>É o principal meio de acesso gratuito ao livro de literatura.</li>
-									<li><span class='circle'></span>Causa impacto positivo no rendimento escolar.</li>
-									<li><span class='circle'></span>Aumenta o nível de proficiência em leitura.</li>
-									<li><span class='circle'></span>Quanto mais perto de uma biblioteca, maior a chance de a criança e o adolescente tornarem-se bons leitores, pois crescem lendo.</li>
-								</ul>
-			                </li>
-                     	<li>
-							<ul class="gray-circle-list">
-								<li>Em março de 2010, a sanção da Lei 12.244/10 garantiu um direito inalienável: todas as instituições de ensino do país, públicas e privadas, deverão ter biblioteca.<br>
-								O prazo é 2020.<br>
-								Sua efetividade, portanto, tem de ser tratada como prioridade nacional.<br>
-								Conheça a lei na íntegra: <a href="http://presrepublica.jusbrasil.com.br/legislacao/823116/lei-da-biblioteca-escolar-lei-12244-10" target="_blank">http://presrepublica.jusbrasil.com.br/legislacao/823116/lei-da-biblioteca-escolar-lei-12244-10</a>
-								</li>
-							</ul>
-             			</li>
-		                <li>
-							<ul class="gray-circle-list">
-								<li><span class='circle'></span>Atuar pela universalização de bibliotecas em escolas.</li>
-								<li><span class='circle'></span>Informar gestores públicos sobre como acessar recursos e a importância de construir orçamento para a implantação e manutenção de bibliotecas em escolas.</li>
-								<li><span class='circle'></span>Atuar junto à sociedade, direta ou indiretamente, divulgando a importância e os meios para a mobilização cidadã para viabilizar bibliotecas em escolas.</li>
-							</ul>
-		                </li>
+	                	{% for text in getKeysByInitials(sections.campaign, "box_text") %}
+		                	<li>
+	                			<ul class="gray-circle-list">
+	                				{% for line in replaceSymbol(text) %}<li>{{ putsHTML(line); }}</li>{% endfor %}
+	                			</ul>
+		                	</li>
+	                	{% endfor %}
                 	</ul>
 	            </nav>
 	        </article>
@@ -228,136 +190,136 @@
 	            </section>
 
 	            <section id="signup_form" class='wrapper'>
-	            		<form action="library/" method="post" id="new_library_form" class='form content-wrapper'>
-		                <ul class="signup-steps-wrapper">
-		                    <li id="signup_step_1" class="signup_step wrapper">
-		                        <nav class="category-nav form content-wrapper">
-		                            <ul class="inline-list circle-radio">
-		                                <li class="radio-wrapper first">
-		                                    <input name="library[category]" onclick="ecoFuturoApp.dFieldLibrary(this);" type="radio" value="1" checked id="library_category_1" data-header="Cadastro de Sociedade Civil">
-		                                    <label for="library_category_1">CIDADÃOS</label>
-		                                </li>
-		                                <li class="radio-wrapper">
-		                                    <input name="library[category]" onclick="ecoFuturoApp.dFieldLibrary(this);" type="radio" value="2" id="library_category_2" data-header="Gestores Públicos e Parlamentares">
-		                                    <label for="library_category_2">PODER PÚBLICO</label>          
-		                                </li>
-		                            </ul>
-		                        </nav>
-		                    </li>
-		                    <li id="signup_step_2" class='signup_form signup_step wrapper'>
-	                  					<fieldset style="margin-top:0;">
-	                  							<h1 id="signup_type"></h1>
-	                  					</fieldset>
-	                            <div class="fields-wrapper">
-	                              <fieldset class='field-wrapper'>
-	                                  <label for="library_name">Nome <span class="required">*</span></label>
-	                                  <input type="text" required='required' placeholder="Seu nome" name="library[name]" id="library_name">
-	                              </fieldset>
-	                              <fieldset class='field-wrapper'>
-	                                  <label for="library_email">Email <span class="required">*</span></label>
-	                                  <input type="email" required='required' placeholder="Seu email" name="library[email]" id="library_email">
-	                              </fieldset>
-	                              <fieldset class='field-wrapper'>
-	                                  <label for="library_occupation">Profissão <span class="required">*</span></label>
-	                                  <input type="text" required='required' placeholder="Sua profissão" name="library[occupation]" id="library_occupation">
-	                              </fieldset>
-	                            </div>
-	                            <div class="fields-wrapper">
-	                                <fieldset class='field-wrapper address_field state'>
-	                                  <label for="library_state">Estado <span class="required">*</span></label>
-	                                  <!-- <input type="text" name="library[state]" id="library_state" required="required"> -->
-	                                  <select name="library[state]" id="library_state" required="required" class='state-select'>
-	                                      <option value="" selected="selected">Estado</option>
-	                                      <option value="1">Acre</option>
-	                                      <option value="2">Alagoas</option>
-	                                      <option value="3">Amazonas</option>
-	                                      <option value="4">Amapá</option>
-	                                      <option value="5">Bahia</option>
-	                                      <option value="6">Ceará</option>
-	                                      <option value="7">Distrito Federal</option>
-	                                      <option value="8">Espírito Santo</option>
-	                                      <option value="9">Goiás</option>
-	                                      <option value="10">Maranhão</option>
-	                                      <option value="11">Minas Gerais</option>
-	                                      <option value="12">Mato Grosso do Sul</option>
-	                                      <option value="13">Mato Grosso</option>
-	                                      <option value="14">Pará</option>
-	                                      <option value="15">Paraíba</option>
-	                                      <option value="16">Pernambuco</option>
-	                                      <option value="17">Piauí</option>
-	                                      <option value="18">Paraná</option>
-	                                      <option value="19">Rio de Janeiro</option>
-	                                      <option value="20">Rio Grande do Norte</option>
-	                                      <option value="21">Rondônia</option>
-	                                      <option value="22">Roraima</option>
-	                                      <option value="23">Rio Grande do Sul</option>
-	                                      <option value="24">Santa Catarina</option>
-	                                      <option value="25">Sergipe</option>
-	                                      <option value="26">São Paulo</option>
-	                                      <option value="27">Tocantins</option>
-	                                  </select>
-	                                </fieldset>
-	                                <fieldset class='field-wrapper address_field city'>
-	                                  <label for="library_city">Cidade <span class="required">*</span></label>
-	                                  <!-- <input type="text" name="library[city]" id="library_city" required="required" /> -->
-	                                  <select name="library[city]" id="library_city" required="required" class='city-select'>
-	                                      <option value="">Selecione seu estado</option>
-	                                  </select>
-	                                </fieldset>
-	                                <fieldset class='field-wrapper sex'>
-		                                <div class="signup_type_1">
-		                                	<p class='text-center nopadding nomargin'>Sexo</p>
-		                                	<ul class="inline-list circle-radio">
-		                                	    <li class="radio-wrapper first">
-		                                	        <input name="library[sex]" type="radio" value="1" checked id="library_sex_male">
-		                                	        <label for="library_sex_male"></label>
-		                                	        <span>Masculino</span>
-		                                	    </li>
-		                                	    <li class="radio-wrapper">
-		                                	        <input name="library[sex]" type="radio" value="2" id="library_sex_female">
-		                                	        <label for="library_sex_female"></label>               
-		                                	        <span>Feminino</span>
-		                                	    </li>
-		                                	</ul>
-		                                </div>
-		                                <div class="signup_type_2">
-		                                	<ul class="inline-list circle-radio">
-		                                	    <li class="radio-wrapper first">
-		                                	        <input name="library[political_state]" type="radio" value="1" checked id="library_political_state_1">
-		                                	        <label for="library_political_state_1"></label>
-		                                	        <span>Em exercício</span>
-		                                	    </li>
-		                                	    <li class="radio-wrapper">
-		                                	        <input name="library[political_state]" type="radio" value="2" id="library_political_state_2">
-		                                	        <label for="library_political_state_2"></label>               
-		                                	        <span>Candidato</span>
-		                                	    </li>
-		                                	</ul>
-		                                </div>
-	                                </fieldset>
-	                                <fieldset class='field-wrapper signup_type_2' >
-	                               			<label for="political_party_name">Partido ao qual é afiliado</label>
-	                                		<input type="text" placeholder="Nome do partido" name="library[political_party_name]" id="political_party_name">
-	                                </fieldset>
-	                                <fieldset id="field-library-institution-name" class='field-wrapper last'>
-	                                  <label for="library_institution_name">Nome da instituição para a qual você reivindica uma biblioteca</label>
-	                                  <input type="text" placeholder="Nome da instituição" name="library[institution_name]" id="library_institution_name">
-	                                </fieldset>
-	                            </div>
-	                            <div class="fields-wrapper submit-field">
-	                                <fieldset class="field-wrapper">
-	                                	<input type="hidden" name="_csrf" value='{{ csrf_token }}'>
-	                                    <input type="submit" value="CADASTRAR" class='submit-green'>
-	                                </fieldset>
-	                            </div>
-	                  			</li>
-	                	</ul>
-						</form>
-						<div id="signup_step_3" class="signup_step wrapper">
-						    <div class="content-wrapper">
-						        <h1>Participação concluída</h1>
-						    </div>
-						</div>
+            		<form action="library/" method="post" id="new_library_form" class='form content-wrapper'>
+	                <ul class="signup-steps-wrapper">
+	                    <li id="signup_step_1" class="signup_step wrapper">
+	                        <nav class="category-nav form content-wrapper">
+	                            <ul class="inline-list circle-radio">
+	                                <li class="radio-wrapper first">
+	                                    <input name="library[category]" onclick="ecoFuturoApp.dFieldLibrary(this);" type="radio" value="1" checked id="library_category_1" data-header="Cadastro de Sociedade Civil">
+	                                    <label for="library_category_1">CIDADÃOS</label>
+	                                </li>
+	                                <li class="radio-wrapper">
+	                                    <input name="library[category]" onclick="ecoFuturoApp.dFieldLibrary(this);" type="radio" value="2" id="library_category_2" data-header="Gestores Públicos e Parlamentares">
+	                                    <label for="library_category_2">PODER PÚBLICO</label>          
+	                                </li>
+	                            </ul>
+	                        </nav>
+	                    </li>
+	                    <li id="signup_step_2" class='signup_form signup_step wrapper'>
+                  					<fieldset style="margin-top:0;">
+                  							<h1 id="signup_type"></h1>
+                  					</fieldset>
+                            <div class="fields-wrapper">
+                              <fieldset class='field-wrapper'>
+                                  <label for="library_name">Nome <span class="required">*</span></label>
+                                  <input type="text" required='required' placeholder="Seu nome" name="library[name]" id="library_name">
+                              </fieldset>
+                              <fieldset class='field-wrapper'>
+                                  <label for="library_email">Email <span class="required">*</span></label>
+                                  <input type="email" required='required' placeholder="Seu email" name="library[email]" id="library_email">
+                              </fieldset>
+                              <fieldset class='field-wrapper'>
+                                  <label for="library_occupation">Profissão <span class="required">*</span></label>
+                                  <input type="text" required='required' placeholder="Sua profissão" name="library[occupation]" id="library_occupation">
+                              </fieldset>
+                            </div>
+                            <div class="fields-wrapper">
+                                <fieldset class='field-wrapper address_field state'>
+                                  <label for="library_state">Estado <span class="required">*</span></label>
+                                  <!-- <input type="text" name="library[state]" id="library_state" required="required"> -->
+                                  <select name="library[state]" id="library_state" required="required" class='state-select'>
+                                      <option value="" selected="selected">Estado</option>
+                                      <option value="1">Acre</option>
+                                      <option value="2">Alagoas</option>
+                                      <option value="3">Amazonas</option>
+                                      <option value="4">Amapá</option>
+                                      <option value="5">Bahia</option>
+                                      <option value="6">Ceará</option>
+                                      <option value="7">Distrito Federal</option>
+                                      <option value="8">Espírito Santo</option>
+                                      <option value="9">Goiás</option>
+                                      <option value="10">Maranhão</option>
+                                      <option value="11">Minas Gerais</option>
+                                      <option value="12">Mato Grosso do Sul</option>
+                                      <option value="13">Mato Grosso</option>
+                                      <option value="14">Pará</option>
+                                      <option value="15">Paraíba</option>
+                                      <option value="16">Pernambuco</option>
+                                      <option value="17">Piauí</option>
+                                      <option value="18">Paraná</option>
+                                      <option value="19">Rio de Janeiro</option>
+                                      <option value="20">Rio Grande do Norte</option>
+                                      <option value="21">Rondônia</option>
+                                      <option value="22">Roraima</option>
+                                      <option value="23">Rio Grande do Sul</option>
+                                      <option value="24">Santa Catarina</option>
+                                      <option value="25">Sergipe</option>
+                                      <option value="26">São Paulo</option>
+                                      <option value="27">Tocantins</option>
+                                  </select>
+                                </fieldset>
+                                <fieldset class='field-wrapper address_field city'>
+                                  <label for="library_city">Cidade <span class="required">*</span></label>
+                                  <!-- <input type="text" name="library[city]" id="library_city" required="required" /> -->
+                                  <select name="library[city]" id="library_city" required="required" class='city-select'>
+                                      <option value="">Selecione seu estado</option>
+                                  </select>
+                                </fieldset>
+                                <fieldset class='field-wrapper sex'>
+	                                <div class="signup_type_1">
+	                                	<p class='text-center nopadding nomargin'>Sexo</p>
+	                                	<ul class="inline-list circle-radio">
+	                                	    <li class="radio-wrapper first">
+	                                	        <input name="library[sex]" type="radio" value="1" checked id="library_sex_male">
+	                                	        <label for="library_sex_male"></label>
+	                                	        <span>Masculino</span>
+	                                	    </li>
+	                                	    <li class="radio-wrapper">
+	                                	        <input name="library[sex]" type="radio" value="2" id="library_sex_female">
+	                                	        <label for="library_sex_female"></label>               
+	                                	        <span>Feminino</span>
+	                                	    </li>
+	                                	</ul>
+	                                </div>
+	                                <div class="signup_type_2">
+	                                	<ul class="inline-list circle-radio">
+	                                	    <li class="radio-wrapper first">
+	                                	        <input name="library[political_state]" type="radio" value="1" checked id="library_political_state_1">
+	                                	        <label for="library_political_state_1"></label>
+	                                	        <span>Em exercício</span>
+	                                	    </li>
+	                                	    <li class="radio-wrapper">
+	                                	        <input name="library[political_state]" type="radio" value="2" id="library_political_state_2">
+	                                	        <label for="library_political_state_2"></label>               
+	                                	        <span>Candidato</span>
+	                                	    </li>
+	                                	</ul>
+	                                </div>
+                                </fieldset>
+                                <fieldset class='field-wrapper signup_type_2' >
+                               			<label for="political_party_name">Partido ao qual é afiliado</label>
+                                		<input type="text" placeholder="Nome do partido" name="library[political_party_name]" id="political_party_name">
+                                </fieldset>
+                                <fieldset id="field-library-institution-name" class='field-wrapper last'>
+                                  <label for="library_institution_name">Nome da instituição para a qual você reivindica uma biblioteca</label>
+                                  <input type="text" placeholder="Nome da instituição" name="library[institution_name]" id="library_institution_name">
+                                </fieldset>
+                            </div>
+                            <div class="fields-wrapper submit-field">
+                                <fieldset class="field-wrapper">
+                                	<input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                                    <input type="submit" value="CADASTRAR" class='submit-green'>
+                                </fieldset>
+                            </div>
+              			</li>
+                	</ul>
+					</form>
+					<div id="signup_step_3" class="signup_step wrapper">
+					    <div class="content-wrapper">
+					        <h1>Participação concluída</h1>
+					    </div>
+					</div>
 	            </section>
 	        </div>
 	    </section>
@@ -366,9 +328,7 @@
 	            <header>
 	                <h1>ADESÕES</h1>
 	                <div class="sub-header">
-	                   <p>
-	                       Saiba quem participa da Campanha.
-	                   </p> 
+	                   <p>Saiba quem participa da Campanha.</p> 
 	                </div>
 	            </header>
 	        </article>
@@ -412,21 +372,15 @@
 	            <div class="banners-wrapper">
 	                <nav class="banners">
 	                    <ul class="inline-list banners-list">
-	                        <li class="banner" id="banner-1">
-	                            <a href="{{ host }}?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-1.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
-	                        </li>
-	                        <li class="banner" id="banner-2">
-	                            <a href="{{ host }}?utm_source=site&utm_medium=banner&utm_campaign=250x250_azul" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-2.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
-	                        </li>
-	                        <li class="banner" id="banner-3">
-	                            <a href="{{ host }}?utm_source=site&utm_medium=banner&utm_campaign=728x90" title="Baixar banner"><img src="/public/assets/images/banners/banner-3.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca" /></a>
-	                        </li>
-	                        <li class="banner" id="banner-4">
-	                           <a href="{{ host }}/?utm_source=site&utm_medium=banner&utm_campaign=selo_1" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-4.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
-	                        </li>
-	                        <li class="banner" id="banner-5">
-	                            <a href="{{ host }}?utm_source=site&utm_medium=banner&utm_campaign=selo_2" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-5.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
-	                        </li>
+	                    	{% for banner in getKeysByInitials(sections.share, "banner_") %}
+	                        	<li class="banner" id="banner-{{ loop.index }}">
+	                        		{% if banner %}
+	                        	    	<a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca'"><img src="{{host}}/uploads/original/{{ banner }} " alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
+	                        	    {% else %}
+	                        	    	<a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca'"><img src="{{host}}/public/assets/images/banners/banner-{{ loop.index }}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" /></a>
+	                        	    {% endif %}
+	                        	</li>
+	                        {% endfor %}
 	                    </ul>
 	                </nav>
 	            </div>
@@ -445,13 +399,17 @@
 	                    MATERIAIS DE APOIO EM DIVULGAÇÃO
 	                </span>
 	                <span class="text text-download-button">
-	                    <a href="http://www.euquerominhabiblioteca.org.br/public/materiais/material_divulgacao.zip"><div class="icon"></div>download</a>
+	                	{% if sections.share && sections.share.materials %}
+	                		<a href="{{ host }}/uploads/original/{{ sections.share.materials }}"><div class="icon"></div>download</a>
+	                	{% else %}
+	                		<a href="{{ host }}/materiais/material_divulgacao.zip"><div class="icon"></div>download</a>
+	                	{% endif %}
 	                </span>
 	            </div>
 	        </aside>
 	    </section>
 	    <section class="section" id="oriente-se">
-	        <article class="bg-wrap parallax" data-velocity="-.3">
+	        <article class="bg-wrap parallax" data-velocity="-.3" {% if sections.orientations && sections.orientations.image %} style="background-image: url(/uploads/original/{{ sections.orientations.image }})" {% endif %}>
 	            <header>
 	                <h1>Orientações</h1>
 	                <div class="sub-header">
@@ -460,9 +418,21 @@
 	            </header>
 	            <nav class="boxes">
 	                <ul class="inline-list">
-	                    <li class="box"><a href="http://www.euquerominhabiblioteca.org.br/public/materiais/infografico_14042014.pdf" target="_blank">Cidadãos</a></li>
+	                    <li class="box">
+	                    	{% if sections.orientations && sections.orientations.file_orientiations_citizens %}
+	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_citizens }}" target="_blank">Cidadãos</a>
+	                    	{% else %}
+	                    		<a href="{{ host }}/public/materiais/infografico_14042014.pdf" target="_blank">Cidadãos</a>
+	                    	{% endif %}
+	                    </li>
 	                    <li class="box-text">ou</li>
-	                    <li class="box"><a href="http://www.euquerominhabiblioteca.org.br/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">Gestores Públicos</a></li>
+	                    <li class="box">
+	                    	{% if sections.orientations && sections.orientations.file_orientiations_public_managers %}
+	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank">Cidadãos</a>
+	                    	{% else %}
+	                    		<a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">Gestores Públicos st</a>
+	                    	{% endif %}
+	                    </li>
 	                </ul>
 	            </nav>
 	        </article>
@@ -532,86 +502,43 @@
 	                                     <img width="125" src="/public/assets/images/realizadores/ecofuturo.jpg" alt="Ecofuturo" style="margin-top: 20px;">
 	                                 </a>
 	                             </li>
-	                             <li>
-	                                 <a href="http://www.academia.org.br/" title="Academia Brasileira de Letras" target="_blank">
-	                                     <img width="55" src="/public/assets/images/realizadores/academia-brasileira-de-letras.jpg" alt="Academia Brasileira de Letras" style="margin: 11px 0px 0px 20px">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://www.cfb.org.br/" title="Conselho Federal de Biblioteconomia" target="_blank">
-	                                     <img with="90" src="/public/assets/images/realizadores/sistema-cfb.jpg" alt="Conselho Federal de Biblioteconomia" style="margin-top: 4px">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://www.fnlij.org.br/" title="Fundação Nacional do Livro Infantil e Juvenil" target="_blank">
-	                                     <img with="55" src="/public/assets/images/realizadores/fundacao-nacional-livro-infantil-juvenil.jpg" alt="Fundação Nacional do Livro Infantil e Juvenil" style="margin-top: 4px">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://senna.globo.com/institutoayrtonsenna/home/index.asp" title="Instituto Ayrton Senna" target="_blank">
-	                                     <img width="95" src="/public/assets/images/realizadores/instituto-ayrton-senna.jpg" alt="Instituto Ayrton Senna" style="margin-top: 18px;">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://www.institutocea.org.br/" title="Instituto C&A" target="_blank">
-	                                     <img width="70" src="/public/assets/images/realizadores/instituto-ca.jpg" alt="Instituto &A" style="margin-top: 9px">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://www.icebrasil.org.br/wordpress/" title="ICE Brasil" target="_blank">
-	                                     <img width="105" src="/public/assets/images/realizadores/instituto-co-responsabilidade-pela-educacao.jpg" alt="ICE Brasil" style="margin-top: 28px;">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://www.brasilliterario.org.br/" title="Movimento Brasil Literário" target="_blank">
-	                                     <img width="90" src="/public/assets/images/realizadores/brasil-literario.jpg" alt="Movimento Brasil Literário" style="margin-top: 22px;">
-	                                 </a>
-	                             </li>
-	                             <li>
-	                                 <a href="http://www.solmarista.org.br/" title="Marista Rede de Solidariedade" target="_blank">
-	                                     <img width="85" src="/public/assets/images/realizadores/marista-rede-de-solidariedade.jpg" alt="Marista Rede de Solidariedade" style="margin-top: 11px">
-	                                 </a>
-	                             </li>
-	                             <li class='last'>
-	                                 <a href="http://www.todospelaeducacao.org.br/" title="Todos Pela Educação" target="_blank">
-	                                     <img width="75" src="/public/assets/images/realizadores/todos-pela-educacao.jpg" alt="Todos Pela Educação" style="margin-top: 16px">
-	                                 </a>
-	                             </li>
+	                             {% for coalizador in sections.coalizadores.keys_range %}
+     	                        	{% if sections.coalizadores['coalizador_link_' + coalizador] %}
+     		                            <li {% if !loop.first && loop.last %} class='last' {% endif %}>
+     		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank">
+     		                                    <img src="/uploads/original/{{ sections.coalizadores['coalizador_image_' + coalizador] }}" alt="{{ sections.coalizadores['coalizador_name_' + coalizador] }}">
+     		                                </a>
+     		                            </li>
+     		                         {% endif %}
+                                 {% endfor %}
 	                         </ul>
 	                    </nav>
 	                    <nav class="patrocinio">
 	                        <h2>Patrocínio:</h2>
 	                        <ul class='inline-list'>
-	                            <li class='first'>
-	                                <a href="http://www.ftd.com.br/" title="FTD Editora" target="_blank">
-	                                    <img src="/public/assets/images/realizadores/ftd.jpg" alt="FTD Editora" style="margin-top: -15px">
-	                                </a>
-	                            </li>
-	                            <li>
-	                                <a href="http://www.suzano.com.br/" title="Suzano Papel e Celulose" target="_blank">
-	                                    <img src="/public/assets/images/realizadores/suzano.jpg" alt="Suzano Papel e Celulos" style="margin-top: -13px">
-	                                </a>
-	                            </li>
-	                            <li>
-	                                <a href="http://valmet.com/" title="Valmet" target="_blank">
-	                                    <img src="/public/assets/images/realizadores/valmet.png" alt="Valmet" style="margin-top: 16px">
-	                                </a>
-	                            </li>
+	                        {% for sponsor in sections.sponsors.keys_range %}
+	                        	{% if sections.sponsors['sponsor_link_' + sponsor] %}
+		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
+		                                <a href="{{ sections.sponsors['sponsor_link_' + sponsor] }}" title="{{ sections.sponsors['sponsor_name_' + sponsor] }}" target="_blank">
+		                                    <img src="/uploads/original/{{ sections.sponsors['sponsor_image_' + sponsor] }}" alt="{{ sections.sponsors['sponsor_name_' + sponsor] }}">
+		                                </a>
+		                            </li>
+		                         {% endif %}
+                            {% endfor %}
 	                        </ul>
 	                    </nav>
 	                    <nav class="divulgacao">
 							<h2>Divulgação:</h2>
 							<ul class='inline-list'>
-	                            <li class='first'>
-	                                <a href="http://www.abert.org.br/web/" title="Associação Brasileira de Emissoras de Rádio e Televisão" target="_blank">
-	                                    <img src="/public/assets/images/realizadores/abert.jpg" alt="Associação Brasileira de Emissoras de Rádio e Televisão" style="margin-top: -10px">
-	                                </a>
-	                            </li>
-	                            <li class='last'>
-	                                <a href="http://www.anj.org.br/jornaleeducacao" title="Programa Jornal e Educação" target="_blank">
-	                                    <img src="/public/assets/images/realizadores/programa-jornal-e-educacao.jpg" alt="Programa Jornal e Educação" style="margin-top: -10px">
-	                                </a>
-	                            </li>
+	                            {% for adviser in sections.advisers.keys_range %}
+     	                        	{% if sections.advisers['adviser_link_' + adviser] %}
+     		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
+     		                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank">
+     		                                    <img src="/uploads/original/{{ sections.advisers['adviser_image_' + adviser] }}" alt="{{ sections.advisers['adviser_name_' + adviser] }}">
+     		                                </a>
+     		                            </li>
+ 		                         	{% endif %}
+                                {% endfor %}
 	                        </ul>
 	                    </nav>
 	                </div>

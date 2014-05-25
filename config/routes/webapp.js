@@ -1,51 +1,43 @@
 module.exports = (function() {
-	'use strict';
+    'use strict';
 
-	var libraries = require(__dirname + '/api/libraries')
-	, contact = require(__dirname + '/api/contacts')
-	, extend = require('extend')
-	, Library = require(global.app.modelsPath + '/library')
-	, prefix = "_site_"
-	, redisStore = require(global.app.rootAppDir + '/helpers/redis')
+    var libraries = require(__dirname + '/api/libraries')
+    , contact = require(__dirname + '/api/contacts')
+    , extend = require('extend')
+    , Library = require(global.app.modelsPath + '/library')
+    , prefix = "_site_"
+    , redisStore = require(global.app.rootAppDir + '/helpers/redis')
+    ,   helper     = require(global.app.rootAppDir + '/helpers/webapp_helper');
 
-	return {
-		index: function(req,res) {
+    return {
+        index: function(req,res) {
+            var key = [prefix, "home_counters"].join(''),
+                     sections_key = [prefix, 'sections'].join('');
 
-			var key = [prefix, "home_counters"].join('');
+             res.locals.host = [req.protocol , "://" , req.headers.host].join('');
 
-			res.locals.host = [req.protocol , "://" , req.headers.host].join('')
+             // cache the response in redis for 30 minutes
 
-			// ok, callback hell :/
-			var getCounts = function(callback) {
-				Library.find().distinct('address.city.name', function(err, ids) {
-					var total_cities = ids.length
-					Library.find().distinct('address.state.name', function(err, ids) { 
-						var total_states = ids.length
-						Library.find().distinct('email', function(err, ids) {
-							var total_people = ids.length;
-							Library.find().distinct('institution_name', function(err, ids) {
-								var total_institutions = ids.length;
-								return callback.call(null , {total_people: total_people , total_cities: total_cities, total_states: total_states, total_institutions: total_institutions});
-							})
-
-						})
-					})
-				})
-			}
-
-			// cache the response in redis for 30 minutes
-			redisStore.getOrSet(key, getCounts, 1800 /* 30 minutos */, function(data) {
-				res.locals = extend(res.locals , data);
-				return res.render('webapp/index');
-			})
-
-			
-		},
-		contact: contact,
-		library: {
-			create: function(req,res) {
-				return libraries.create.call(libraries,req,res);
-			}
-		}
-	}
+             redisStore.getOrSet(key, helper.getHomeCounters, 1800 /* 30 minutos */, function(data) {
+               redisStore.getOrSet(sections_key, helper.getSectionsJSON, 1800, function(sections) {
+                 res.locals = extend(res.locals , data, sections);
+                 // helper method
+                 res.locals.getKeysByInitials = helper.getKeysByInitials;
+                 res.locals.replaceSymbol     = helper.replaceSymbol;
+                 res.locals.sections.share.ga = ["?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde","&utm_medium=banner&utm_campaign=250x250_azul","?utm_source=site&utm_medium=banner&utm_campaign=728x90","?utm_source=site&utm_medium=banner&utm_campaign=selo_1","?utm_source=site&utm_medium=banner&utm_campaign=selo_2"]
+                 // just to not escape HTML
+                 res.locals.putsHTML          = function(text) { return text ; }
+                 
+                 return res.render('webapp/index');
+               })
+             });
+            
+        },
+        contact: contact,
+        library: {
+            create: function(req,res) {
+                return libraries.create.call(libraries,req,res);
+            }
+        }
+    }
 })();

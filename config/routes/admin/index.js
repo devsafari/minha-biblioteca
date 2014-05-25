@@ -1,18 +1,20 @@
 module.exports = (function() {
-	'use strict';
-	
-	return {
-		
-		index: function(req,res) {
-			require('./dashboard').index(req, res)
-		},
+  'use strict';
+  
+  return {
+    
+    index: function(req,res) {
+      require('./dashboard').index(req, res)
+    },
 
-		sessions: require('./sessions'),
+    sessions: require('./sessions'),
 
-		libraries: require('./libraries'),
+    libraries: require('./libraries'),
 
-		users: require('./users'),
+    users: require('./users'),
 
-		contacts: require('./contacts')
-	}
+    contacts: require('./contacts'),
+
+    manage: require('./manage')
+  }
 })();

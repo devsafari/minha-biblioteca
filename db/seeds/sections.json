@@ -1,0 +1,65 @@
+{
+  "top": {
+    "fields": [
+      {
+        "key": "video_link",
+        "value": "//www.youtube.com/embed/lchkOT3IIs4"
+      }
+    ],
+    "key": "top"
+  },
+  "share": {
+    "fields": [
+    ],
+    "key": "share"
+  },
+  "campaign": {
+    "fields": [
+      {
+        "key": "text_1",
+        "value": "A Campanha Eu Quero Minha Biblioteca busca compartilhar informações com gestores públicos  e sociedade civil pela universalização de bibliotecas em escolas."
+      },
+      {
+        "key": "text_2",
+        "value": "Saber ler com gosto e competência é a base para o acesso a todo conhecimento e a biblioteca em escola é o principal meio de acesso gratuito aos livros."
+      },
+      {
+        "key": "text_3",
+        "value": " A universalização das bibliotecas em instituições de ensino públicas e privadas é um direito previsto na lei 12.244/10."
+      },
+      {
+        "key": "box_text1",
+        "value": "* É o principal meio de acesso gratuito ao livro de literatura.\r\n* Causa impacto positivo no rendimento escolar.\r\n* Aumenta o nível de proficiência em leitura.\r\n* Quanto mais perto de uma biblioteca, maior a chance de a criança e o adolescente tornarem-se bons leitores, pois crescem lendo."
+      },
+      {
+        "key": "box_text2",
+        "value": "Em março de 2010, a sanção da Lei 12.244/10 garantiu um direito inalienável: todas as instituições de ensino do país, públicas e privadas, deverão ter biblioteca.\r\nO prazo é 2020.\r\nSua efetividade, portanto, tem de ser tratada como prioridade nacional.\r\nConheça a lei na íntegra: http://presrepublica.jusbrasil.com.br/legislacao/823116/lei-da-biblioteca-escolar-lei-12244-10"
+      },
+      {
+        "key": "box_text3",
+        "value": "* Atuar pela universalização de bibliotecas em escolas.\r\n* Informar gestores públicos sobre como acessar recursos e a importância de construir orçamento para a implantação e manutenção de bibliotecas em escolas.\r\n* Atuar junto à sociedade, direta ou indiretamente, divulgando a importância e os meios para a mobilização cidadã para viabilizar bibliotecas em escolas."
+      }
+    ],
+    "key": "campaign"
+  },
+  "orientations": {
+    "fields": [
+    ],
+    "key": "orientations"
+  },
+  "advisers": {
+    "fields": [
+    ],
+    "key": "advisers"
+  },
+  "coalizadores": {
+    "fields": [
+    ],
+    "key": "coalizadores"
+  },
+  "sponsors": {
+    "fields": [
+    ],
+    "key": "sponsors"
+  }
+}

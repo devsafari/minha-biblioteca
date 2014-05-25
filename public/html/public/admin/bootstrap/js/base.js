@@ -6,7 +6,7 @@ $(function () {
 		}
 	});
 
-	$("select#library_category").on('change', function(ev) {
+	$(".filter select#library_category").on('change', function(ev) {
 		var that = $(this),
 			  url = $(":selected", that).data('url')
 		document.location = url;

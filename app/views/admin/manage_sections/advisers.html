@@ -1,0 +1,47 @@
+{% extends '../layout.html' %}
+
+{% block title %}Divulgadores{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Gerenciar <small>divulgadores</small></h1>
+</div>
+
+<div class="form-container center-block">
+    <div class="content clearfix span10">
+        <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="put" />
+            {% for adviser in [1,2] %}
+                <fieldset class="field">
+                    <div class="span8">
+                        {% if section.getKeyValue('adviser_image_' + adviser) %}
+                            <figure class="image-thumb">
+                                <a href="/uploads/original/{{ section.getKeyValue('adviser_image_' + adviser) }}" target="_blank">
+                                    <img src="/uploads/thumb/{{ section.getKeyValue('adviser_image_' + adviser) }}" alt="Imagem atual">
+                                    <figcaption>Imagem atual</figcaption>
+                                </a>
+                            </figure>
+                        {% endif %}
+                    </div>
+                    <div class="span4">
+                        <label for="adviser_link_{{ adviser }}">Link do divulgador #{{ adviser }}
+                        </label>
+                        <input type="text" id="adviser_link_{{ adviser }}" name="section[adviser_link_{{ adviser }}]" class="span6" required="required" 
+                        value="{{ section.getKeyValue('adviser_link_' + adviser) }}" />
+
+                        <label for="adviser_{{ adviser }}">Imagem do divulgador #{{ adviser }}</label>
+                        <input type="file" id="adviser_{{ adviser }}" name="section[adviser_image_{{ adviser }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                    </div>
+                </fieldset>  
+            {% endfor %}
+            <div class="actions">                                    
+                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                <button class="button btn btn-success btn-large">Salvar</button>
+                <a href="/admin/" class="button btn btn-danger btn-large">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

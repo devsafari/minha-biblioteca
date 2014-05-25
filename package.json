@@ -1,9 +1,9 @@
 {
-  "name": "iwantmylibrary",
+  "name": "euquerominhabiblioteca",
   "description": "Eu quero minha biblioteca!",
   "author": "Rafael Fidelis <rafa_fidelis@yahoo.com.br>",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon app.js"
   },
   "version": "0.0.1",
   "private": true,
@@ -28,9 +28,14 @@
     "connect-flash": "0.1.*",
     "connect-redis": "~1.4.6",
     "jake": "~0.7.6",
+    "newrelic": "~1.3.1",
     "underscore.string": "~2.3.3",
     "redis": "~0.10.0",
-    "mongodb": "~1.3.23"
+    "mongoose-unique-validator": "^0.3.0",
+    "mongoose-findorcreate": "^0.1.2",
+    "mkdirp": "^0.5.0",
+    "easyimage": "^0.1.6",
+    "fileupload": "^0.3.0"
   },
   "main": "server.js",
   "devDependencies": {

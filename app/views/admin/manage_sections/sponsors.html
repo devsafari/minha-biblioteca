@@ -1,0 +1,47 @@
+{% extends '../layout.html' %}
+
+{% block title %}Patrocinadores{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Gerenciar <small> iniciadores, patrocinadores, coalizadores e divulgadores</small></h1>
+</div>
+
+<div class="form-container center-block">
+    <div class="content clearfix span10">
+        <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="put" />
+            {% for sponsor in [1,2] %}
+                <fieldset class="field">
+                    <div class="span8">
+                        {% if section.getKeyValue('sponsor_image_' + sponsor) %}
+                            <figure class="image-thumb">
+                                <a href="/uploads/original/{{ section.getKeyValue('sponsor_image_' + sponsor) }}" target="_blank">
+                                    <img src="/uploads/thumb/{{ section.getKeyValue('sponsor_image_' + sponsor) }}" alt="Imagem atual">
+                                    <figcaption>Imagem atual</figcaption>
+                                </a>
+                            </figure>
+                        {% endif %}
+                    </div>
+                    <div class="span4">
+                        <label for="sponsor_link_{{ sponsor }}">Link do patrocinador #{{ sponsor }}
+                        </label>
+                        <input type="text" id="sponsor_link_{{ sponsor }}" name="section[sponsor_link_{{ sponsor }}]" class="span6"  
+                        value="{{ section.getKeyValue('sponsor_link_' + sponsor) }}" />
+
+                        <label for="sponsor_{{ sponsor }}">Imagem do patrocinador #{{ sponsor }}</label>
+                        <input type="file" id="sponsor_{{ sponsor }}" name="section[sponsor_image_{{ sponsor }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                    </div>
+                </fieldset>  
+            {% endfor %}
+            <div class="actions">                                    
+                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                <button class="button btn btn-success btn-large">Salvar</button>
+                <a href="/admin/" class="button btn btn-danger btn-large">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -103,6 +103,23 @@
                     <i class="icon-envelope"></i
                     ><span>Mensagens</span> 
                 </a></li>
+                <li class="dropdown {% if current_path == 'manage' %} active {% endif %}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-wrench"></i><span>Gerenciar Site</span>&nbsp;<b class="caret"></b> 
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/manage/top">Topo</a></li>
+                        <li><a href="/admin/manage/campaign/">A campanha</a></li>
+                        <li><a href="/admin/manage/share/">Divulgue</a></li>
+                        <li><a href="/admin/manage/orientations/">Orientações</a></li>
+                        <li class="divider"></li>
+                        <li> <a href="#">Editar Patrocinadores</a> </li>
+                        <li class="divider"></li>
+                        <li><a href="/admin/manage/sponsors/">Patrocinadores</a></li>
+                        <li><a href="/admin/manage/advisers/">Divulgadores</a></li>
+                        <li><a href="/admin/manage/coalizadores/">Coalizadores</a></li>
+                    </ul>
+                </li>
               </ul>
             </div>
           </div>

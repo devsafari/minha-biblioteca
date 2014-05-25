@@ -1,0 +1,53 @@
+{% extends '../layout.html' %}
+
+{% block title %}Banners - Divulgue{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Gerenciar <small> banners de divulgação</small></h1>
+</div>
+
+<div class="form-container center-block">
+    <div class="content clearfix span10">
+        <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="put" />
+            {% for banner in [1,2,3,4,5] %}
+                <fieldset class="field row">
+                    <div class="span8">
+                        {% if section.getKeyValue('banner_' + banner) %}
+                            <figure class="image-thumb">
+                                <a href="/uploads/original/{{ section.getKeyValue('banner_' + banner) }}" target="_blank">
+                                    <img src="/uploads/thumb/{{ section.getKeyValue('banner_' + banner) }}" alt="Imagem atual">
+                                    <figcaption>Imagem atual</figcaption>
+                                </a>
+                            </figure>
+                        {% endif %}
+                    </div>
+                    <div class="span4">
+                        <label for="banner_{{ banner }}">Alterar banner #{{ banner }}</label>
+                        <input type="file" id="banner_{{ banner }}" name="section[banner_{{ banner }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                    </div>
+                </fieldset>  
+            {% endfor %}
+            <fieldset class="field row">
+                <div class="span8">
+                    {% if section.getKeyValue('materials') %}
+                        <div class="file-thumb pdf">
+                            <a href="/uploads/original/{{ section.getKeyValue('materials') }}" target="_blank">Download arquivo divulgação</a>
+                        </div>
+                    {% endif %}
+                    <label for="material_divulgacao">Material de divulgação</label>
+                    <input type="file" id="material_divulgacao" name="section[materials]" class="span6"/>
+                </div>
+            </fieldset>
+            <div class="actions">                                    
+                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                <button class="button btn btn-success btn-large">Salvar</button>
+                <a href="/admin/" class="button btn btn-danger btn-large">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}  

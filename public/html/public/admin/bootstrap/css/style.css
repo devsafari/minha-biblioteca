@@ -16,6 +16,20 @@ body {
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
 }
+
+.field figure {
+	margin:10px 0 10px 0;
+}
+
+form .field {
+	margin-bottom: 20px;
+	border-bottom: 2px #eee solid;
+	padding-bottom: 10px;
+}
+
+form .field label {
+	font-weight: bold;
+}
     
 input,
 button,
@@ -1129,6 +1143,11 @@ color: #333;
 
 .ML0 { margin-left:0}
 .MR0 { margin-right:0;}
+
+.subnavbar .mainnav .caret {
+	border-top-color: #0E0E0E;
+	border-bottom-color: #0E0E0E;
+}
 
 
 
