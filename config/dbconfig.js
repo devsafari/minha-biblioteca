@@ -40,7 +40,7 @@ var dbConfig =  {
       		url: parseRedisURL('redis://admin:5V8Gnx3D@localhost:6379')
 		},
 		production: {
-			url: parseRedisURL(process.env.REDIS_URL)
+			url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL)
      	}
     },
     
