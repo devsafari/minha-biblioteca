@@ -67,6 +67,7 @@ self.setup = function(app) {
     app.namespace('manage', function() {
       app.get("/:section/?", admin.manage.manage_section);
       app.put("/:section/?", admin.manage.update_section);
+      app.delete("/:section/:key/?", admin.manage.delete_section_key);
     })
 
     app.delete("/cache/?", admin.delete_cache);

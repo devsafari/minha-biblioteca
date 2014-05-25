@@ -12,7 +12,7 @@ $(function () {
 		document.location = url;
 	})
 	
-	$("a[method='delete']").click(function(ev) {
+	$("[data-method='delete']").click(function(ev) {
 		ev.preventDefault();
 
 		var self = $(this);

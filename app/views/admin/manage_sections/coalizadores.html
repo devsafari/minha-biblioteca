@@ -14,31 +14,34 @@
             <input type="hidden" name="_method" value="put" />
             {% for coalizador in [1,2,3,4,5,6,7,8,9] %}
                 <fieldset class="field">
-                    <div class="span8">
-                        {% if section.getKeyValue('coalizador_image_' + coalizador) %}
+                    {% if section.getKeyValue('coalizador_image_' + coalizador) %}
+                        <div class="span8">
                             <figure class="image-thumb">
                                 <a href="/uploads/original/{{ section.getKeyValue('coalizador_image_' + coalizador) }}" target="_blank">
                                     <img src="/uploads/thumb/{{ section.getKeyValue('coalizador_image_' + coalizador) }}" alt="Imagem atual">
-                                    <figcaption>Imagem atual</figcaption>
                                 </a>
                             </figure>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
                     <div class="span4">
-                        <label for="coalizador_link_{{ coalizador }}">Link do divulgador #{{ coalizador }}
-                        </label>
-                        <input type="text" id="coalizador_link_{{ coalizador }}" name="section[coalizador_link_{{ coalizador }}]" class="span6"
-                        value="{{ section.getKeyValue('coalizador_link_' + coalizador) }}" />
+                        <label for="coalizador_link_{{ coalizador }}">Link do divulgador #{{ coalizador }}</label>
+                        <input type="text" id="coalizador_link_{{ coalizador }}" name="section[coalizador_link_{{ coalizador }}]" class="span6" value="{{ section.getKeyValue('coalizador_link_' + coalizador) }}" />
 
                         <label for="coalizador_{{ coalizador }}">Imagem do divulgador #{{ coalizador }}</label>
                         <input type="file" id="coalizador_{{ coalizador }}" name="section[coalizador_image_{{ coalizador }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                     </div>
+                    {% if section.getKeyValue('coalizador_image_' + coalizador) %}
+                        <div class="span8">
+                            <a href="/admin/manage/{{ current_section}}/coalizador_image_{{ coalizador }}/?_keys=coalizador_link_{{ coalizador }}"  data-parent="fieldset" data-method="delete" class="btn btn-danger">
+                                <i class="icon-large icon-remove"></i> Deletar</a>
+                        </div>
+                    {% endif %}
                 </fieldset>  
             {% endfor %}
             <div class="actions">                                    
                 <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
                 <button class="button btn btn-success btn-large">Salvar</button>
-                <a href="/admin/" class="button btn btn-danger btn-large">Voltar</a>
+                <a href="/admin/" class="button btn btn-default btn-large">Voltar</a>
             </div>
         </form>
     </div>
