@@ -29,10 +29,10 @@
                 <fieldset class="field">
                     {% if section.getKeyValue('file_orientiations_' + index) %}
                         <div class="file-thumb pdf">
-                            <a href="/uploads/original/{{ section.getKeyValue('file_orientiations_' + index) }}" target="_blank">Abrir arquivo PDF#{{ index }}</a>
+                            <a href="/uploads/original/{{ section.getKeyValue('file_orientiations_' + index) }}" target="_blank">Abrir arquivo PDF {{ _labels.orientationsFilenames[index] }}</a>
                         </div>
                     {% endif %}
-                    <label for="file_orientations_{{ index }}">Alterar arquivo de {{ -_labels.orientationsFilenames[index] }}</label>
+                    <label for="file_orientations_{{ index }}">Alterar arquivo de {{ _labels.orientationsFilenames[index] }}</label>
                     <input type="file" id="file_orientations_{{ index }}" name="section[file_orientiations_{{ index }}]" class="span6" accept="application/pdf"/>
                 </fieldset> 
             {% endfor %}
