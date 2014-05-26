@@ -530,7 +530,7 @@
 	                    <nav class="divulgacao">
 							<h2>Divulgação:</h2>
 							<ul class='inline-list'>
-	                            {% for adviser in getIdsByKeyInitial(sections.advisers, "adviser_link") %}
+	                            {% for adviser in getIdsByKeyInitial(sections.advisers, "adviser_link_") %}
      	                        	{% if sections.advisers['adviser_link_' + adviser] %}
      		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
      		                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank">
