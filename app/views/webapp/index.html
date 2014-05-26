@@ -8,11 +8,13 @@
 	<div class="main-content-container">
 	    <section id="home" class='section parallax' data-scroll-event='hideGoTopButton' data-force='true' {% if sections.top && sections.top.image %} style="background-image: url(/uploads/original/{{ sections.top.image }})" {% endif %}
 	    >
-	        <div id="video-wrapper">
-	            <iframe width="420" height="315" id="video" src="{{ sections.top.video_link }}?rel=0&amp;controls=0&amp;showinfo=0&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>
-	        </div>
+	    	{% if sections.top.video_link %}
+		        <div id="video-wrapper">
+		            <iframe width="420" height="315" id="video" src="{{ sections.top.video_link }}?rel=0&amp;controls=0&amp;showinfo=0&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>
+		        </div>
+		    {% endif %}
 	        <article class="header wrapper">
-	            <div class="play-icon" id="video-play"></div>
+	            <div class="play-icon" id="video-play" {% if !sections.top.video_link %} style="background-image: none" {% endif %}></div>
 	            <div class="share-text">
 	                <p>Compartilhe este vídeo:</p>
 	                <ul class="social-share inline-list">
