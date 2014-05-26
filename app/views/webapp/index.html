@@ -503,7 +503,6 @@
 	                                 </a>
 	                             </li>
 	                             {% for coalizador in getIdsByKeyInitial(sections.coalizadores, "coalizador_link_") %}
-	                             	{{ coalizador }}
      	                        	{% if sections.coalizadores['coalizador_link_' + coalizador] %}
      		                            <li {% if !loop.first && loop.last %} class='last' {% endif %}>
      		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank">
