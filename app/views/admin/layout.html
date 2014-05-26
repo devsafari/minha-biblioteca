@@ -37,23 +37,10 @@
 
         {% block head_styles %}{% endblock %}
         {% block head_scripts %}{% endblock %}
-
         <script>
-            var TOTAL_RESOURCES = {{ range.length; }}
+            var LAST_RESOURCE_ID = {{ last_document ; }},
+                TOTAL_RESOURCES  = {{ range.length }}
         </script>
-        
-        <style type="text/css" media="screen">
-
-            .subnavbar .dropdown .dropdown-menu .bs-callout-danger {
-                background-color: #FDF7F7;
-                border-color: #D9534F;
-                color:#D9534F; 
-            }
-            .subnavbar .dropdown .dropdown-menu .bs-callout {
-                border-left: 3px solid;
-            }
-        </style>
-        
     </head>
     <body>
 

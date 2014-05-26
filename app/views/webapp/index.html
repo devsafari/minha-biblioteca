@@ -62,7 +62,7 @@
 	                <div class="sub-header">
 	                    <div id="text-slide-wrapper">
 	                        <ul id="slide-texts" class="inline-list">
-	                            {% for text in getKeysByInitials(sections.campaign, "text_") %}
+	                            {% for text in getValuesByKeyInitial(sections.campaign, "text_") %}
 	                        	<li {% if loop.first %} class='current' {% endif %}>
 	                        	    <p>{{ text }}</p>
 	                        	</li>
@@ -73,9 +73,9 @@
 
 	                <nav class="boxes-nav">
 	                    <ul class="inline-list" id="boxes_nav">
-	                        <li class="current">&nbsp;</li>
-	                        <li>&nbsp;</li>
-	                        <li>&nbsp;</li>
+	                        {% for text in getValuesByKeyInitial(sections.campaign, "text_") %}
+	                        	<li {% if loop.first %} class='current' {% endif %}>&nbsp;</li>
+	                        {% endfor %}
 	                    </ul>
 	                </nav>
 	            </header>
@@ -127,7 +127,7 @@
 
 	            <nav id="box-desc-contents" style='display: none;'>
 	                <ul class='contents'>
-	                	{% for text in getKeysByInitials(sections.campaign, "box_text") %}
+	                	{% for text in getValuesByKeyInitial(sections.campaign, "box_text") %}
 		                	<li>
 	                			<ul class="gray-circle-list">
 	                				{% for line in replaceSymbol(text) %}<li>{{ putsHTML(line); }}</li>{% endfor %}
@@ -372,15 +372,14 @@
 	            <div class="banners-wrapper">
 	                <nav class="banners">
 	                	<ul class="inline-list banners-list">
-	                		{% for banner in getKeysByInitials(sections.share, "banner_") %}
-	                		<li class="banner" id="banner-{{ loop.index }}">
-	                			{% if banner %}
-		                		    <a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="{{host}}/uploads/original/{{ sections.share['banner_' + loop.index] }}" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
-	                			{% else %}
-		                		    <a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-{{ loop.index}}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
-	                			{% endif %}
-	                		</li>
-
+	                		{% for banner in getValuesByKeyInitial(sections.share, "banner_") %}
+		                		<li class="banner" id="banner-{{ loop.index }}">
+		                			{% if banner %}
+			                		    <a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="{{host}}/uploads/original/{{ sections.share['banner_' + loop.index] }}" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
+		                			{% else %}
+			                		    <a href="{{ host }}{{ sections.share.ga[loop.index] }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-{{ loop.index}}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
+		                			{% endif %}
+		                		</li>
 	                		{% endfor %}
 	                    </ul>
 	                </nav>
@@ -396,9 +395,7 @@
 
 	        <aside class="download-line">
 	            <div class="wrapper">
-	                <span class="text text-instructions">
-	                    MATERIAIS DE APOIO EM DIVULGAÇÃO
-	                </span>
+	                <span class="text text-instructions">MATERIAIS DE APOIO EM DIVULGAÇÃO</span>
 	                <span class="text text-download-button">
 	                	{% if sections.share && sections.share.materials %}
 	                		<a href="{{ host }}/uploads/original/{{ sections.share.materials }}"><div class="icon"></div>download</a>
@@ -503,7 +500,8 @@
 	                                     <img width="125" src="/public/assets/images/realizadores/ecofuturo.jpg" alt="Ecofuturo" style="margin-top: 20px;">
 	                                 </a>
 	                             </li>
-	                             {% for coalizador in sections.coalizadores.keys_range %}
+	                             {% for coalizador in getIdsByKeyInitial(sections.coalizadores, "coalizador_link_") %}
+	                             	{{ coalizador }}
      	                        	{% if sections.coalizadores['coalizador_link_' + coalizador] %}
      		                            <li {% if !loop.first && loop.last %} class='last' {% endif %}>
      		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank">
@@ -517,7 +515,7 @@
 	                    <nav class="patrocinio">
 	                        <h2>Patrocínio:</h2>
 	                        <ul class='inline-list'>
-	                        {% for sponsor in sections.sponsors.keys_range %}
+	                        {% for sponsor in getIdsByKeyInitial(sections.sponsors, "sponsor_link_") %}
 	                        	{% if sections.sponsors['sponsor_link_' + sponsor] %}
 		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
 		                                <a href="{{ sections.sponsors['sponsor_link_' + sponsor] }}" title="{{ sections.sponsors['sponsor_name_' + sponsor] }}" target="_blank">
@@ -531,7 +529,7 @@
 	                    <nav class="divulgacao">
 							<h2>Divulgação:</h2>
 							<ul class='inline-list'>
-	                            {% for adviser in sections.advisers.keys_range %}
+	                            {% for adviser in getIdsByKeyInitial(sections.advisers, "adviser_link") %}
      	                        	{% if sections.advisers['adviser_link_' + adviser] %}
      		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
      		                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank">

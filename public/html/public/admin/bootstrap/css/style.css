@@ -1311,3 +1311,11 @@ color: #333;
 	
 }
 
+.subnavbar .dropdown .dropdown-menu .bs-callout-danger {
+    background-color: #FDF7F7;
+    border-color: #D9534F;
+    color:#D9534F; 
+}
+.subnavbar .dropdown .dropdown-menu .bs-callout {
+    border-left: 3px solid;
+}

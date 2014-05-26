@@ -1,5 +1,6 @@
 $(function () {
-	var new_resource_index = TOTAL_RESOURCES;
+	var new_resource_index = LAST_RESOURCE_ID,
+		added_resources    = TOTAL_RESOURCES;
 
 	$('.subnavbar').find ('li').each (function (i) {
 		var mod = i % 3;
@@ -22,7 +23,8 @@ $(function () {
 			target = $(self.data('target')),
 			limit  = parseInt(self.data('limit'));
 
-		if(!limit || new_resource_index < limit) {
+		if(!limit || added_resources < limit) {
+			added_resources++;
 			if((template.size() > 0 && target.size() > 0)) {
 				var template_html = template.html().replace(/\#\{index}/ig, ++new_resource_index);
 				target.append(template_html);
@@ -47,6 +49,7 @@ $(function () {
 			$.ajax({url: url, data: {_csrf: CSRF_TOKEN} , type: "DELETE" , dataType: 'json'}).done(function(data) {
 				if(data.message) alert(data.message);
 				if(data.success) {
+					added_resources--;
 					if(self.data('redirect')) {
 						document.location.href = self.data('redirect');
 					} else if(parent.size() > 0) {

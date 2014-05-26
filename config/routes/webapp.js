@@ -22,10 +22,14 @@ module.exports = (function() {
                  res.locals = extend(res.locals , data, sections);
                  
                  // helper methods
-                 res.locals.getKeysByInitials     = helper.getKeysByInitials;
+                 res.locals.getValuesByKeyInitial = helper.getValuesByKeyInitial;
+                 res.locals.getIdsByKeyInitial    = helper.getIdsByKeyInitial;
                  res.locals.replaceSymbol         = helper.replaceSymbol;
                  res.locals.sections.share.ga     = [null,"?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde","&utm_medium=banner&utm_campaign=250x250_azul","?utm_source=site&utm_medium=banner&utm_campaign=728x90","?utm_source=site&utm_medium=banner&utm_campaign=selo_1","?utm_source=site&utm_medium=banner&utm_campaign=selo_2"]
                  res.locals.putsHTML              = function(text) { return text ; }
+
+                 //var test_ = helper.getIdsByKeyInitial(res.locals.sections.campaign, "text_")
+                 //return res.json(test_);
                  
                  return res.render('webapp/index');
                })

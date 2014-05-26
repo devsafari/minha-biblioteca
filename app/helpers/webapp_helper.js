@@ -16,30 +16,29 @@ module.exports = (function() {
     })
   }
 
-  var getKeysByInitials = function(section, keys_initial) {
+  var getValuesByKeyInitial = function(section, keys_initial, return_id) {
     var keys = Object.keys(section)
     ,   regexp = new RegExp("^" + keys_initial, 'i')
     ,   _keys  = [];
 
     keys.forEach(function(key, index) {
-      if(key.match(regexp)) {
-        _keys.push(section[key])
+      var found = key.match(regexp);
+      if(found) {
+         _keys.push(return_id == true ? (key.replace(found.shift(), '')) : section[key] );
       }
     })
-
     return _keys;
   }
+
+  var getIdsByKeyInitial = function(section, keys_initial) {
+    return getValuesByKeyInitial(section,keys_initial, true)
+  }
+
   var replaceSymbol = function(line) {
     var replace = function(text) {
       return text.replace(/^(\*)/ig, '<span class="circle"></span>')
     }
     return line.split(/\r\n/ig).map(replace);
-  }
-
-  var range = function(init,end) {
-    var _range = [];
-    for(var i = init; i <= (end + 1); i++) _range.push(i);
-    return _range;
   }
 
   var getSectionsJSON = function(callback) {
@@ -50,8 +49,6 @@ module.exports = (function() {
         section.fields.forEach(function(field, findex) {
           _fields[field.key] = field.value 
         });
-        _fields.total_keys = Object.keys(_fields).length;
-        _fields.keys_range = range(1,_fields.total_keys);
         _sections[section.key] =  _fields;
       })
       callback.call(null, { sections: _sections });
@@ -80,7 +77,8 @@ module.exports = (function() {
     getHomeCounters: getCounts,
     getSection: getSection,
     getSectionsJSON: getSectionsJSON,
-    getKeysByInitials: getKeysByInitials,
-    replaceSymbol: replaceSymbol
+    getValuesByKeyInitial: getValuesByKeyInitial,
+    replaceSymbol: replaceSymbol,
+    getIdsByKeyInitial: getIdsByKeyInitial
   }
 })();

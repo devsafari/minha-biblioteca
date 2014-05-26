@@ -15,7 +15,9 @@ module.exports = {
 
     if(helper.validSection(section_name)) {
       findSection(section_name, function(err, section, created) {
-        res.locals = extend(res.locals , {current_section: section_name, section: section, range: helper.getRange(section) });
+        var range = helper.getRange(section)
+        var last_document = range.map(function(n) { return parseInt(n) }).sort(function(a,b) { a - b }).pop() || 0;
+        res.locals = extend(res.locals , {current_section: section_name, section: section,range: range , last_document: last_document});
         res.locals._labels = helper._labels
         return res.render('admin/manage_sections/' + section_name, {layout:'admin/layout'})
       })

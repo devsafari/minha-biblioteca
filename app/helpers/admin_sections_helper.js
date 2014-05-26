@@ -100,6 +100,7 @@ var setSectionFields = function(section, fields,callback) {
     return callback.call(null, section);
   })
 }
+
 var getIdByKeysInitials = function(section) {
   var base_fields = {
     sponsors: "sponsor_link_",
