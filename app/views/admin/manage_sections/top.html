@@ -14,7 +14,7 @@
             <input type="hidden" name="_method" value="put" />
             <fieldset class="field">
                 <label for="video_link">Alterar link do vídeo</label>
-                <input type="text" id="video_link" name="section[video_link]" required="required" class="span6" value="{{ section.getKeyValue('video_link') }}"/>
+                <input type="text" id="video_link" name="section[video_link]" class="span6" value="{{ section.getKeyValue('video_link') }}"/>
                 {% if section.getKeyValue('video_link') %}
                     <div class="span8">
                         <a href="/admin/manage/{{ current_section}}/video_link" data-parent="fieldset" data-method="delete" class="btn btn-danger">
