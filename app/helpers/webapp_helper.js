@@ -73,12 +73,15 @@ module.exports = (function() {
     })
   }
 
+  var banners_analytics = [null,"?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde","&utm_medium=banner&utm_campaign=250x250_azul","?utm_source=site&utm_medium=banner&utm_campaign=728x90","?utm_source=site&utm_medium=banner&utm_campaign=selo_1","?utm_source=site&utm_medium=banner&utm_campaign=selo_2"]
+
   return {
     getHomeCounters: getCounts,
     getSection: getSection,
     getSectionsJSON: getSectionsJSON,
     getValuesByKeyInitial: getValuesByKeyInitial,
     replaceSymbol: replaceSymbol,
-    getIdsByKeyInitial: getIdsByKeyInitial
+    getIdsByKeyInitial: getIdsByKeyInitial,
+    banners_tracking_codes: banners_analytics
   }
 })();
