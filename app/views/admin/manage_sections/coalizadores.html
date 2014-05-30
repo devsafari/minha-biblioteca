@@ -29,7 +29,7 @@
                            <label for="coalizador_link_{{ coalizador }}">Link do divulgador #{{ loop.index }}</label>
                            <input type="text" id="coalizador_link_{{ coalizador }}" name="section[coalizador_link_{{ coalizador }}]" class="span6" value="{{ section.getKeyValue('coalizador_link_' + coalizador) }}" />
 
-                           <label for="coalizador_{{ coalizador }}">Imagem do divulgador #{{ loop.index }}</label>
+                           <label for="coalizador_{{ coalizador }}">Imagem do divulgador #{{ loop.index }} - <small>(Dimensões 90x90px)</small></label>
                            <input type="file" id="coalizador_{{ coalizador }}" name="section[coalizador_image_{{ coalizador }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                        </div>
                        {% if section.getKeyValue('coalizador_image_' + coalizador) %}
@@ -55,7 +55,7 @@
                     <label for="coalizador_link_#{index}">Link do divulgador #{index}</label>
                     <input type="text" id="coalizador_link_#{index}" name="section[coalizador_link_#{index}]" class="span6" />
 
-                    <label for="coalizador_#{index}">Imagem do divulgador #{index}</label>
+                    <label for="coalizador_#{index}">Imagem do divulgador #{index} - <small>(Dimensões 90x90px)</small></label>
                     <input type="file" id="coalizador_#{index}" name="section[coalizador_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                 </div>
             </fieldset>

@@ -25,11 +25,9 @@ module.exports = (function() {
                  res.locals.getValuesByKeyInitial = helper.getValuesByKeyInitial;
                  res.locals.getIdsByKeyInitial    = helper.getIdsByKeyInitial;
                  res.locals.replaceSymbol         = helper.replaceSymbol;
-                 res.locals.sections.share.ga     = helper.banners_tracking_codes;
+                 res.locals.printGA               = helper.printGA;
+                 res.locals.getYoutubeVideoID     = helper.getYoutubeVideoID;
                  res.locals.putsHTML              = function(text) { return text ; }
-
-                 //var test_ = helper.getIdsByKeyInitial(res.locals.sections.campaign, "text_")
-                 //return res.json(test_);
                  
                  return res.render('webapp/index');
                })

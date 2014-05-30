@@ -31,7 +31,7 @@
                             <input type="text" id="sponsor_link_{{ sponsor }}" name="section[sponsor_link_{{ sponsor }}]" class="span6"  
                             value="{{ section.getKeyValue('sponsor_link_' + sponsor) }}" />
 
-                            <label for="sponsor_{{ sponsor }}">Imagem do patrocinador #{{ loop.index }}</label>
+                            <label for="sponsor_{{ sponsor }}">Imagem do patrocinador #{{ loop.index }} - - <small>(Dimensões 120x120px)</small></label>
                             <input type="file" id="sponsor_{{ sponsor }}" name="section[sponsor_image_{{ sponsor }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                         </div>
                         {% if section.getKeyValue('sponsor_image_' + sponsor) %}
@@ -58,7 +58,7 @@
                     </label>
                     <input type="text" id="sponsor_link_#{index}" name="section[sponsor_link_#{index}]" class="span6"/>
 
-                    <label for="sponsor_#{index}">Imagem do patrocinador #{index}</label>
+                    <label for="sponsor_#{index}">Imagem do patrocinador #{index} - - <small>(Dimensões 120x120px)</small></label>
                     <input type="file" id="sponsor_#{index}" name="section[sponsor_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                 </div>
             </fieldset>

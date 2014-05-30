@@ -16,17 +16,21 @@
             {% for banner in [1,2,3,4,5] %}
                 <fieldset class="field row">
                     <div class="span8">
-                        {% if section.getKeyValue('banner_' + banner) %}
+                        {% if section.getKeyValue('banner_image_' + banner) %}
                             <figure class="image-thumb">
-                                <a href="/uploads/original/{{ section.getKeyValue('banner_' + banner) }}" target="_blank">
-                                    <img src="/uploads/thumb/{{ section.getKeyValue('banner_' + banner) }}">
+                                <a href="/uploads/original/{{ section.getKeyValue('banner_image_' + banner) }}" target="_blank">
+                                    <img src="/uploads/thumb/{{ section.getKeyValue('banner_image_' + banner) }}">
                                 </a>
                             </figure>
                         {% endif %}
                     </div>
                     <div class="span4">
-                        <label for="banner_{{ banner }}">Alterar banner #{{ banner }}</label>
-                        <input type="file" id="banner_{{ banner }}" name="section[banner_{{ banner }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                        <label for="banner_image_{{ banner }}">Alterar banner #{{ banner }}</label>
+                        <input type="file" id="banner_image_{{ banner }}" name="section[banner_image_{{ banner }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                    </div>
+                    <div class="span8">
+                        <label for="banner_tracking_code_{{ banner }}">Código de acompanhamento #{{ banner }}</label>
+                        <input type="text" id="banner_tracking_code_{{ banner }}" name="section[banner_tracking_code_{{ banner }}]" class="span6" value="{{ section.getKeyValue('banner_tracking_code_' + banner)  }}"/>
                     </div>
                 </fieldset>  
             {% endfor %}

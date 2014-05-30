@@ -30,8 +30,20 @@ module.exports = (function() {
     return _keys;
   }
 
+  var getYoutubeVideoID = function(video_url) {
+    var regexp = /watch\?v=([^&]+)/ig;
+
+    var results = regexp.exec(video_url);
+
+    return (results ? results.pop() : null);
+  }
+
   var getIdsByKeyInitial = function(section, keys_initial) {
-    return getValuesByKeyInitial(section,keys_initial, true)
+    return getValuesByKeyInitial(section,keys_initial, true).sort(function(a, b) { return a-b })
+  }
+
+  var print_ga_track_code = function(tracking_url) {
+    return tracking_url.trim().replace(/^\?{0,}/ig, '?');
   }
 
   var replaceSymbol = function(line) {
@@ -73,8 +85,6 @@ module.exports = (function() {
     })
   }
 
-  var banners_analytics = [null,"?utm_source=site&utm_medium=banner&utm_campaign=250x250_verde","&utm_medium=banner&utm_campaign=250x250_azul","?utm_source=site&utm_medium=banner&utm_campaign=728x90","?utm_source=site&utm_medium=banner&utm_campaign=selo_1","?utm_source=site&utm_medium=banner&utm_campaign=selo_2"]
-
   return {
     getHomeCounters: getCounts,
     getSection: getSection,
@@ -82,6 +92,7 @@ module.exports = (function() {
     getValuesByKeyInitial: getValuesByKeyInitial,
     replaceSymbol: replaceSymbol,
     getIdsByKeyInitial: getIdsByKeyInitial,
-    banners_tracking_codes: banners_analytics
+    printGA: print_ga_track_code,
+    getYoutubeVideoID: getYoutubeVideoID
   }
 })();
