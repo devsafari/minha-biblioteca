@@ -8,12 +8,55 @@
   <h1>Mensagens <small>Todas as mensagens enviada pelo site - Página {{ current_page }} de {{ total_pages }} </small></h1>
 </div>
 
-<div class="pull-right">
-	<div class="export pull-right">
-			<a class="btn btn-success" href="{{ host }}/admin/contacts/export.xls"><i class="icon-large icon-download-alt
-		"></i> Exportar XLS</a>
+<div class="row">
+	<div class="filter span12">
+		<form id="filter_form" action="/admin/contacts">
+			<div class="span3">
+				<h4>Assunto</h4>
+				<select name="subject_id" id="contact_subject">
+					<option {% if !current_subject %} selected='selected' {% endif %} value="">---</option>
+					
+					{% for subject in Object.keys(subjects) %}
+						<option value="{{ subject }}" {% if subject == current_subject %} selected='selected' {% endif %} > {{ subjects[subject] }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="span3">
+				<h4>Tipo(Area)</h4>
+				<select name="area_id" id="contact_area">
+					<option value="" {% if !current_area %} selected='selected' {% endif %} >---</option>
+					
+					{% for area in Object.keys(areas) %}
+						<option value="{{ area }}" {% if area == current_area %} selected='selected' {% endif %} > {{ areas[area] }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="span3">
+				<h4>Tipo de questão</h4>
+				<select name="question_type" id="contact_question_type">
+					<option value="" {% if !current_question_type %} selected='selected' {% endif %} >---</option>
+					
+					{% for question_type in Object.keys(questions_types) %}
+						<option value="{{ question_type }}" {% if question_type == current_question_type %} selected='selected' {% endif %} > {{ questions_types[question_type] }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="span2">
+				<h4>&nbsp;</h4>
+				<input type="submit" name="" value="Filtrar" class="btn btn-primary">
+			</div>
+			<div class="span2">
+				<h4>&nbsp;</h4>
+				<div class="export pull-right">
+					<a class="btn btn-success" href="{{ host }}/admin/contacts/export.xls??subject_id={{ current_subject }}&area_id={{ current_area }}&question_type={{ current_question_type }}"><i class="icon-large icon-download-alt
+					"></i> Exportar XLS</a>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
+<div class="clearfix"><br /><br /></div>
+
 
 <div class="table-responsive contacts-index">
 	<table class="table table-striped">
