@@ -25,17 +25,17 @@
                                 </figure>
                             </div>
                         {% endif %}
-                        <div class="span4">
+                        <div class="span8">
+                            <label for="adviser_{{ adviser }}">Imagem do divulgador #{{ loop.index }} - <small>(Dimensões {{ _dimensions.advisers }})</small></label>
+                            <input type="file" id="adviser_{{ adviser }}" name="section[adviser_image_{{ adviser }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                        </div>
+                        <div class="span8">
                             <label for="adviser_link_{{ adviser }}">Link do divulgador #{{ loop.index }}</label>
                             <input type="text" id="adviser_link_{{ adviser }}" name="section[adviser_link_{{ adviser }}]" class="span6"  value="{{ section.getKeyValue('adviser_link_' + adviser) }}" />
                         </div>
                         <div class="span8">
                            <label for="adviser_name_{{ adviser }}">Titulo/nome do divulgador #{{ loop.index }}</label>
                            <input type="text" id="adviser_name_{{ adviser }}" name="section[adviser_name_{{ adviser }}]" class="span6" value="{{ section.getKeyValue('adviser_name_' + adviser) }}" />
-                        </div>
-                        <div class="span4">
-                            <label for="adviser_{{ adviser }}">Imagem do divulgador #{{ loop.index }} - <small>(Dimensões 120x120px)</small></label>
-                            <input type="file" id="adviser_{{ adviser }}" name="section[adviser_image_{{ adviser }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                         </div>
                         {% if section.getKeyValue('adviser_image_' + adviser) %}
                             <div class="span8">
@@ -56,7 +56,11 @@
         </form>
         <script type="text/template" id="new_resource_template">
              <fieldset class="field">
-                <div class="span4">
+                <div class="span8">
+                    <label for="adviser_#{index}">Imagem do divulgador ##{index} - <small>(Dimensões  {{ _dimensions.advisers }})</small></label>
+                    <input type="file" id="adviser_#{index}" name="section[adviser_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                </div>
+                <div class="span8">
                     <label for="adviser_link_#{index}">Link do divulgador ##{index}</label>
                     <input type="text" id="adviser_link_#{index}" name="section[adviser_link_#{index}]" class="span6"/>
                 </div>
@@ -64,10 +68,7 @@
                    <label for="adviser_name_#{index}">Titulo/nome do divulgador ##{index}</label>
                    <input type="text" id="adviser_name_#{index}" name="section[adviser_name_#{index}]" class="span6" />
                 </div>
-                <div class="span4">
-                    <label for="adviser_#{index}">Imagem do divulgador ##{index} - <small>(Dimensões 120x120px)</small></label>
-                    <input type="file" id="adviser_#{index}" name="section[adviser_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
-                </div>
+                
             </fieldset>
         </script>
     </div>

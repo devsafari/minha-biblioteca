@@ -25,7 +25,7 @@
                         {% endif %}
                     </div>
                     <div class="span4">
-                        <label for="banner_image_{{ banner }}">Alterar banner #{{ banner }}</label>
+                        <label for="banner_image_{{ banner }}">Alterar banner #{{ banner }} - (Dimensões: {{ _dimensions.share[loop.index] }} )</label>
                         <input type="file" id="banner_image_{{ banner }}" name="section[banner_image_{{ banner }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                     </div>
                     <div class="span8">

@@ -138,5 +138,6 @@ module.exports = {
   uploadAllFiles: uploadAllFiles,
   setSectionFields: setSectionFields,
   _labels: { orientationsFilenames: { citizens: "Cidadãos", public_managers: "Gestores Públicos" }},
+  _dimensions: {share: [null, "250x250px", "250x250px", "728x90px", "167x74px", "164x74px"], sponsors: "120x120px",advisers: "120x120px" , coalizadores: "90x90px" },
   getRange: getRange
 }

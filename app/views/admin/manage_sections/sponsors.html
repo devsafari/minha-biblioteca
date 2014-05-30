@@ -25,7 +25,11 @@
                                 </figure>
                             {% endif %}
                         </div>
-                        <div class="span4">
+                        <div class="span8">   
+                            <label for="sponsor_{{ sponsor }}">Imagem do patrocinador #{{ loop.index }} - <small>(Dimensões {{ _dimensions.sponsors }} )</small></label>
+                            <input type="file" id="sponsor_{{ sponsor }}" name="section[sponsor_image_{{ sponsor }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                        </div>
+                        <div class="span8">
                             <label for="sponsor_link_{{ sponsor }}">Link do patrocinador #{{ loop.index }}</label>
                             <input type="text" id="sponsor_link_{{ sponsor }}" name="section[sponsor_link_{{ sponsor }}]" class="span6"  
                             value="{{ section.getKeyValue('sponsor_link_' + sponsor) }}" />
@@ -33,10 +37,6 @@
                         <div class="span8">
                            <label for="sponsor_name_{{ sponsor }}">Titulo/nome do patrocinador #{{ loop.index }}</label>
                            <input type="text" id="sponsor_name_{{ sponsor }}" name="section[sponsor_name_{{ sponsor }}]" class="span6" value="{{ section.getKeyValue('sponsor_name_' + sponsor) }}" />
-                        </div>
-                        <div class="span4">   
-                            <label for="sponsor_{{ sponsor }}">Imagem do patrocinador #{{ loop.index }} - <small>(Dimensões 120x120px)</small></label>
-                            <input type="file" id="sponsor_{{ sponsor }}" name="section[sponsor_image_{{ sponsor }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                         </div>
                         {% if section.getKeyValue('sponsor_image_' + sponsor) %}
                             <div class="span8">
@@ -57,17 +57,17 @@
         </form>
         <script type="text/template" id="new_resource_template">
             <fieldset class="field span10">
-                <div class="span4">
+                <div class="span8">
+                    <label for="sponsor_#{index}">Imagem do patrocinador ##{index} - - <small>(Dimensões {{ _dimensions.sponsors }})</small></label>
+                    <input type="file" id="sponsor_#{index}" name="section[sponsor_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
+                </div>
+                <div class="span8">
                     <label for="sponsor_link_#{index}">Link do patrocinador ##{index}</label>
                     <input type="text" id="sponsor_link_#{index}" name="section[sponsor_link_#{index}]" class="span6"/>
                 </div>
                 <div class="span8">
                    <label for="sponsor_name_#{index}">Titulo/nome do patrocinador ##{index}</label>
                    <input type="text" id="sponsor_name_#{index}" name="section[sponsor_name_#{index}]" class="span6" />
-                </div>
-                <div class="span4">
-                    <label for="sponsor_#{index}">Imagem do patrocinador ##{index} - - <small>(Dimensões 120x120px)</small></label>
-                    <input type="file" id="sponsor_#{index}" name="section[sponsor_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                 </div>
             </fieldset>
         </script> 

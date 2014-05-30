@@ -970,12 +970,12 @@ section#divulgue .download-line .text-download-button .icon {
     height:165px;
     width:175px;
     text-transform:uppercase;
-    padding-top:70px;
     vertical-align:middle;
     margin-right:0
 }
 #oriente-se .boxes ul li.box-text {
-    color:#eec22b
+    color:#eec22b;
+    padding-top:70px;
 }
 #oriente-se .boxes ul li.box {
     padding-left:10px;
@@ -989,6 +989,16 @@ section#divulgue .download-line .text-download-button .icon {
     transition:all 0.3s ease-in-out;
     opacity:.7;
     -ms-filter:"alpha(Opacity=70)";
+    position:relative;
+}
+
+#oriente-se .boxes ul li.box > a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 70px;
 }
 #oriente-se .boxes ul li.box:hover {
     -webkit-transition:all 0.3s ease-in-out;

@@ -19,6 +19,8 @@ module.exports = {
         var last_document = range.map(function(n) { return parseInt(n) }).sort(function(a,b) { a - b }).pop() || 0;
         res.locals = extend(res.locals , {current_section: section_name, section: section,range: range , last_document: last_document});
         res.locals._labels = helper._labels
+        res.locals._dimensions = helper._dimensions;
+
         return res.render('admin/manage_sections/' + section_name, {layout:'admin/layout'})
       })
     } else {
