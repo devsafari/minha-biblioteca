@@ -28,7 +28,12 @@
                        <div class="span4">
                            <label for="coalizador_link_{{ coalizador }}">Link do divulgador #{{ loop.index }}</label>
                            <input type="text" id="coalizador_link_{{ coalizador }}" name="section[coalizador_link_{{ coalizador }}]" class="span6" value="{{ section.getKeyValue('coalizador_link_' + coalizador) }}" />
-
+                        </div>
+                        <div class="span8">
+                           <label for="coalizador_name_{{ coalizador }}">Titulo/nome do divulgador #{{ loop.index }}</label>
+                           <input type="text" id="coalizador_name_{{ coalizador }}" name="section[coalizador_name_{{ coalizador }}]" class="span6" value="{{ section.getKeyValue('coalizador_name_' + coalizador) }}" />
+                        </div>
+                        <div class="span4">
                            <label for="coalizador_{{ coalizador }}">Imagem do divulgador #{{ loop.index }} - <small>(Dimensões 90x90px)</small></label>
                            <input type="file" id="coalizador_{{ coalizador }}" name="section[coalizador_image_{{ coalizador }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                        </div>
@@ -52,10 +57,15 @@
         <script type="text/template" id="new_resource_template">
             <fieldset class="field" >
                 <div class="span4">
-                    <label for="coalizador_link_#{index}">Link do divulgador #{index}</label>
+                    <label for="coalizador_link_#{index}">Link do divulgador ##{index}</label>
                     <input type="text" id="coalizador_link_#{index}" name="section[coalizador_link_#{index}]" class="span6" />
-
-                    <label for="coalizador_#{index}">Imagem do divulgador #{index} - <small>(Dimensões 90x90px)</small></label>
+                </div>
+                <div class="span8">
+                   <label for="coalizador_name_#{index}">Titulo/nome do divulgador ##{index}</label>
+                   <input type="text" id="coalizador_name_#{index}" name="section[coalizador_name_#{index}]" class="span6" />
+                </div>
+                <div class="span4">
+                    <label for="coalizador_#{index}">Imagem do divulgador ##{index} - <small>(Dimensões 90x90px)</small></label>
                     <input type="file" id="coalizador_#{index}" name="section[coalizador_image_#{index}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
                 </div>
             </fieldset>

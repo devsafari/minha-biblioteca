@@ -38,8 +38,8 @@
         {% block head_styles %}{% endblock %}
         {% block head_scripts %}{% endblock %}
         <script>
-            var LAST_RESOURCE_ID = {{ last_document ; }},
-                TOTAL_RESOURCES  = {{ range.length }}
+            var LAST_RESOURCE_ID = {{ last_document || 0  }},
+                TOTAL_RESOURCES  = {{ range.length  || 0 }}
         </script>
     </head>
     <body>
