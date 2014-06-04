@@ -232,7 +232,9 @@ $(document).ready(function() {
 				video.attr('src', (video_src + '&autoplay=1'));
 
 				$(".text-header,.share-text,.down-button","#home").delay(200).fadeOut("fast",function(){
-					$("#video-wrapper").fadeIn();
+					$("#preview-video-wrapper").fadeOut(function() {
+						$("#video-wrapper").fadeIn();
+					})
 				});
 			});
 
@@ -274,17 +276,27 @@ $(document).ready(function() {
 				self.scrollTo(form_section);
 			});
 
-			$(".step input[type='radio']").on('change', function(ev) {
-
+			var _changeStep = function() {
 				var thisStep = $(".step#step_" + self.contactStep);
 				thisStep.fadeOut(function() {
-					var nextQuestion = $(".step#step_" + ++self.contactStep);
-					if(nextQuestion.size() > 0 && self.contactStep <= maxSteps) {
+					var nextQuestion = $(".step#step_" + (self._previousContact ? --self.contactStep : ++self.contactStep) );
+					if(nextQuestion.size() > 0 && (self._previousContact ? self.contactStep > 1 : self.contactStep <= maxSteps) ) {
 						nextQuestion.fadeIn();
+						self._previousContact = false;
 						//self.scrollTo(nextQuestion);
 					}
 				})
+			}
+
+			$(".step input[type='radio']").on('change', function(ev) {
+				_changeStep();
 			});
+
+			$(".contact-form-wrapper #back-btn").on('click', function(ev) {
+				ev.preventDefault();
+				self._previousContact = true;
+				_changeStep();
+			})
 		},
 
 		bindSignupForm: function() {

@@ -161,23 +161,41 @@ section#home {
     background-size:cover;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/home-header-bg.jpg', sizingMethod='scale');
     -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/home-header-bg.jpg', sizingMethod='scale')";
-    height:720px
+    height:720px;
+    margin-top:0;
+    padding-top:0;
 }
+
 section#home #video-wrapper {
     width:100%;
     overflow:hidden;
-    margin-top:-20px;
     height:inherit;
-    display:none
+    display:none;
+    position: relative;
+    top:0;
+    left:0;
+    z-index: 8;
 }
-section#home #video-wrapper #video {
+
+section#home #preview-video-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:5;
+    background: #000000;
+}
+
+section#home #video-wrapper #video , section#home #preview-video {
     width:100%;
     height:100%
 }
+
 section#home .header {
     color:#fff;
     text-align:center;
-    overflow:hidden
+    overflow:hidden;
+    position: relative;
+    z-index:10;
 }
 section#home .header .play-icon {
     background:url(../images/sprites//app-sprites.png) no-repeat;
