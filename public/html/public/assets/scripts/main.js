@@ -224,13 +224,18 @@ $(document).ready(function() {
 			});
 
 			
-			  var setVideoSize = function() {
-			  	$('#preview-video').css({ "margin-left": -(($(window).innerWidth()/2) + 45) + 'px', left: "50%" });
-			  } 
+		  var setVideoSize = function() {
+		  	$('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+		  } 
 
-			  //setVideoSize();
-			  //$(window).resize(function(){ setVideoSize(); });
+		  setVideoSize();
+		  $(window).resize(function(){ setVideoSize(); });
 
+		  var preview_video = $("#preview-video-wrapper");
+
+		  if($.browser.mobile == true) {
+		  	preview_video.remove();
+		  }
 
 			$("#video-play").on("click",function(){
 				var self  = $(this),
@@ -241,9 +246,11 @@ $(document).ready(function() {
 				video.attr('src', (video_src + '&autoplay=1'));
 
 				$(".text-header,.share-text,.down-button","#home").delay(200).fadeOut("fast",function(){
-					$("#preview-video-wrapper").fadeOut(function() {
-						$("#video-wrapper").fadeIn();
-					})
+					$("#video-wrapper").fadeIn(function() {
+						if(preview_video.size() > 0) {
+							preview_video.fadeOut();
+						}
+					});
 				});
 			});
 
