@@ -200,10 +200,6 @@ section#home #video-wrapper #video , section#home #preview-video {
     height: auto;
 }
 
-section#home #preview-video {
-    position: fixed;
-}
-
 section#home .header {
     color:#fff;
     text-align:center;
