@@ -223,6 +223,15 @@ $(document).ready(function() {
 				self.scrollTo(target);
 			});
 
+			
+			  var setVideoSize = function() {
+			  	$('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+			  } 
+
+			  setVideoSize();
+			  $(window).resize(function(){ setVideoSize(); });
+
+
 			$("#video-play").on("click",function(){
 				var self  = $(this),
 					video = $("#video");
