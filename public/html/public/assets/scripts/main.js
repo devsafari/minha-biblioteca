@@ -225,11 +225,11 @@ $(document).ready(function() {
 
 			
 			  var setVideoSize = function() {
-			  	$('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+			  	$('#preview-video').css({ "margin-left": -(($(window).innerWidth()/2) + 45) + 'px', left: "50%" });
 			  } 
 
-			  setVideoSize();
-			  $(window).resize(function(){ setVideoSize(); });
+			  //setVideoSize();
+			  //$(window).resize(function(){ setVideoSize(); });
 
 
 			$("#video-play").on("click",function(){
