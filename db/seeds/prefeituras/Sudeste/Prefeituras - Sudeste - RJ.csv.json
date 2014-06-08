@@ -1,0 +1,1683 @@
+[
+  {
+    "city": "Angra Dos Reis",
+    "site": "www.angra.rj.gov.br",
+    "street": "Praça Nilo Peçanha, 186 - Centro - Angra dos Reis - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "23900-000",
+    "email": "gp@angra.rj.gov.br",
+    "mayor_name": "MARIA DA CONCEIÇÃO CALDAS RABHA",
+    "telephones": [
+      "24 3365 1234",
+      "24 3377 8793"
+    ],
+    "emails": [
+      "gp@angra.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Aperibé",
+    "site": "www.aperibe.rj.gov.br",
+    "street": "Rua Professor Honório Silvestre, 228 - Centro - Aperibé - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28495-000",
+    "email": "adrianodias@aperibe.rj.gov.br",
+    "mayor_name": "FLÁVIO GOMES DE SOUSA",
+    "telephones": [
+      "22 3864 1393",
+      "22 3864 1393"
+    ],
+    "emails": [
+      "adrianodias@aperibe.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Araruama",
+    "site": "www.araruama.rj.gov.br",
+    "street": "Avenida John Kennedy, 120 - Centro - Araruama - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28970-000",
+    "email": null,
+    "mayor_name": "MIGUEL ALVES JEOVANI",
+    "telephones": [
+      "22 2665 2121"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Areal",
+    "site": "www.areal.rj.gov.br",
+    "street": "Praça Duque de Caxias, 51 - Centro - Areal - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25845-000",
+    "email": "gabineteareal@yahoo.com/ vinicius78@hotmail.com ",
+    "mayor_name": "WALDETH BRASIEL RINALDI",
+    "telephones": [
+      "24 2257 3919",
+      "24 2257 3919"
+    ],
+    "emails": [
+      "gabineteareal@yahoo.com",
+      "vinicius78@hotmail.com"
+    ]
+  },
+  {
+    "city": "Armação Dos Búzios",
+    "site": "www.buzios.rj.gov.br",
+    "street": "Estrada da Usina, 600 - Centro - Armação dos Buzios - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28950-000",
+    "email": "gapre@buzios.rj.gov.br",
+    "mayor_name": "ANDRÉ GRANADO NOGUEIRA DA GAMA",
+    "telephones": [
+      "22 2633 6000",
+      "22 2623 9087"
+    ],
+    "emails": [
+      "gapre@buzios.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Arraial Do Cabo",
+    "site": "www.arraial.rj.gov.br",
+    "street": "Avenida da Liberdade, s/n - Centro - Arraial do Cabo - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28930-000",
+    "email": null,
+    "mayor_name": "WANDERSON CARDOSO DE BRITO",
+    "telephones": [
+      "22 2622 1650",
+      "22 2622 1650"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Barra Do Piraí",
+    "site": "www.pmbp.rj.gov.br",
+    "street": "Travessa Assunção, 69 - Centro - Barra do Pirai - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27123-080",
+    "email": null,
+    "mayor_name": "MAERCIO FERNANDO OLIVEIRA DE ALMEIDA",
+    "telephones": [
+      "24 2443 1622",
+      "24 2443 1622"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Barra Mansa",
+    "site": "www.barramansa.rj.gov.br",
+    "street": "Rua Luiz Ponce, 263 - 2º andar - Centro - Barra Mansa - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27310-400",
+    "email": null,
+    "mayor_name": "JONASTONIAN MARINS AGUIAR",
+    "telephones": [
+      "24 2106 3431",
+      "24 3322 3912"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Belford Roxo",
+    "site": "www.belfordroxo.rj.gov.br",
+    "street": "Rua Floripes Rocha, 378 - Centro - Belford Roxo - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26113-340",
+    "email": null,
+    "mayor_name": "ADENILDO BRAULINO DOS SANTOS",
+    "telephones": [
+      "21 2103 6912",
+      "21 2103 6912"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Bom Jardim",
+    "site": "www.bomjardim.rj.gov.r",
+    "street": "Praça Governador Roberto da Silveira, 44 - Centro - Bom Jardim -",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28660-000",
+    "email": null,
+    "mayor_name": "PAULO VIEIRA DE BARROS",
+    "telephones": [
+      "22 2566 2916",
+      "22 2566 2460"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Bom Jesus Do Itabapoana",
+    "site": "www.bomjesus.rj.gov.br",
+    "street": "Av. Governador Roberto Silveira, 68 - Centro - Bom Jesus do Irab",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28360-000",
+    "email": "gabinete@bomjesus.rj.gov.br",
+    "mayor_name": "MARIA DAS GRACAS FERREIRA MOTTA",
+    "telephones": [
+      "22 3833 9200",
+      "22 3833 9211"
+    ],
+    "emails": [
+      "gabinete@bomjesus.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Cabo Frio",
+    "site": "www.cabofrio.rj.gov.br",
+    "street": "Av. Assunção, 760 - Praça Tiradentes - Centro - Cabo Frio - R",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28930-000",
+    "email": "gapre@cabofrio.rj.gov.br",
+    "mayor_name": "JANIO DOS SANTOS MENDES",
+    "telephones": [
+      "22 2645 5541",
+      "22 2645 3865"
+    ],
+    "emails": [
+      "gapre@cabofrio.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Cachoeiras De Macacu",
+    "site": "www.cachoeirasdemacacu.rj.gov.br",
+    "street": "Rua Oswaldo Aranha, 06 - Centro - Cachoeiras de Macacu - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28680-000",
+    "email": null,
+    "mayor_name": "WALDECY FRAGA MACHADO",
+    "telephones": [
+      "21 2649 9700",
+      "21 2649 9700"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Cambuci",
+    "site": null,
+    "street": "Praça da Bandeira, 120 - Centro - Cambuci - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28430-000",
+    "email": null,
+    "mayor_name": "AGNALDO VIEIRA MELLO",
+    "telephones": [
+      "22 2767 2581",
+      "22 2767 2394"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Campos Dos Goytacazes",
+    "site": "www.campos.rj.gov.br",
+    "street": "Rua Cel. Ponciano de Azevedo Furtado, 47 - Parque Santo Amaro - Campos dos Goytacazes - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28040-010",
+    "email": null,
+    "mayor_name": "ROSANGELA BARROS ASSED MATHEUS DE ",
+    "telephones": [
+      "22 2722 0427",
+      "22 2722 0427"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Cantagalo",
+    "site": "www.cantagalo.rj.gov.br",
+    "street": "Praça Miguel de Carvalho, 65 - Centro - Cantagalo - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28500-000",
+    "email": "ascom@cantagalo.rj.gov.br",
+    "mayor_name": "EVERSON ANTONIO KONJUNSKI",
+    "telephones": [
+      "22 2555 4889",
+      "22 2555 4887"
+    ],
+    "emails": [
+      "ascom@cantagalo.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Carapebus",
+    "site": "www.carapebus.rj.gov.br",
+    "street": "Avenida Getulio Vargas, 15 - Centro - Carapebus - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27998-000",
+    "email": null,
+    "mayor_name": "AMARO FERNANDES DOS SANTOS",
+    "telephones": [
+      "22 2768 9500",
+      "22 2768 9505"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Cardoso Moreira",
+    "site": "www.cardosomoreira.rj.gov.br",
+    "street": "Rua Sebastião Zaquieu, s/nº - Catarino - Cardoso Moreira - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28180-000",
+    "email": "gabinete@cardosomoreira.rj.gov.br",
+    "mayor_name": "GENIVALDO DA SILVA CANTARINO",
+    "telephones": [
+      "22 2785 1928",
+      "22 2785 1350"
+    ],
+    "emails": [
+      "gabinete@cardosomoreira.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Carmo",
+    "site": null,
+    "street": "Praça Princesa Isabel, 91 - Centro - Carmo - ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28640-000",
+    "email": null,
+    "mayor_name": "ODIR GONCALVES RIBEIRO",
+    "telephones": [
+      "22 2537 1847",
+      "22 2537 1133"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Casimiro De Abreu",
+    "site": "www.casimirodeabreu.rj.gov.br",
+    "street": "Rua Padre de Anchieta, 234 - Centro - Casimiro de Abreu - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28860-000",
+    "email": null,
+    "mayor_name": "ANTONIO MARCOS DE LEMOS MACHADO",
+    "telephones": [
+      "22 2778 9838",
+      "22 2778 1099"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Comendador Levy Gasparia",
+    "site": "www.levygasparian.rj.gov.br",
+    "street": "Av. Vereador José Francisco Xavier, 01 - Centro - Comendador Levy Gasparian - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25870-000",
+    "email": "imprensa@levygasparian.rj.gov.br",
+    "mayor_name": "CLAUDIO MANNARINO",
+    "telephones": [
+      "24 2254 1102",
+      "24 2254 1102"
+    ],
+    "emails": [
+      "imprensa@levygasparian.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Conceição De Macabu",
+    "site": "www.conceicaodemacabu.rj.gov.br",
+    "street": "Rua Maria Adelaide, 186 - Vila Nova - Conceição de Macabu - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28740-000",
+    "email": null,
+    "mayor_name": "LÍDIA MERCEDES OLIVEIRA SOARES",
+    "telephones": [
+      "22 2779 2191",
+      "22 2779 2324"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Cordeiro",
+    "site": "www.cordeiro.rj.gov.br",
+    "street": "Av. Presidente Vargas, 42 - Centro - Cordeiro ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28540-000",
+    "email": null,
+    "mayor_name": "SALOMAO LEMOS GONÇALVES",
+    "telephones": [
+      "22 2551 0339",
+      "22 2551 0339"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Duas Barras",
+    "site": "www.duasbarras.rj.gov.br",
+    "street": "Praça Governador Portela, 07 - Centro - Duas Barras - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28650-000",
+    "email": "gabinete@duasbarras.rj.gov.br",
+    "mayor_name": "ALEX RODRIGUES LEITÃO",
+    "telephones": [
+      "22 2534 1212",
+      "22 2534 1788"
+    ],
+    "emails": [
+      "gabinete@duasbarras.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Duque De Caxias",
+    "site": "www.duquedecaxias.rj.gov.br",
+    "street": "Alameda Dona Esmeralda, 206 - Jardim Primavera - Duque de Caxias - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25215-260",
+    "email": null,
+    "mayor_name": "ALEXANDRE AGUIAR CARDOSO",
+    "telephones": [
+      "21 2773 6200",
+      "21 2676 2211"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Engenheiro Paulo De Fronti",
+    "site": null,
+    "street": "Praça Roger Malhardes, 75 - Centro - Engenheiro Paulo de Frontin - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26650-000",
+    "email": null,
+    "mayor_name": "JOAO CARLOS DO REGO PEREIRA",
+    "telephones": [
+      "24 2463 1108",
+      "24 2463 1108"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Guapimirim",
+    "site": "www.guapimirim.rj.gov.br",
+    "street": "Avenida Dedo de Deus, 820 - Centro - Guapimirim - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25940-000",
+    "email": "ivaldo@guapimirim.rj.gov.br ",
+    "mayor_name": "ISMERALDA RANGEL GARCIA",
+    "telephones": [
+      "21 3633 2117",
+      "21 2632 2770"
+    ],
+    "emails": [
+      "ivaldo@guapimirim.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Iguaba Grande",
+    "site": "www.iguaba.rj.gov.br",
+    "street": "Avenida Paulino Rodrigues de Souza, 2275 - Centro - Iguaba Grande - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28960-000",
+    "email": "ascom@iguaba.rj.gov.br/ secgov@iguaba.rj.gov.br",
+    "mayor_name": "ANA GRASIELLA MOREIRA FIGUEIREDO ",
+    "telephones": [
+      "22 2624 3275",
+      "22 2624 3275"
+    ],
+    "emails": [
+      "ascom@iguaba.rj.gov.br",
+      "secgov@iguaba.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Itaboraí",
+    "site": null,
+    "street": "Praça Marechal Floriano Peixoto, 97 - Centro - Itaboraí - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "24800-000",
+    "email": null,
+    "mayor_name": "HELIL BARRETO CARDOZO",
+    "telephones": [
+      "21 3639 1446",
+      "21 3639 1446"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Itaguaí",
+    "site": "www.itaguai.rj.gov.br",
+    "street": "Rua General Bocaiuva, 636 - Centro - Itaguaí - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "23815-310",
+    "email": null,
+    "mayor_name": "LUCIANO CARVALHO MOTA",
+    "telephones": [
+      "21 2688 1710",
+      "21 2688 2715"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Italva",
+    "site": "www.italvaonline.com.br",
+    "street": "Rod. BR 356 - KM 77 - Bairro Boa vista - Italva - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28250-000",
+    "email": "italvaonline@italvaonline.com.br",
+    "mayor_name": "LEONARDO DE SOUZA GUIMARÃES",
+    "telephones": [
+      "22 2783 5000",
+      "22 2783 1080"
+    ],
+    "emails": [
+      "italvaonline@italvaonline.com.br"
+    ]
+  },
+  {
+    "city": "Itaocara",
+    "site": "www.itaocara.rj.gov.br",
+    "street": "Praça Toledo Piza, s/nº - Centro - Itaocara - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28570-000",
+    "email": null,
+    "mayor_name": "GELSIMAR GONZAGA",
+    "telephones": [
+      "22 3861 2250",
+      "22 3861 3465"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Itaperuna",
+    "site": "www.itaperuna.rj.gov.br",
+    "street": "Praça Getúlio Vargas, 94 - Centro - Itaperuna - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28300-000",
+    "email": null,
+    "mayor_name": "ALFREDO PAULO MARQUES RODRIGUES",
+    "telephones": [
+      "22 3824 6600",
+      "22 3811 1061"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Itatiaia",
+    "site": "www.itatiaia.rj.gov.br",
+    "street": "Praça Mariana Rocha Leão, 20 - Centro - Itatiaia - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27580-000",
+    "email": "gp@itatiaia.rj.gov.br",
+    "mayor_name": "LUIS CARLOS FERREIRA BASTOS",
+    "telephones": [
+      "24 3352 2058",
+      "24 3352 6777"
+    ],
+    "emails": [
+      "gp@itatiaia.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Japeri",
+    "site": null,
+    "street": "Estrada Francisco Costa Filho, 1993 - Santa Inês - Japeri - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26380-470",
+    "email": null,
+    "mayor_name": "IVALDO BARBOSA DOS SANTOS",
+    "telephones": [
+      "21 2664 1100",
+      "21 2664 1100"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Laje Do Muriaé",
+    "site": "www.pmlajedomuriae.rj.gov.br",
+    "street": "Praça Primeiro de Maio, s/nº - Centro - Laje do Muriaé - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28350-000",
+    "email": "je@pmlajedomuriae.rj.gov.br/ gabinete@pmlajedomuriae.rj.gov.br",
+    "mayor_name": "RIVELINO DA SILVA BUENO",
+    "telephones": [
+      "22 3829 2426",
+      "22 3829 2426"
+    ],
+    "emails": [
+      "je@pmlajedomuriae.rj.gov.br",
+      "gabinete@pmlajedomuriae.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Macaé",
+    "site": "www.macae.rj.gov.br",
+    "street": "Rua Presidente Sodré, 534 - 4º andar - Centro - Macaé - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27913-080",
+    "email": "riverton@macae.rj.gov.br",
+    "mayor_name": "ALUIZIO DOS SANTOS JUNIOR",
+    "telephones": [
+      "22 2762 8809",
+      "22 2762 9653"
+    ],
+    "emails": [
+      "riverton@macae.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Macuco",
+    "site": "www.prefeituramacuco.rj.gov.br",
+    "street": "Rua Dr. Mário Freire Martins, 100 - Centro - Macuco - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28545-000",
+    "email": null,
+    "mayor_name": "FELIX MONTEIRO LENGRUBER",
+    "telephones": [
+      "22 2554 9100",
+      "22 2554 9100"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Magé",
+    "site": "www.mage.rj.gov.br",
+    "street": "Praça Nilo Peçanha, s/nº - Centro - Magé - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25900-000",
+    "email": "prefeitonestorvidal@mage.rj.gov.br/ gabinete@mage.rj.gov.br",
+    "mayor_name": "NESTOR DE MORAES VIDAL NETO",
+    "telephones": [
+      "21 2633 2090",
+      "21 9888 2707 "
+    ],
+    "emails": [
+      "prefeitonestorvidal@mage.rj.gov.br",
+      "gabinete@mage.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Mangaratiba",
+    "site": "www.mangaratiba.rj.gov.br",
+    "street": "Praça Robert Simões, 92 - Centro - Mangaratiba - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "23860-000",
+    "email": null,
+    "mayor_name": "EVANDRO BERTINO JORGE",
+    "telephones": [
+      "21 2789 6000",
+      "21 3789 3173"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Maricá",
+    "site": "www.marica.rj.gov.br",
+    "street": "Rua Álvares de Castro, 346 - Centro - Maricá - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "24900-000",
+    "email": "executiva@marica.rj.gov.br/ educacao@marica.rj.gov.br",
+    "mayor_name": "WASHINGTON LUIZ CARDOSO SIQUEIRA",
+    "telephones": [
+      "21 2637 8585",
+      "21 3731 1060"
+    ],
+    "emails": [
+      "executiva@marica.rj.gov.br",
+      "educacao@marica.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Mendes",
+    "site": "www.mendes.rj.gov.br",
+    "street": "Av. Júlio Braga, 86 - Centro - Mendes - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26700-000",
+    "email": "governo@mendes.rj.gov.br",
+    "mayor_name": "REINALDO MEDEIROS MACEDO",
+    "telephones": [
+      "24 2465 0661",
+      "24 2465 0661"
+    ],
+    "emails": [
+      "governo@mendes.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Mesquita",
+    "site": "www.mesquita.rj.gov.br",
+    "street": "Rua Arthur de Oliveira Vecchi, 120 - Centro - Mesquita - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26553-080",
+    "email": "semed@mesquita.rj.gov.br",
+    "mayor_name": "ROGELSON SANCHES FONTOURA",
+    "telephones": [
+      "21 2797 2003",
+      "21 2696 1522"
+    ],
+    "emails": [
+      "semed@mesquita.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Miguel Pereira",
+    "site": "www.pmmp.rj.gov.br",
+    "street": "Rua Prefeito Manoel Guilherme Barbosa, 375 - Centro - Miguel Pereira - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26900-080",
+    "email": "miguelpereira@pmmp.rj.gov.br/ paulogomide@pmmp.rj.gov.br",
+    "mayor_name": "CLAUDIO VALENTE VIANA",
+    "telephones": [
+      "24 2484 4500",
+      "24 2484 6154"
+    ],
+    "emails": [
+      "miguelpereira@pmmp.rj.gov.br",
+      "paulogomide@pmmp.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Miracema",
+    "site": null,
+    "street": "Praça Ary Parreiras, 171 - Centro - Miracema - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28460-000",
+    "email": null,
+    "mayor_name": "JUEDYR ORSAY SILVA",
+    "telephones": [
+      "22 3852 0542",
+      "22 3852 1029"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Natividade",
+    "site": "www.natividade.rj.gov.br",
+    "street": "Praça Ferreira Rabello, 04 - Centro - Natividade - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28380-000",
+    "email": "governo@natividade.rj.gov.br",
+    "mayor_name": "MARCOS ANTONIO DA SILVA TOLEDO",
+    "telephones": [
+      "22 3841 2245",
+      "22 3841 1362"
+    ],
+    "emails": [
+      "governo@natividade.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Nilópolis",
+    "site": "www.nilopolis.rj.gov.br",
+    "street": "Avenida Mirandela, 401 - Centro - Nilópolis - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26520-330",
+    "email": "gabinete@nilopolis.rj.gov.br",
+    "mayor_name": "ALESSANDRO ALVES CALAZANS",
+    "telephones": [
+      "21 2791 6624",
+      "21 2791 7455"
+    ],
+    "emails": [
+      "gabinete@nilopolis.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Niterói",
+    "site": "www.niteroi.rj.gov.br",
+    "street": "Rua Visconde de Sepetiba, 987 - 6º andar - Centro - Niterói - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "24020-206",
+    "email": "ascom@niteroi.rj.gov.br/ chefia.gabinete@niteroi.rj.gov.br",
+    "mayor_name": "RODRIGO NEVES BARRETO",
+    "telephones": [
+      "21 2613 6568",
+      "21 2717 7223"
+    ],
+    "emails": [
+      "ascom@niteroi.rj.gov.br",
+      "chefia.gabinete@niteroi.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Nova Friburgo",
+    "site": "www.novafriburgo.rj.gov.br",
+    "street": "Av. Alberto Brauner, 225 - Centro - Nova Friburgo - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28613-001",
+    "email": "sgabinete@pmnf.rj.gov.br",
+    "mayor_name": "PEDRO ROGÉRIO VIEIRA CABRAL",
+    "telephones": [
+      "22 2521 1591",
+      "22 2525 9131"
+    ],
+    "emails": [
+      "sgabinete@pmnf.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Nova Iguaçu",
+    "site": "www.novaiguacu.rj.gov.br",
+    "street": "Rua Athaíde Pimenta de Moraes, 528 - 1º andar - Centro - Nova Iguaçu - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26210-190",
+    "email": "gabinete@novaiguacu.rj.gov.br",
+    "mayor_name": "NELSON ROBERTO BORNIER DE OLIVEIRA",
+    "telephones": [
+      "21 3770 5941",
+      "21 2768 2272"
+    ],
+    "emails": [
+      "gabinete@novaiguacu.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Paracambi",
+    "site": "www.paracambi.rj.gov.br",
+    "street": "Rua Juiz Emílio Carmo, 50 - Centro - Paracambi - ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26600-000",
+    "email": "gabinete@paracambi.rj.gov.br",
+    "mayor_name": "TARCISO GONÇALVES PESSOA",
+    "telephones": [
+      "21 2683 1875",
+      "21 2683 4545"
+    ],
+    "emails": [
+      "gabinete@paracambi.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Paraíba Do Sul",
+    "site": "www.paraibanet.com.br",
+    "street": "Rua Visconde da Paraíba, 11 - Centro - Paraíba do Sul - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25850-000",
+    "email": "educa@paraibanet.com.br",
+    "mayor_name": "MARCIO DE ABREU OLIVEIRA",
+    "telephones": [
+      "24 2263 1052",
+      "24 2263 4469"
+    ],
+    "emails": [
+      "educa@paraibanet.com.br"
+    ]
+  },
+  {
+    "city": "Paraty",
+    "site": "www.paraty.rj.gov.br",
+    "street": "Rua Dr. Samuel Costa, 29 - Centro - Paraty - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "23970-000",
+    "email": null,
+    "mayor_name": "CARLOS JOSÉ GAMA MIRANDA",
+    "telephones": [
+      "24 3371 9914",
+      "24 3371 9913"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Paty Do Alferes",
+    "site": "www.patydoalferes.rj.gov.br",
+    "street": "Rua Sebastião de Lacerda, 35 - Centro - Paty do Alferes - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26950-000",
+    "email": "gabinete@patydoalferes.rj.gov.br/assessoriapaty@gmail.com",
+    "mayor_name": "LÚCIA DE FÁTIMA FERNANDES FONSECA",
+    "telephones": [
+      "24 2485 1234",
+      "24 2485 1044"
+    ],
+    "emails": [
+      "gabinete@patydoalferes.rj.gov.br",
+      "assessoriapaty@gmail.com"
+    ]
+  },
+  {
+    "city": "Petrópolis",
+    "site": "www.petropolis.rj.gov.br",
+    "street": "Av. Koeler, 260 - Centro - Petrópolis - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25685-060",
+    "email": "gap@petropolis.rj.gov.br/ gapascom@petropolis.rj.gov.br",
+    "mayor_name": "BERNARDO CHIM ROSSI",
+    "telephones": [
+      "24 2243 2551",
+      "24 2246 9338"
+    ],
+    "emails": [
+      "gap@petropolis.rj.gov.br",
+      "gapascom@petropolis.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Pinheiral",
+    "site": "www.pinheiral.rj.gov.br",
+    "street": "Rua Justino Ribeiro, 228 - Centro - Pinheiral - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27197-000",
+    "email": "educpinheiral@yahoo.com.br",
+    "mayor_name": "JOSÉ ARIMATHÉA OLIVEIRA",
+    "telephones": [
+      "24 3356 4580",
+      "24 3356 4580"
+    ],
+    "emails": [
+      "educpinheiral@yahoo.com.br"
+    ]
+  },
+  {
+    "city": "Piraí",
+    "site": "www.pirai.rj.gov.br",
+    "street": "Praça Getulio Vargas, s/ n - Centro - Piraí - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27175-000",
+    "email": "angela.fajardo@piraidigital.com.br",
+    "mayor_name": "LUIZ ANTONIO DA SILVA NEVES",
+    "telephones": [
+      "24 2431 9950",
+      "24 2431 9950"
+    ],
+    "emails": [
+      "angela.fajardo@piraidigital.com.br"
+    ]
+  },
+  {
+    "city": "Porciúncula",
+    "site": "www.porciuncula.rj.gov.br",
+    "street": "Rua César Vieira, 105 - Centro - Porciúncula - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28390-000",
+    "email": "gabinete@porciuncula.rj.gov.br",
+    "mayor_name": "CARLOS SERGIO DE PAULA PORTO",
+    "telephones": [
+      "22 3842 1221",
+      "22 3842 1388"
+    ],
+    "emails": [
+      "gabinete@porciuncula.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Porto Real",
+    "site": "www.portoreal.rj.gov.br",
+    "street": "Rua Hilário Ettore, 442 - Centro - Porto Real - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27570-000",
+    "email": "gpportoreal@hotmail.com",
+    "mayor_name": "MARIA APARECIDA DA ROCHA SILVA",
+    "telephones": [
+      "24 3353 8200",
+      "24 3353 8227"
+    ],
+    "emails": [
+      "gpportoreal@hotmail.com"
+    ]
+  },
+  {
+    "city": "Quatis",
+    "site": "www.quatis.rj.gov.br",
+    "street": "Rua Faustino Pinheiro, 205 - Centro - Quatis - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27410-130",
+    "email": "jose.laerte@quatis.rj.gov.br",
+    "mayor_name": "RAIMUNDO DE SOUZA",
+    "telephones": [
+      "24 3353 2918",
+      "24 3353 3509"
+    ],
+    "emails": [
+      "jose.laerte@quatis.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Queimados",
+    "site": null,
+    "street": "Rua Hortência, 254 - Centro - Queimados - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "26383-250",
+    "email": null,
+    "mayor_name": "MAX RODRIGUES LEMOS",
+    "telephones": [
+      "21 2663 9400",
+      "21 2665 2206"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Quissamã",
+    "site": "www.quissama.rj.gov.br",
+    "street": "Rua Conde de Araruama, 425 - Centro - Quissamã - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28735-000",
+    "email": "quissama@quissama.rj.gov.br/ comunicacao@quissama.rj.gov.br",
+    "mayor_name": "OCTÁVIO CARNEIRO DA SILVA",
+    "telephones": [
+      "22 2768 9333",
+      "22 2768 1130"
+    ],
+    "emails": [
+      "quissama@quissama.rj.gov.br",
+      "comunicacao@quissama.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Resende",
+    "site": "www.resende.rj.gov.br",
+    "street": "Rua Augusto Xavier de Lima, 251 - Jardim Jalisco - Resende - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27510-090",
+    "email": null,
+    "mayor_name": "JOSÉ RECHUAN JUNIOR",
+    "telephones": [
+      "24 3360 5551",
+      "24 3360 6091"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Rio Das Flores",
+    "site": null,
+    "street": "Rua Dr. Leoni Ramos, 12 - Centro - Rio das Flores - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27660-000",
+    "email": null,
+    "mayor_name": "SORAIA FURTADO DA GRAÇA",
+    "telephones": [
+      "24 2458 1223",
+      "24 2458 1214"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Rio Das Ostras",
+    "site": "www.riodasostras.rj.gov.br",
+    "street": "Rua Campo de Albacora, 75 - Loteamento Atlântica - Rio das Ostras - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28890-000",
+    "email": "chefegab@riodasostras.rj.gov.br",
+    "mayor_name": "ALCEBIADES SABINO DOS SANTOS",
+    "telephones": [
+      "22 2760 1315",
+      "22 2764 6022"
+    ],
+    "emails": [
+      "chefegab@riodasostras.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Rio De Janeiro",
+    "site": "www.rio.rj.gov.br",
+    "street": "Rua Afonso Cavalcanti, 455 - 13º andar - Cidade Nova - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "20211-110",
+    "email": "http://imprensa.prefeituradorio@gmail.com/",
+    "mayor_name": "EDUARDO DA COSTA PAES",
+    "telephones": [
+      "21 2976 2812",
+      "21 2273 9977"
+    ],
+    "emails": [
+      "imprensa.prefeituradorio@gmail.com"
+    ]
+  },
+  {
+    "city": "Rio Bonito",
+    "site": "www.riobonito.rj.gov.br",
+    "street": "Rua Monsenhor Antônio de Souza Gens, 23 - Centro - Rio Bonito - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28800-000",
+    "email": null,
+    "mayor_name": "SOLANGE PEREIRA DE ALMEIDA",
+    "telephones": [
+      "21 2734 5257",
+      "21 2734 0335"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Rio Claro",
+    "site": "www.rioclaro.rj.gov.br",
+    "street": "Av. João Baptista Portugal, 230 - Centro - Rio Claro - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27460-000",
+    "email": "prefeito@rioclaro.rj.gov.brpmrc@rioclaro.rj.gov.br",
+    "mayor_name": "RAUL FONSECA MACHADO",
+    "telephones": [
+      "24 3332 1717",
+      "24 3332 1698"
+    ],
+    "emails": [
+      "prefeito@rioclaro.rj.gov",
+      ".brpmrc@rioclaro.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Santa Maria Madalena",
+    "site": "www.pmsmm.rj.gov.br",
+    "street": "Praça José Raphael Bechara, 07 (Poliesportivo) - Centro - Santa Maria Madalena - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28770-000",
+    "email": "pgabinetedoprefeito@gmail.com/ gabineteprefeito@pmsmm.rj.gov.br",
+    "mayor_name": "CLEMENTINO DA CONCEIÇÃO",
+    "telephones": [
+      "22 2561 1596",
+      "22 2561 1237"
+    ],
+    "emails": [
+      "pgabinetedoprefeito@gmail.com",
+      "gabineteprefeito@pmsmm.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Santo Antônio De Pádua",
+    "site": "www.santoantoniodepadua.rj.gov.br",
+    "street": "Praça Visconde Figueira, 57 - Centro - Santo Antônio de Pádua - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28470-000",
+    "email": "smecpadua@ig.com.br",
+    "mayor_name": "JOSIAS QUINTAL DE OLIVEIRA",
+    "telephones": [
+      "22 3851 0005",
+      "22 3851 0879"
+    ],
+    "emails": [
+      "smecpadua@ig.com.br"
+    ]
+  },
+  {
+    "city": "São Fidélis",
+    "site": "www.saofidelisrj.com.br",
+    "street": "Praça de São Fidélis, 151 - Centro - São Fidélis - R",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28400-000",
+    "email": null,
+    "mayor_name": "LUIZ CARLOS FERNANDES FRATANI",
+    "telephones": [
+      "22 2758 1082",
+      "22 2758 1082"
+    ],
+    "emails": []
+  },
+  {
+    "city": "São Francisco De Itabapoana",
+    "site": "www.pmsfi.rj.gov.br",
+    "street": "Praça dos Três Poderes, snº - Centro - São Francisco de Itabapoana - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28230-000",
+    "email": "gabinete@pmsfi.rj.gov.br",
+    "mayor_name": "PEDRO JORGE CHERENE JÚNIOR",
+    "telephones": [
+      "22 2789 1717",
+      "22 2789 1717"
+    ],
+    "emails": [
+      "gabinete@pmsfi.rj.gov.br"
+    ]
+  },
+  {
+    "city": "São Gonçalo",
+    "site": "www.saogoncalo.rj.gov.br",
+    "street": "Rua Feliciano Sodré, 100 - Centro - São Gonçalo - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "24440-440",
+    "email": "educacao@pmsg.rj.gov.br",
+    "mayor_name": "ADOLPHO KONDER HOMEM DE CARVALHO ",
+    "telephones": [
+      "21 2199 6300",
+      "21 2199 6333"
+    ],
+    "emails": [
+      "educacao@pmsg.rj.gov.br"
+    ]
+  },
+  {
+    "city": "São João Da Barra",
+    "site": "www.sjb.rj.gov.br",
+    "street": "Rua Barão de Barcelos, 88 - Centro - São João da Barra - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28200-000",
+    "email": null,
+    "mayor_name": "JOSÉ AMARO MARTINS DE SOUZA",
+    "telephones": [
+      "22 2741 7878",
+      "22 2741 7878"
+    ],
+    "emails": []
+  },
+  {
+    "city": "São João De Meriti",
+    "site": "www.meriti.rj.gov.br",
+    "street": "Av. Presidente Lincoln, 899 - 1º andar - Centro - São João de Meriti - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25555-200",
+    "email": "prefeitura@meriti.rj.gov.br",
+    "mayor_name": "SANDRO MATOS PEREIRA",
+    "telephones": [
+      "21 2751 4798",
+      "21 2751 6759"
+    ],
+    "emails": [
+      "prefeitura@meriti.rj.gov.br"
+    ]
+  },
+  {
+    "city": "São José De Ubá",
+    "site": null,
+    "street": "Rua Alibabá de Souza Lessa, s/nº - Loteamento Nova Ubá - São José de Ubá - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28455-000",
+    "email": null,
+    "mayor_name": "GEAN MARCOS PEREIRA DA SILVA",
+    "telephones": [
+      "22 3866 1115",
+      "22 3866 1115"
+    ],
+    "emails": []
+  },
+  {
+    "city": "São José Do Vale Do Rio Preto",
+    "site": "www.sjvriopreto.rj.gov.br",
+    "street": "Rua Cel. Francisco Limongi, 353 - Centro - São José do Vale do Rio Preto - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28890-000",
+    "email": "gabinete@sjvriopreto.rj.gov.br",
+    "mayor_name": "ROSALDO ANDRIOLO MACHADO",
+    "telephones": [
+      "24 2224 1326",
+      "24 2224 1552"
+    ],
+    "emails": [
+      "gabinete@sjvriopreto.rj.gov.br"
+    ]
+  },
+  {
+    "city": "São Pedro Da Aldeia",
+    "site": "www.pmspa.rj.gov.br",
+    "street": "Rua Marques da Cruz, 61 - Centro - São Pedro da Aldeia - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28940-000",
+    "email": "gabinete@pmspa.rj.gov.br",
+    "mayor_name": "CLAUDIO VASQUE CHUMBINHO DOS SANTOS",
+    "telephones": [
+      "22 2621 1559",
+      "22 2621 6525"
+    ],
+    "emails": [
+      "gabinete@pmspa.rj.gov.br"
+    ]
+  },
+  {
+    "city": "São Sebastião Do Alto",
+    "site": "www.ssalto.rj.gov.br",
+    "street": "Rua Julio Vieitas, 88 - Centro - São Sebastião do Alto - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28550-000",
+    "email": "faleconosco@ssalto.gov.br",
+    "mayor_name": "CARMOD BARBOSA BASTOS",
+    "telephones": [
+      "22 2559 1160",
+      "22 2559 1160"
+    ],
+    "emails": [
+      "faleconosco@ssalto.gov.br"
+    ]
+  },
+  {
+    "city": "Sapucaia",
+    "site": "www.sapucaia.rj.gov.br",
+    "street": "Praça Governador Miguel Couto Filho, 240 - Centro - Sapucaia - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25880-000",
+    "email": "gabinete@sapucaia.rj.gov.br",
+    "mayor_name": "ANDERSON BARCIA ZANON",
+    "telephones": [
+      "24 2271 1171",
+      "24 2271 9000"
+    ],
+    "emails": [
+      "gabinete@sapucaia.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Saquarema",
+    "site": "www.saquarema.rj.gov.br",
+    "street": "Rua Coronel Madureira, 77 - Centro - Saquarema - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28990-000",
+    "email": "pms@saquarema.rj.gov.br",
+    "mayor_name": "FRANCIANE CONCEIÇÃO GAGO MOTTA",
+    "telephones": [
+      "22 2651 1985",
+      "22 2651 4572"
+    ],
+    "emails": [
+      "pms@saquarema.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Seropédica",
+    "site": "www.portalseropedica.com.br",
+    "street": "Rua Maria Lourenço, 18 - Fazenda Caxias - Seropédica - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "23890-000",
+    "email": null,
+    "mayor_name": "ALCIR FERNANDO MARTINAZZO",
+    "telephones": [
+      "21 2682 2224",
+      "21 3787 0963"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Silva Jardim",
+    "site": "www.silvajardim.rj.gov.br",
+    "street": "Praça Amaral Peixoto, 46 - Centro - Silva Jardim - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28820-000",
+    "email": null,
+    "mayor_name": "WANDERSON GIMENES ALEXANDRE",
+    "telephones": [
+      "22 2668 1089",
+      "22 2668 1118"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Sumidouro",
+    "site": "www.sumidouro.rj.gov.br",
+    "street": "Rua Alfredo Chaves, 39 - Centro - Sumidouro - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28637-000",
+    "email": "gabinete2010@sumidouro.rj.gov.br",
+    "mayor_name": "JUAREZ GONÇALVES CORGUINHA",
+    "telephones": [
+      "22 2531 2144",
+      "22 2531 2144"
+    ],
+    "emails": [
+      "gabinete2010@sumidouro.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Tanguá",
+    "site": "www.tangua.rj.gov.br",
+    "street": "Rua Vereador Manoel de Macedo, 680 - Centro - Tanguá - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "24890-000",
+    "email": null,
+    "mayor_name": "VALBER LUIZ MARCELO DE CARVALHO",
+    "telephones": [
+      "21 3749 1111",
+      "21 3749 1133"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Teresópolis",
+    "site": null,
+    "street": "Avenida Feliciano Sodré, 675 - Várzea - Teresópolis- RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25963-083",
+    "email": null,
+    "mayor_name": "ARLEI DE OLIVEIRA ROSA",
+    "telephones": [
+      "21 2742 5265",
+      "21 2742 3720"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Trajano De Moraes",
+    "site": "http://pmtm.com.br/",
+    "street": "Praça Waldemar Magalhães, s/nº - Centro - Trajano de Moraes - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28750-000",
+    "email": "smeducacao@trajanodemoraes.rj.gov.br",
+    "mayor_name": "CARLOS JOSÉ GOMES DE SOUZA",
+    "telephones": [
+      "22 2564 1106",
+      "22 2564 1106"
+    ],
+    "emails": [
+      "smeducacao@trajanodemoraes.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Três Rios",
+    "site": null,
+    "street": "Praça São Sebastião, 81 - Centro - Três Rios - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "25804-080",
+    "email": null,
+    "mayor_name": "VINICIUS MEDEIROS FARAH",
+    "telephones": [
+      "24 2252 0266",
+      "24 2252 0266"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Valença",
+    "site": "www.valenca.rj.gov.br",
+    "street": "Rua Drº Figueiredo, 320 - Centro - Valença - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27600-000",
+    "email": "gabinete@valenca.rj.gov.br",
+    "mayor_name": "LUIZ FERNANDO FURTADO DA GRAÇA",
+    "telephones": [
+      "24 2453 4765",
+      "24 2453 4776"
+    ],
+    "emails": [
+      "gabinete@valenca.rj.gov.br"
+    ]
+  },
+  {
+    "city": "Varre Sai",
+    "site": "www.varresairj.com.br",
+    "street": "Praça Padre Abaeté Cordeiro, 16 - Centro - Varre-Sai - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "28375-000",
+    "email": null,
+    "mayor_name": "EVERARDO OLIVEIRA FERREIRA",
+    "telephones": [
+      "22 3843 3213",
+      "22 3843 3532"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Vassouras",
+    "site": "www.vassouras.rj.gov.br/",
+    "street": "Rua Barão de Vassouras, 45 - Centro - Vassouras - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27700-000",
+    "email": null,
+    "mayor_name": "RENAN VINICIUS SANTOS DE OLIVEIRA",
+    "telephones": [
+      "24 2491 9044",
+      "24 2491 9014"
+    ],
+    "emails": []
+  },
+  {
+    "city": "Volta Redonda",
+    "site": "www.portalvr.com",
+    "street": "Praça Sávio Gama, 53 - Aterrado - Volta Redonda - RJ",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "RJ",
+    "zipcode": "27295-620",
+    "email": "sme@epdvr.com.br",
+    "mayor_name": "ANTONIO FRANCISCO NETO",
+    "telephones": [
+      "24 3339 9020",
+      "24 3339 9138"
+    ],
+    "emails": [
+      "sme@epdvr.com.br"
+    ]
+  }
+]

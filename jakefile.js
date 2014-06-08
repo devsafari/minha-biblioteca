@@ -4,16 +4,34 @@
   var path     = require('path'),
       User     = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'user')),
       Library  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'library')),
+      Prefecture  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'prefecture')),
+      School   = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'school')),
       Section  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'section')),
       config   = require(path.join(__dirname , 'config')),
       mongoose = require('mongoose'),
       glob     = require('glob'),
-      fs       = require('fs');
+      fs       = require('fs'),
+      _s       = require('underscore.string');
+
+  var helper        = require(path.join(__dirname,"app","helpers","states")),
+      state_regions = helper.regions,
+      states        = helper.states,
+      readDir       = require('readdir')
 
   var loadJSON = function(json_filename) {
     var file_data = fs.readFileSync(path.join(__dirname , 'db', 'seeds', json_filename + '.json') , 'utf8');
     return JSON.parse(file_data)
   }
+
+  var getRegion = function(state)  {
+    var region = ""
+    state_regions.forEach(function(item,index) {
+      if(item.states.indexOf(state) != -1) {
+        return region = item.region_name;
+      }
+    })
+    return region;
+  } 
 
   namespace("setup", function() {
     desc("create necessary dir");
@@ -33,6 +51,153 @@
 
   namespace('db', function() {
     config.setupDatabase(mongoose);
+
+    desc("Import prefectures")
+    task("prefectures", {async: true}, function() {
+
+      console.time('Import prefectures JSON');
+
+      var files = readDir.readSync(path.join(__dirname, "db","seeds","prefeituras"), ["**/*.json"]).map(function(item, index)  {
+        return "prefeituras/" + item.replace(/\.json$/, "")
+      });
+
+      var mountStructuredJSON = function(prefecture) {
+        var structuredJSON =  {
+          site: _s.clean(prefecture.site),
+          address: {
+            city:  {
+              name: _s.titleize(prefecture.city)
+            },
+            state: {
+              name: states[prefecture.state.toUpperCase()],
+              uf: prefecture.state,
+              region: getRegion(prefecture.state.toUpperCase())
+            },
+            coordinates: {
+              lat: "",
+              lng: ""
+            },
+            country: {
+              name: "Brasil"
+            },
+            district: {
+              name: _s.titleize(prefecture.district)
+            },
+            number: prefecture.number,
+            street: _s.titleize(prefecture.street),
+            zipcode: prefecture.zipcode,
+            full_address: prefecture.district ? [prefecture.street, prefecture.district, prefecture.city].join(" - ") : prefecture.street
+          },
+          emails: prefecture.emails,
+          mayor: {
+            name: prefecture.mayor_name
+          },
+          telephones: prefecture.telephones
+        }
+
+        return structuredJSON;
+      }
+
+      var total_prefectures = 0,
+          total_added       = 0
+
+      var checkCompleted = function() {
+        if(++total_added >= total_prefectures) {
+          console.timeEnd('Import prefectures JSON');
+          complete();
+        }
+      }
+
+      Prefecture.remove({}, function() {
+        files.forEach(function(file, index) {
+          var prefectures = loadJSON(file);
+          total_prefectures += prefectures.length
+
+          prefectures.forEach(function(prefecture, index) {
+            prefecture = new Prefecture(mountStructuredJSON(prefecture))
+            prefecture.save(function(err) {
+              console.log("%s/%s", total_added, total_prefectures);
+              checkCompleted();
+            })
+          })
+        })
+      })
+    })
+
+    desc("Import schools")
+    task("schools", {async: true}, function() {
+
+      var mountStructuredJSON = function(school) {
+
+        var address = school.address
+        var filterYes = function(objekt, expected_value) {
+          expected_value = expected_value || "sim"
+          return Object.keys(objekt).filter(function(key) { return objekt[key].toLowerCase() == expected_value })
+        }
+
+        var education = filterYes(school.education)
+        var others    = filterYes(school.others)
+
+        var structuredJSON =  { 
+          email: school.email,
+          kind: school.kind,
+          address: {
+            complement: address.complement,
+            number: address.number,
+            street: address.street,
+            zipcode: address.zipcode,
+            city:  {
+              name: address.city
+            },
+            state: {
+              name: states[address.state.toUpperCase()],
+              uf: address.state,
+              region: getRegion(address.state.toUpperCase())
+            },
+            district: {
+              name: school.address.district
+            },
+            full_address: [address.street, ", ", address.number, ", " , address.complement, " - ", address.district, " ", address.zipcode, " - ", address.city, ", ", address.state].join("")
+          },
+          telephone: school.telephone,
+          fax: school.fax,
+          education: education,
+          others: others
+        }
+
+        return structuredJSON;
+      }
+
+      console.time('Import schools JSON');
+
+      var files = readDir.readSync(path.join(__dirname, "db","seeds","schools"), ["*.json"]).map(function(item, index)  {
+        return "schools/" + item.replace(/\.json$/, "")
+      });
+
+      var checkCompleted = function() {
+        if(++total_added >= total_schools) {
+          console.timeEnd('Import schools JSON');
+          complete();
+        }
+      }
+
+      var total_schools = 0,
+          total_added   = 0;
+      files.forEach(function(file, index) {
+        var schools = loadJSON(file);
+        total_schools += schools.length
+
+        schools.forEach(function(school, index) {
+          school = new School(mountStructuredJSON(school))
+          school.save(function(err) {
+            console.log("%s/%s", total_added, total_schools);
+            checkCompleted();
+          })
+        })
+
+      });
+
+    })
 
     desc("Import default sections")
     task("sections", {async: true}, function() {

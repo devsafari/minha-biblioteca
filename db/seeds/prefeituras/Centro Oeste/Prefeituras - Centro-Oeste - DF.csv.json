@@ -1,0 +1,18 @@
+[
+  {
+    "city": "Distrito Federal",
+    "site": "http://www.df.gov.br/",
+    "street": "PALACIO DO BURITI - PRAÇA DO BURITI - BRASÍLIA",
+    "number": null,
+    "complement": null,
+    "district": null,
+    "state": "DF",
+    "zipcode": " 70075-900",
+    "email": null,
+    "mayor_name": "Agnelo Queiroz (governador do DF)",
+    "telephones": [
+      "(61) 3961-4415/4800"
+    ],
+    "emails": []
+  }
+]
