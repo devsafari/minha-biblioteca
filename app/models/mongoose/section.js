@@ -1,5 +1,3 @@
-var SectionField = require('./section_field');
-
 var SectionModel = (function() {
   'use strict';
 

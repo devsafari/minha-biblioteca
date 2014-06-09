@@ -1,17 +1,17 @@
 (function() {
   'use strict';
 
-  var path     = require('path'),
-      AdminUser = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'admin_user')),
-      Library  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'library')),
+  var path        = require('path'),
       Prefecture  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'prefecture')),
-      School   = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'school')),
-      Section  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'section')),
-      config   = require(path.join(__dirname , 'config')),
-      mongoose = require('mongoose'),
-      glob     = require('glob'),
-      fs       = require('fs'),
-      _s       = require('underscore.string');
+      AdminUser   = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'admin_user')),
+      Library     = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'library')),
+      School      = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'school')),
+      Section     = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'section')),
+      config      = require(path.join(__dirname , 'config')),
+      mongoose    = require('mongoose'),
+      glob        = require('glob'),
+      fs          = require('fs'),
+      _s          = require('underscore.string');
 
   var helper        = require(path.join(__dirname,"app","helpers","states")),
       state_regions = helper.regions,
@@ -185,12 +185,17 @@
       var total_schools = 0,
           total_added   = 0;
 
+      console.log('Hold on, we gonna import schools for our database, this can take any minutes.')
+
       files.forEach(function(file, index) {
         var schools = loadJSON(file);
         total_schools += schools.length
 
+        console.log("More %s schools to be imported", schools.length)
+
         schools.forEach(function(school, index) {
           school = new School(mountStructuredJSON(school))
+          
           school.save(function(err) {
             console.log("%s/%s", total_added, total_schools);
             checkCompleted();

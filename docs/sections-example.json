@@ -1,0 +1,139 @@
+[
+  {
+    "key": "site-header",
+    "fields": [
+      {
+        "key": "video-link",
+        "value": "http://youtube.com"
+      },
+      {
+        "key": "background-image",
+        "value": "/public/uploads/euquerominhabiblioteca-topo.png"
+      }
+    ]
+  },
+  {
+    "key": "the-campaign",
+    "fields": [
+      {
+        "key": "text_1",
+        "value": "a campanha eu quero minha biblioteca busca compartilhar informações com gestores públicos e sociedade civil pela universalização de bibliotecas em escolas."
+      },
+      {
+        "key": "text_2",
+        "value": "saber ler com gosto e competência é a base para o acesso a todo conhecimento e a biblioteca em escola é o principal meio de acesso gratuito aos livros."
+      },
+      {
+        "key": "text_3",
+        "value": "a universalização das bibliotecas em instituições de ensino públicas e privadas é um direito previsto na lei 12.244/10."
+      }
+    ]
+  },
+  {
+    "key": "share-campaign",
+    "fields": [
+      {
+        "key": "banner_1",
+        "value": "/public/uploads/images/banners/banner-1.jpg"
+      },
+      {
+        "key": "banner_2",
+        "value": "/public/uploads/images/banners/banner-2.jpg"
+      },
+      {
+        "key": "banner_3",
+        "value": "/public/uploads/images/banners/banner-3.jpg"
+      },
+      {
+        "key": "banner_4",
+        "value": "/public/uploads/images/banners/banner-4.jpg"
+      },
+      {
+        "key": "banner_5",
+        "value": "/public/uploads/images/banners/banner-5.jpg"
+      }
+    ]
+  },
+  {
+    "key": "orientations",
+    "fields": [
+      {
+        "key": "background-image",
+        "value": "/public/uploads/background-image.png"
+      },
+      {
+        "key": "file-cidadaos",
+        "value": "/public/uploads/files-cidadaos.pdf"
+      },
+      {
+        "key": "file-gestores",
+        "value": "/public/uploads/files-gestores.pdf"
+      }
+    ]
+  },
+  {
+    "key": "sponsors",
+    "fields": [
+      {
+        "key": "creators",
+        "value": [
+          {
+            "image": "/public/uploads/sponsors/sponsor-1.png",
+            "link": "http://sponsor1.com.br",
+            "name": "Sponsor #1"
+          },
+          {
+            "image": "/public/uploads/sponsors/sponsor-2.png",
+            "link": "http://sponsor2.com.br",
+            "name": "Sponsor #2"
+          }
+        ]
+      },
+      {
+        "key": "co-creators",
+        "value": [
+          {
+            "image": "/public/uploads/sponsors/sponsor-1.png",
+            "link": "http://sponsor1.com.br",
+            "name": "Sponsor #1"
+          },
+          {
+            "image": "/public/uploads/sponsors/sponsor-2.png",
+            "link": "http://sponsor2.com.br",
+            "name": "Sponsor #2"
+          }
+        ]
+      },
+      {
+        "key": "sponsors",
+        "value": [
+          {
+            "image": "/public/uploads/sponsors/sponsor-1.png",
+            "link": "http://sponsor1.com.br",
+            "name": "Sponsor #1"
+          },
+          {
+            "image": "/public/uploads/sponsors/sponsor-2.png",
+            "link": "http://sponsor2.com.br",
+            "name": "Sponsor #2"
+          }
+        ]
+      },
+      {
+        "key": "advisers",
+        "value": [
+          {
+            "image": "/public/uploads/sponsors/sponsor-1.png",
+            "link": "http://sponsor1.com.br",
+            "name": "Sponsor #1"
+          },
+          {
+            "image": "/public/uploads/sponsors/sponsor-2.png",
+            "link": "http://sponsor2.com.br",
+            "name": "Sponsor #2"
+          }
+        ]
+      }
+    ]
+  }
+]

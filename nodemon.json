@@ -1,6 +1,4 @@
 {
   "verbose": true,
-  "ignore": ["node_modules/*"],
-  "execMap": {
-  }
+  "ignore": ["node_modules/*"]
 }

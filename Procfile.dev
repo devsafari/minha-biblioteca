@@ -1,0 +1,3 @@
+web: nodemon server.js -p $PORT
+mongo: mongod
+redis: redis-server /etc/redis/redis.conf
