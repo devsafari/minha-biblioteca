@@ -1493,6 +1493,47 @@ ul.errors-messages li {
     overflow:hidden;
     display:none
 }
+
+#signup_form.autocomplete-opened {
+    overflow: visible;
+}
+
+#signup_form fieldset#field-library-institution-name {
+    position: relative;
+}
+
+#signup_form #autocomplete-wrapper {
+    position: absolute;
+    width: 97.4%;
+    height: 100%;
+    margin-top: -2px;
+    z-index: 9999;
+    display: none;
+}
+
+#signup_form.autocomplete-opened #autocomplete-wrapper {
+    display: block;
+}
+
+#autocomplete-wrapper #autocomplete-results {
+    width: 100%;
+    background: #efefef;
+    background: rgba(239, 239, 239, 0.9);
+    overflow: hidden;
+    display: none;
+}
+
+#autocomplete-wrapper #autocomplete-results li {
+    border-bottom: 1px solid #9EA7A0;
+    padding: 10px 0 10px 20px;
+    color: #464a46;
+    cursor: pointer;
+}
+
+#autocomplete-wrapper #autocomplete-results li:last-child {
+    border-bottom: 0;
+}
+
 #signup_form>header {
     margin:3px;
     background:#fdd55c;
@@ -1586,6 +1627,12 @@ ul.errors-messages li {
     font-family:open_sanssemibold, sans-serif;
     font-weight:100
 }
+
+#signup_form .signup-steps-wrapper .signup_form .field-wrapper input:disabled, #signup_form .signup-steps-wrapper .signup_form .field-wrapper label, #signup_form .signup-steps-wrapper .signup_form .field-wrapper textarea:disabled {
+    background: #ffffff;
+    color: #AFAFAF;
+}
+
 #signup_form .signup-steps-wrapper .signup_form .field-wrapper input, #signup_form .signup-steps-wrapper .signup_form .field-wrapper textarea {
     border-color:#CACACA
 }
@@ -2251,11 +2298,17 @@ section#sobre-o-projeto article#boxes-wrapper .box-desc .content .share .share-i
     font-weight:100;
     border:2px solid #CACACA;
     width:100%;
-    color:#CCC;
+    color:#AFAFAF;
     font-style:italic;
     font-size:14px;
-    padding:5px
+    padding:5px;
+    background: #ffffff;
 }
+.form .field-wrapper select > option {
+    color:#AFAFAF;
+    background: #FAFAFA;
+}
+
 #signup_form .signup-steps-wrapper .signup_form .address_field.state {
     width:20%
 }

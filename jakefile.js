@@ -2,7 +2,7 @@
   'use strict';
 
   var path     = require('path'),
-      User     = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'user')),
+      AdminUser = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'admin_user')),
       Library  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'library')),
       Prefecture  = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'prefecture')),
       School   = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'school')),
@@ -53,7 +53,7 @@
     config.setupDatabase(mongoose);
 
     desc("Import prefectures")
-    task("prefectures", {async: true}, function() {
+    task("import_prefectures", {async: true}, function() {
 
       console.time('Import prefectures JSON');
 
@@ -125,39 +125,40 @@
     })
 
     desc("Import schools")
-    task("schools", {async: true}, function() {
+    task("import_schools", {async: true}, function() {
 
       var mountStructuredJSON = function(school) {
-
-        var address = school.address
         var filterYes = function(objekt, expected_value) {
           expected_value = expected_value || "sim"
           return Object.keys(objekt).filter(function(key) { return objekt[key].toLowerCase() == expected_value })
         }
 
+        var address = school.address
+
         var education = filterYes(school.education)
         var others    = filterYes(school.others)
 
         var structuredJSON =  { 
-          email: school.email,
-          kind: school.kind,
+          name: _s.clean(_s.titleize(school.name)),
+          email: _s.clean(school.email),
+          kind: _s.clean(school.kind),
           address: {
             complement: address.complement,
             number: address.number,
-            street: address.street,
+            street: _s.clean(address.street),
             zipcode: address.zipcode,
             city:  {
-              name: address.city
+              name: _s.titleize(_s.clean(address.city))
             },
             state: {
               name: states[address.state.toUpperCase()],
-              uf: address.state,
+              uf: address.state.toUpperCase(),
               region: getRegion(address.state.toUpperCase())
             },
             district: {
-              name: school.address.district
+              name: _s.titleize(_s.clean(school.address.district))
             },
-            full_address: [address.street, ", ", address.number, ", " , address.complement, " - ", address.district, " ", address.zipcode, " - ", address.city, ", ", address.state].join("")
+            full_address: _s.clean(_s.titleize([address.street, ", ", address.number, ", " , address.complement, " - ", address.district, " ", address.zipcode, " - ", address.city, ", ", address.state].join("")))
           },
           telephone: school.telephone,
           fax: school.fax,
@@ -183,6 +184,7 @@
 
       var total_schools = 0,
           total_added   = 0;
+
       files.forEach(function(file, index) {
         var schools = loadJSON(file);
         total_schools += schools.length
@@ -200,7 +202,7 @@
     })
 
     desc("Import default sections")
-    task("sections", {async: true}, function() {
+    task("import_sections", {async: true}, function() {
       var sections = loadJSON("sections"),
           keys     = Object.keys(sections);
 
@@ -236,7 +238,7 @@
       ]
       users.forEach(function(data,index) {
 
-        var newUser = new User(data);
+        var newUser = new AdminUser(data);
 
         newUser.save(function(err) {
           if(err) {
@@ -301,7 +303,7 @@
             // ok, shit ends here
             city: _s.titleize(city_name), 
             name: _s.titleize(library.nome), 
-            email: library.email.toLowerCase(),
+            email: library.email.toUpperCase(),
             occupation: _s.titleize(library.profissao),
             coordinates: {
               lat: city_data.lat,

@@ -1,9 +1,9 @@
-var User   = require(global.app.modelsPath + '/user'),
-	  extend = require('extend');
+var AdminUser = require(global.app.modelsPath + '/admin_user'),
+	  extend  = require('extend');
 
 module.exports = {
 	index: function(req,res,next) {
-		User.find({} , function(err, users) {
+		AdminUser.find({} , function(err, users) {
 			var count = users.length
 
 			res.locals = extend(res.locals, { 
@@ -15,9 +15,9 @@ module.exports = {
 	},
 
 	edit: function(req,res,next) {
-		User.findOne({_id: req.params.id }, function(err, doc) {
+		AdminUser.findOne({_id: req.params.id }, function(err, doc) {
 			if(doc) {
-				res.locals.user = new User(doc)
+				res.locals.user = new AdminUser(doc)
 				res.render('admin/users/edit', {layout:'admin/layout'})
 			}			
 		})
@@ -35,7 +35,7 @@ module.exports = {
 
 		if(!validation.has_errors) {
 			
-			var newUser = new User(data);
+			var newUser = new AdminUser(data);
 			newUser.save(function(err) {
 				if(err) {
 					response.message = err.toString();
@@ -56,7 +56,7 @@ module.exports = {
 	delete: function(req,res,next) {
 		var response = {success: false , id: null , message: 'Invalid user'};
 		
-		User.remove({_id: req.params.id }, function(err, numRemoved) {
+		AdminUser.remove({_id: req.params.id }, function(err, numRemoved) {
 			if(err || numRemoved === 0) {
 				res.send(200, response);
 			} else {
@@ -72,7 +72,7 @@ module.exports = {
 			validation = Validation(data);
 
 	 	if(!validation.has_errors) {
-	 		User.findOne({_id: req.params.id }, function(err, user) {
+	 		AdminUser.findOne({_id: req.params.id }, function(err, user) {
 		 		// if user exists
 		 		if(user) {
 		 			// update main data

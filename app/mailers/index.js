@@ -10,8 +10,11 @@ var Mailer = (function() {
 	    auth: auth
 	});
 
+	var mailOptions = {};
+
 	return function(mailOptions) {
 
+		mailOptions = mailOptions;
 		var sendMail = function(mailOptions,callback) {
 			return smtpTransport.sendMail(mailOptions, function(error, response){
 				callback.call(callback, {error: error , response: response});
@@ -19,6 +22,9 @@ var Mailer = (function() {
 		}
 
 		return {
+			setTo: function(to_address) {
+				mailOptions.to = to_address
+			},
 			send: function(callback) {
 				if(mailOptions.html_filename){
 					var mu 	 = require('mu2'),

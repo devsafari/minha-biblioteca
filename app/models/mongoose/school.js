@@ -11,6 +11,7 @@ var PrefectureModel = (function() {
 	{	
 		email: {type: String, default: "" },
 		kind: {type: String, default: "" },
+		name: {type: String, default: "" },
 		address: {
 			complement: {type: String, default: ""},
 			number: {type: String, default: "" },

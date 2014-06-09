@@ -43,6 +43,7 @@
 	      <th>Nome da instituição/Partido</th>
 	      <th>Categoria</th>
 	      <th>Endereço</th>
+	      <th>Total de cadastros</th>
 	      <th>Data de cadastro</th>
 	      <th class="td-actions">Ações</th>
 	    </tr>
@@ -51,11 +52,12 @@
 	  	{% for library in libraries %}
 	  		<tr {% if loop.first %} class="first"{% endif %} {% if loop.last %} class="last"{% endif %}>
 	  		  
-	  		  <td>{{ library.name }} </td>
-	  		  <td>{{ library.email }} </td>
+	  		  <td>{{ library.name }}</td>
+	  		  <td>{{ library.email }}</td>
 	  		  <td>{{ library.extra.political_party_name || library.institution_name }} </td>
 	  		  <td>{{ library.category.name }} </td>
 	  		  <td>{{ library.address.formatted_address }}</td>
+	  		  <td>{{ (library.users || []).length + 1 }}</td>
 	  		  <td>{{ library.created_at|date('d/M/Y H:i:s') }}</td>
 
 	  		  <td class="td-actions">

@@ -313,6 +313,11 @@
                                 <fieldset id="field-library-institution-name" class='field-wrapper last'>
                                   <label for="library_institution_name">Nome da instituição para a qual você reivindica uma biblioteca</label>
                                   <input type="text" placeholder="Nome da instituição" name="library[institution_name]" id="library_institution_name">
+                                  <input type="hidden" name="library[school_id]" value="" id="library_school_id">
+
+                                  <div id="autocomplete-wrapper">
+                                  	<ul id="autocomplete-results"></ul>
+                                  </div>
                                 </fieldset>
                             </div>
                             <div class="fields-wrapper submit-field">

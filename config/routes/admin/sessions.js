@@ -1,4 +1,4 @@
-var User = require(global.app.modelsPath + '/user');
+var AdminUser = require(global.app.modelsPath + '/admin_user');
 
 module.exports = {
 
@@ -10,7 +10,7 @@ module.exports = {
 
 		var user_data = req.body.user;
 
-		User.auth(user_data.email, user_data.password, function(isAuthorized, user) {
+		AdminUser.auth(user_data.email, user_data.password, function(isAuthorized, user) {
 			if(isAuthorized) {
 				req.session.user_id   = user._id;
 				req.session.user_name = user.name;

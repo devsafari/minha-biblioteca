@@ -3,6 +3,7 @@ var self   = {},
 
 routes.library = require('./api/libraries');
 routes.contact = require('./api/contacts');
+routes.school  = require('./api/schools');
 routes.webapp  = require('./webapp');
 routes.admin   = require('./admin');
 
@@ -14,6 +15,9 @@ self.setup = function(app) {
   app.post("/library/?", routes.webapp.library.create)
 
   app.namespace('/api', function() {    
+    app.namespace("/schools", function() {
+      app.get("/autocomplete/?", routes.school.autocomplete)
+    })
     app.namespace('/libraries', function() {
       app.get('/'     , routes.library.all)
       app.get('/search/?',  routes.library.search)
