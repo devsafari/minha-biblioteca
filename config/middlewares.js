@@ -27,7 +27,7 @@ var Middlewares = (function() {
           res.locals = extend(res.locals , {current_path: path, user_id: req.session.user_id, user_name: req.session.user_name})
         }
         res.locals.host = [req.protocol , "://" , req.headers.host].join('')
-        res.locals.devEnv = false; //(res.locals.host.match(/localhost/i) != -1)
+        res.locals.devEnv = (res.locals.host.match(/localhost/i) != -1)
         next();
       })
       

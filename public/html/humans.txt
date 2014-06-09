@@ -9,14 +9,14 @@
 # THANKS
 	
 	Pacto Digital (http://pactodigital.com)
-    Rafael Prada.
-    Safari (http://safari.to)
+  Rafael Prada.
+  Safari (http://safari.to)
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
-    Yeoman, GruntJS , Bower
-    Sass
-    Node.js, MongoDB, Redis
-    Heroku
+  HTML5, CSS3
+  jQuery, Modernizr
+  Yeoman, GruntJS , Bower
+  Sass
+  Node.js, MongoDB, Redis
+  Heroku

@@ -60,6 +60,8 @@ Usamos o [Jakefile](https://github.com/mde/jake) para execução de tasks, sendo
 `jake json:generate -f jakefile.js`    
 `jake json:import_libraries -f jakefile.js`  
 `jake db:sections_import -f jakefile.js`  
+`jake db:import_prefectures -f jakefile.js`  
+`jake db:import_schools -f jakefile.js`  
 `jake setup:mkdirs -f jakefile.js`  
 
 **OBS:** O servidor do mongodb deve estar rodando para que os dados possam ser salvos com sucesso. Em caso de erro execute `mongod` como um processo separado.
@@ -168,8 +170,7 @@ https://gun.io/blog/tutorial-deploy-node-js-server-with-example/
 
 ### Authors
 
-- Pacto Digital http://pactodigital.com.br
-- Rafael Fidelis <rafael.fidelis@pactodigital.com>
+- Rafael Fidelis <rafa_fidelis@yahoo.com.br>
 
 
 ---
