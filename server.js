@@ -1,36 +1,30 @@
 // This file is called 'server.js' because is the openshift convention for node.js apps(they don't follow Procfile rules)
 (function() {
-	"use strict";
+  "use strict";
+  //require('newrelic');
 
-	//require('newrelic');
+  var express    = require('express'),
+      mongoose   = require('mongoose'),
+      path       = require('path');
+  
+  global.app     = express();
+  express.application = app;   /* hack for express-namespace */
+  require('express-namespace');
 
-	var express   = require('express'),
-		mongoose  = require('mongoose'),
-		path 	  = require('path');
-		
-	global.app = express();
+  app.rootDir    = __dirname
+  app.rootAppDir = __dirname + '/app/';
+  app.modelsPath = path.join(app.rootAppDir , 'models' , 'mongoose')
 
-	express.application = app; /* hack for express-namespace */
-	require('express-namespace');
+  var routes     = require('./config/routes');
+  var config     = require('./config')
 
-	app.rootDir    = __dirname
-	app.rootAppDir = __dirname + '/app/';
- 	app.modelsPath = path.join(app.rootAppDir , 'models' , 'mongoose')
+  config.setup(app, express);
+  config.setupDatabase(mongoose);
+  routes.setup(app);
 
-	var routes     = require('./config/routes');
-	var config     = require('./config')
+  var port = process.env.PORT || 3000;
+  app.listen(port);
 
-	config.setup(app, express);
-	config.setupDatabase(mongoose);
-
-	routes.setup(app);
-
-	var port = process.env.PORT || 3000;
-
-	app.listen(port);
-
-	console.log('Express server listening on port =' + port);
-
-	module.exports = exports = app;
-
+  console.log('Express server listening on port =' + port);
+  module.exports = exports = app;
 })();
