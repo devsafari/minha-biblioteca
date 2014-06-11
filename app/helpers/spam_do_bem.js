@@ -46,9 +46,9 @@ var checkSpamDoBem = function(library, data, _callback) {
               console.log("Enviando email para %s", email)
               sendMails(emails);
             })
-          } else {{
+          } else {
             _callback.call(null)
-          }}
+          }
         }
         sendMails(prefecture.emails || []);
       }
