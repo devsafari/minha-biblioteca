@@ -1,7 +1,8 @@
 module.exports = (function() {
   'use strict';
 
-  var redis = require(global.app.rootAppDir + '/helpers/redis')
+  var path  = require('path')
+  var redis = require(path.join(global.app.rootAppDir, 'helpers', 'redis'))
   
   return {
     

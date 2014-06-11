@@ -5,59 +5,14 @@ var routes  = this
 , Library   = require(path.join(global.app.modelsPath, 'library'))
 , User      = require(path.join(global.app.modelsPath, 'user'))
 , mongoose  = require('mongoose')
+, checkSpamDoBem = require(path.join(global.app.rootAppDir, 'helpers', 'spam_do_bem'));
 
 
-var checkSpamDoBem = function(library, data) {
-  var use_count_field = true;
-
-  console.log("library count = %s", library.count)
-  
-  // + 10 registros
-  if (library && ((library.users && library.users.length % 10 === 0) || (use_count_field && library.count % 10 === 0))) {
-    data = extend({library: library}, data)
-    
-   var mailer = require(global.app.rootAppDir + '/mailers/spam_do_bem')(data)
-   var Prefecture = require(path.join(global.app.modelsPath,"prefecture"))
-
-   Prefecture.findOne({
-    $and: [{ 
-      "address.city.name": library.address.city.name, 
-      "address.state.uf" : library.address.state.uf
-     }]
-   }).select('emails _id').exec(function(err, prefecture) {
-     if(prefecture && prefecture.emails && prefecture.emails.length > 0) {
-      prefecture.emails = ["rafa_fidelis@yahoo.com.br", "rafaelfid3lis@gmail.com","rafaelfidelis@outlook.com"]
-
-      var sendMail = function(to, callback) {
-        mailer.setTo(to);
-        mailer.send(function(_data) {
-          callback.call(null)
-        });
-      }
-
-      var sendMails = function(emails) {
-        var email = emails.pop();
-        if(email) {
-          sendMail(email, function() {
-            console.log("Enviando email para %s", email)
-            sendMails(emails);
-          })
-        }
-      }
-      sendMails(prefecture.emails || []);
-     }
-   })
-  } else {
-    console.log("=============================================================")
-    console.log("Faltam %s cadastros para disparar o email do bem para esta biblioteca", (10 - library.users.length) )
-    console.log("=============================================================")
-  }
-}
 
 
 libraries.create = function(req, res) {
 
-  var Validation  = require(__dirname + '/../../validators/libraries'),
+  var Validation  = require(path.join(__dirname, '..', '..', 'validators' ,'libraries')),
       data        = req.body.library || {},
       validation  = Validation(data, 'create'),
       response    = {success: false , library: null , message: 'Erro interno do servidor.'};
@@ -110,7 +65,7 @@ libraries.create = function(req, res) {
 
               newLibrary.address.formatted_address = newLibrary.get('address.formatted_address');
 
-              var mailer = require(global.app.rootAppDir + '/mailers/library')(newLibrary);
+              var mailer = require(path.join(global.app.rootAppDir, 'mailers', 'library'))(newLibrary);
 
               mailer.send(function(_data) {
                 if(_data.error) {
@@ -131,7 +86,7 @@ libraries.create = function(req, res) {
 
 libraries.search = function(req, res) {
 
-  var Validation  = require(__dirname + '/../../validators/libraries_search'),
+  var Validation  = require(path.join(__dirname, '..', '..', 'validators', 'libraries_search')),
       query       = (req.param('q') || '').replace(/(\?|\*|\^|\$|\]|\[)/ig, "#$1").split("#").join("/"),
       validation  = Validation({q: query}),
       queryRegexp = new RegExp(query, 'i'),

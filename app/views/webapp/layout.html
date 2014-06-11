@@ -39,10 +39,10 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js">
     <![endif]-->
 
-    <link rel="stylesheet" href="/public/assets/styles/main-v2.{% if !devEnv %}min.{% endif %}css?v=2">
+    <link rel="stylesheet" href="/public/assets/styles/main-v2.{% if prodEnv %}min.{% endif %}css?v=2">
 
     {% block head_styles %}
-    {% endblock %}'
+    {% endblock %}
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCq8rUudODS1xJdAglyU6Mn1f61wIwemPs&sensor=true&libraries=places"></script>
   </head>
@@ -215,14 +215,31 @@
               <li class="header">
                   <span class="header-text">Material de apoio</span>
               </li>
-              <li><a href="http://www.euquerominhabiblioteca.org.br/public/materiais/infografico_14042014.pdf" target="_blank">&gt; Cidadãos</a></li>
-              <li><a href="http://www.euquerominhabiblioteca.org.br/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">&gt; Gestores Públicos</a></li>
+              <li>
+                {% if sections.orientations && sections.orientations.file_orientiations_citizens %}
+                <a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_citizens }}" target="_blank">
+                {% else %}
+                  <a href="{{ host }}/public/materiais/infografico_14042014.pdf" target="_blank">&gt; Cidadãos</a>
+                {% endif %}
+              </li>
+              <li>
+                {% if sections.orientations && sections.orientations.file_orientiations_public_managers %}
+                  <a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank">&gt; Gestores Públicos</a>
+                {% else %}
+                  <a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">&gt; Gestores Públicos</a>
+                {% endif %}
+              </li>
             </ul>
           </nav>
           <nav class="downloads-nav">
             <ul>
               <li class="header">
-                <a href="http://www.euquerominhabiblioteca.org.br/public/materiais/material_divulgacao.zip" target="_blank"><span class="header-text">Material de divulgação</span></a>
+
+                {% if sections.share && sections.share.materials %}
+                  <a href="{{ host }}/uploads/original/{{ sections.share.materials }}" target="_blank"><span class="header-text">Material de divulgação</span></a>
+                {% else %}
+                  <a href="{{host}}/public/materiais/material_divulgacao.zip" target="_blank"><span class="header-text">Material de divulgação</span></a>
+                {% endif %}
               </li>
               <li><a href="#divulgue">&gt; Banners de divulgação</a></li>
             </ul>
@@ -260,8 +277,9 @@
     </div>
   </div>
 
+  <script> var CURRENT_HOST = "{{ host }}" </script>
   <script src="/public/assets/scripts/vendor.js"></script>
-  <script src="/public/assets/scripts/main.{% if !devEnv %}min.{% endif %}js"></script>
+  <script src="/public/assets/scripts/main.{% if prodEnv %}min.{% endif %}js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>

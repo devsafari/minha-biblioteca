@@ -10,7 +10,7 @@ var _Validation = (function() {
       validStates     = Object.keys(states['states']),
       validPoliticalStates = [null, "1","2"];
 
-  var Validation = require(__dirname + '/index'),
+  var Validation = require(path.join(__dirname, 'index')),
     Validates  = new Validation();
 
   var ErrorMessages = {

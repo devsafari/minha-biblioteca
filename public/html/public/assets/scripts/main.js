@@ -398,7 +398,7 @@ $(document).ready(function() {
         }
       }
 
-      var autoCompleteCache = {};
+      self.autoCompleteCache = {};
 
       $("#library_institution_name").on('blur', function(ev) {
         if(mouseover_autocomplete) {
@@ -408,31 +408,45 @@ $(document).ready(function() {
         autocomplete_list.fadeOut();
       })
 
-      $("#library_institution_name").on('change keyup', function() {
-        var _self = $(this),
-            value = _self.val(),
-            state = $("select#library_state").val(),
-            city  = $("select#library_city").val();
+      var autocomplete_delay = Date.now();
 
+      $("#library_institution_name").on('change keyup', function() {
+
+        var state = $("select#library_state").val(),
+            city  = $("select#library_city").val();
+        
         if(!state) {
           return self.showNotification({message: 'Você deve selecionar o estado e a cidade antes de pesquisar a escola.', header: 'Ops...'}, 'error', 2000)
         } else if(!city) {
           return self.showNotification({message: 'Você deve selecionar uma cidade antes de pesquisar a escola', header: 'Ops...'}, 'error', 1600);
         }
-        
-        if(value.length > 3) {
-          var _key = [state, city, value].join("_");
 
-          if(!!autoCompleteCache[_key]) {
-            showAutoCompleteResults(autoCompleteCache[_key]);
+        var _self = $(this),
+            value = _self.val();
+
+        if(value.length < 3) {
+          return clearAutoCompleteResults();
+        }
+
+        var delay     = (Date.now() - autocomplete_delay)/1000;
+        var _key      = [state, city, value].join("_");
+        var has_cache = !!self.autoCompleteCache[_key];
+
+        if(has_cache || delay >= 0.6) {
+
+          autocomplete_delay         = Date.now();
+          if(has_cache) {
+            showAutoCompleteResults(self.autoCompleteCache[_key]);
           } else {
             $.get("/api/schools/autocomplete", {city: city, state: state, name: value}, function(data) {
-              autoCompleteCache[_key] = data;
+              self.autoCompleteCache[_key] = data;
               showAutoCompleteResults(data);
             },"json")
           }
+
         } else {
-          clearAutoCompleteResults();
+          // debug
+          // console.log("delay=%s", delay);
         }
       });
 
@@ -518,7 +532,7 @@ $(document).ready(function() {
         ev.preventDefault();
         FB.ui({
           method: 'feed',
-          link: 'http://www.euquerominhabiblioteca.org.br/'
+          link: CURRENT_HOST
         }, function(response){
         });
       });
@@ -572,7 +586,7 @@ $(document).ready(function() {
         if(self.is('.facebook')) {
           FB.ui({
             method: 'feed',
-            link: 'http://www.euquerominhabiblioteca.org.br/',
+            link: CURRENT_HOST,
             description: facebook_text
           }, function(response){
           });

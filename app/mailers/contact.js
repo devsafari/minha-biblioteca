@@ -1,7 +1,8 @@
 var ContactMailer = function(data) {
 	'use strict';
 
-	var Mailer = require('./index');
+  var path   = require('path')
+	var Mailer = require(path.join(__dirname, 'index'));
 
 	var mailOptions = {
     from: "Eu Quero Minha Biblioteca ✔ <contato@euquerominhabiblioteca.org.br>",

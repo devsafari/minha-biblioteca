@@ -1,4 +1,5 @@
-var AdminUser = require(global.app.modelsPath + '/admin_user');
+var path      = require('path')
+var AdminUser = require(path.join(global.app.modelsPath, 'admin_user'));
 
 module.exports = {
 

@@ -1,7 +1,7 @@
 var extend     = require('extend'),
     path       = require('path'),
-    Contact    = require(global.app.modelsPath + '/contact'),
-    contactAPI = require(path.join(__dirname, '../api/contacts')),
+    Contact    = require(path.join(global.app.modelsPath ,'contact')),
+    contactAPI = require(path.join(__dirname, '..', 'api', 'contacts')),
     util       = require('util');
     contact    = new Contact();
 

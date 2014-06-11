@@ -1,6 +1,7 @@
 var _Validation = (function() {
   'use strict';
 
+  var path = require('path');
 
   var ErrorMessages = {
     query:  'Sua pesquisa deve ter no minimo 2 caracteres.', 
@@ -8,7 +9,7 @@ var _Validation = (function() {
 
   return function(data) {
 
-    var Validation = require(__dirname + '/index'),
+    var Validation = require(path.join(__dirname, 'index')),
         Validates  = new Validation();
 
     Validates.validates(

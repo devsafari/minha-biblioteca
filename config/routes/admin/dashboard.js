@@ -1,15 +1,16 @@
 module.exports = (function() {
 
   var extend   = require('extend')
+  , path       = require('path')
   , prefix     = '_cache_'
-  , redis      = require(global.app.rootAppDir + '/helpers/redis')
+  , redis      = require(path.join(global.app.rootAppDir, 'helpers', 'redis'))
   , fbURL      = "http://graph.facebook.com/InstitutoEcofuturo";
 
   var dashboard = {
     init:  function(callback) {
       var http     = require('http')
-      , Library    = require(global.app.modelsPath + '/library')
-      , Contact    = require(global.app.modelsPath + '/contact');
+      , Library    = require(path.join(global.app.modelsPath, 'library'))
+      , Contact    = require(path.join(global.app.modelsPath, 'contact'));
 
       var httpReq = http.get(fbURL , function( response ) { 
         response.on('data', function(d) {

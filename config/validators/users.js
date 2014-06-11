@@ -1,8 +1,8 @@
 var _Validation = (function() {
   'use strict';
 
-
-  var Validation = require(__dirname + '/index'),
+  var path       = require('path')
+  var Validation = require(path.join(__dirname, 'index')),
     Validates  = new Validation();
 
   var ErrorMessages = {

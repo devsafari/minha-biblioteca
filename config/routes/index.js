@@ -1,11 +1,13 @@
 var self   = {}, 
     routes = {}; 
 
-routes.library = require('./api/libraries');
-routes.contact = require('./api/contacts');
-routes.school  = require('./api/schools');
-routes.webapp  = require('./webapp');
-routes.admin   = require('./admin');
+var path       = require('path')
+
+routes.library = require(path.join(__dirname, 'api', 'libraries'));
+routes.contact = require(path.join(__dirname, 'api', 'contacts'));
+routes.school  = require(path.join(__dirname, 'api', 'schools'))
+routes.webapp  = require(path.join(__dirname, 'webapp'));
+routes.admin   = require(path.join(__dirname, 'admin'));
 
 self.setup = function(app) {
 

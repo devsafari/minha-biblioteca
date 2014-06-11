@@ -1,8 +1,9 @@
 module.exports = (function() {
   'use strict';
 
+  var path    = require('path')
   var extend  = require('extend')
-  , Contact   = require(global.app.modelsPath + '/contact')
+  , Contact   = require(path.join(global.app.modelsPath, 'contact'))
 
   return {
     read: function(req,res,next) {
@@ -70,7 +71,7 @@ module.exports = (function() {
       })
     },
     create: function(req, res) {
-      var Validation = require(__dirname + '/../../validators/contact'),
+      var Validation = require(path.join(__dirname,  '..', '..', 'validators', 'contact')),
           data       = req.body.contact || {},
           response   = Validation(data);
       
@@ -84,7 +85,7 @@ module.exports = (function() {
         newContact.postCreate(data, function() {
           newContact.save(function(err) {
             if (!err) {
-              var mailer = require(global.app.rootAppDir + '/mailers/contact')(newContact);
+              var mailer = require(path.join(global.app.rootAppDir,  '/mailers/contact'))(newContact);
               mailer.send(function(_data) {
                 if(_data.error) {
                   res.send({error: 1 , message: 'Erro no envio do email.'});

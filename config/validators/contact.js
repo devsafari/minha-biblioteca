@@ -1,11 +1,12 @@
 var _Validation = (function() {
   'use strict';
 
+  var path              = require('path')
   var validSubjects     = ["1","2","3","4", "5"],
       validAreas        = ["1","2"],
       validQuestions    = ["1","2","3","4","5", "6","7","8", "9"];
 
-  var Validation = require(__dirname + '/index'),
+  var Validation = require(path.join(__dirname, 'index')),
     Validates  = new Validation();
 
   var ErrorMessages = {

@@ -2,8 +2,10 @@ var Mailer = (function() {
 
   'use strict';
 
+  var path       = require('path')
+
   var nodemailer = require("nodemailer"),
-      auth       = require('./auth');
+      auth       = require(path.join(__dirname, 'auth'));
 
   var smtpTransport = nodemailer.createTransport("SMTP", {
       service: "Gmail",

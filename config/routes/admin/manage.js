@@ -1,7 +1,7 @@
 var extend    = require('extend'),
     path      = require('path'),
-    helper    = require(global.app.rootAppDir + '/helpers/admin_sections_helper'),
-    SectionModel   = require(global.app.modelsPath + '/section');
+    helper    = require(path.join(global.app.rootAppDir, 'helpers', 'admin_sections_helper')),
+    SectionModel   = require(path.join(global.app.modelsPath, 'section'));
 
 var findSection = function(section_name,callback) {
   SectionModel.findOrCreate({key: section_name} , function(err, section, created) { 
@@ -15,10 +15,11 @@ module.exports = {
 
     if(helper.validSection(section_name)) {
       findSection(section_name, function(err, section, created) {
-        var range = helper.getRange(section)
+        var range         = helper.getRange(section)
         var last_document = range.map(function(n) { return parseInt(n) }).sort(function(a,b) { a - b }).pop() || 0;
-        res.locals = extend(res.locals , {current_section: section_name, section: section,range: range , last_document: last_document});
-        res.locals._labels = helper._labels
+        // locals
+        res.locals             = extend(res.locals , {current_section: section_name, section: section,range: range , last_document: last_document});
+        res.locals._labels     = helper._labels
         res.locals._dimensions = helper._dimensions;
 
         return res.render('admin/manage_sections/' + section_name, {layout:'admin/layout'})

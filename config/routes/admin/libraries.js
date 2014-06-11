@@ -1,7 +1,7 @@
 var extend       = require('extend'),
     path         = require('path'),
-    Library      = require(global.app.modelsPath + '/library'),
-    librariesAPI = require(path.join(__dirname, '../api/libraries')),
+    Library      = require(path.join(global.app.modelsPath, 'library')),
+    librariesAPI = require(path.join(__dirname, '..', 'api', 'libraries')),
     util         = require('util');
 
 module.exports = {
@@ -134,7 +134,7 @@ module.exports = {
   },
   update: function(req,res) {
 
-    var Validation  = require(__dirname + '/../../validators/libraries'),
+    var Validation  = require(path.join(__dirname, '..', '..', 'validators', 'libraries')),
           data        = req.body.library || {},
           validation  = Validation(data),
           response    = {success: false, id: null, message: 'Invalid Library' };

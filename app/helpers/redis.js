@@ -1,6 +1,7 @@
-var redis_auth = require(global.app.rootDir  + '/config/dbconfig').getDBURL('redis')
-, redis      = require('redis')
-, redisClient;
+var path        = require('path')
+,   redis_auth  = require(path.join(global.app.rootDir, 'config', 'dbconfig')).getDBURL('redis')
+,   redis       = require('redis')
+,   redisClient;
 
 var redisStore = (function() {
   "use strict";

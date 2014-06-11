@@ -1,5 +1,6 @@
-var AdminUser = require(global.app.modelsPath + '/admin_user'),
-    extend  = require('extend');
+var path      = require('path')
+var AdminUser = require(path.join(global.app.modelsPath, 'admin_user')),
+    extend    = require('extend');
 
 module.exports = {
   index: function(req,res,next) {
@@ -27,7 +28,7 @@ module.exports = {
   },
 
   create: function(req,res) {
-    var Validation  = require(__dirname + '/../../validators/users'),
+    var Validation  = require(path.join(__dirname,  '..', '..', 'validators', 'users')),
         data        = req.body.user || {},
         validation  = Validation(data),
         response    = {success: false , user: null , message: 'Database Error'};
@@ -66,7 +67,7 @@ module.exports = {
   },
   
   update: function(req,res,next) {
-    var Validation = require(__dirname + '/../../validators/users'),
+    var Validation = require(path.join(__dirname, '..', '..', 'validators', 'users')),
       data = req.body.user || {},
       validation = Validation(data);
 

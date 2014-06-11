@@ -1,8 +1,10 @@
 module.exports = (function() {
   'use strict';
 
-  var Library    = require(global.app.modelsPath + '/library')
-  ,   Section    = require(global.app.modelsPath + '/section')
+  var path       = require('path')
+
+  var Library    = require(path.join(global.app.modelsPath, 'library'))
+  ,   Section    = require(path.join(global.app.modelsPath, 'section'))
 
   var countField = function(key,callback) {
     Library.find().distinct(key, function(err, libraries) { 
@@ -17,7 +19,7 @@ module.exports = (function() {
   }
 
   var getValuesByKeyInitial = function(section, keys_initial, return_id) {
-    var keys = Object.keys(section)
+    var keys = Object.keys(section || {})
     ,   regexp = new RegExp("^" + keys_initial, 'i')
     ,   _keys  = [];
 

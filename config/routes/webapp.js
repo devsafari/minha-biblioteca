@@ -1,13 +1,14 @@
 module.exports = (function() {
   'use strict';
 
-  var libraries = require(__dirname + '/api/libraries')
-  , contact     = require(__dirname + '/api/contacts')
+  var path      = require('path')
+  var libraries = require(path.join(__dirname, 'api', 'libraries'))
+  , contact     = require(path.join(__dirname, 'api', 'contacts'))
   , extend      = require('extend')
-  , Library     = require(global.app.modelsPath + '/library')
+  , Library     = require(path.join(global.app.modelsPath,'library'))
   , prefix      = "_site_"
-  , redisStore  = require(global.app.rootAppDir + '/helpers/redis')
-  , helper      = require(global.app.rootAppDir + '/helpers/webapp_helper');
+  , redisStore  = require(path.join(global.app.rootAppDir, 'helpers', 'redis'))
+  , helper      = require(path.join(global.app.rootAppDir, 'helpers', 'webapp_helper'));
 
   return {
     index: function(req,res) {

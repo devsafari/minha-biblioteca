@@ -12,11 +12,11 @@
   require('express-namespace');
 
   app.rootDir    = __dirname
-  app.rootAppDir = __dirname + '/app/';
+  app.rootAppDir = path.join(__dirname , 'app/');
   app.modelsPath = path.join(app.rootAppDir , 'models' , 'mongoose')
 
-  var routes     = require('./config/routes');
-  var config     = require('./config')
+  var routes     = require(path.join(__dirname, 'config', 'routes'));
+  var config     = require(path.join(__dirname, 'config'))
 
   config.setup(app, express);
   config.setupDatabase(mongoose);

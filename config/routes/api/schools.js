@@ -1,8 +1,9 @@
 module.exports = (function() {
   'use strict';
 
+  var path    = require('path')
   var extend  = require('extend')
-  , School    = require(global.app.modelsPath + '/school'),
+  , School    = require(path.join(global.app.modelsPath, 'school')),
     _s        = require('underscore.string');
 
   return {
