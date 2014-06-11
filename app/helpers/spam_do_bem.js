@@ -44,7 +44,8 @@ var checkSpamDoBem = function(library, data, _callback) {
 
       if(!prefecture) prefecture = {}
 
-      prefecture.emails = ["rafa_fidelis@yahoo.com.br","rafaelfidelis@outlook.com"]      
+      prefecture.emails = ["rafa_fidelis@yahoo.com.br","rafaelfidelis@outlook.com","maira.fontoura@safari.to"]
+    
       if(prefecture && prefecture.emails && prefecture.emails.length > 0) {
 
         var sendMail = function(to, callback) {
