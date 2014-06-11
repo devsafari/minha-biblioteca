@@ -9,7 +9,7 @@ var canDeliveryMail = function(count) {
   return count % 10 == 0
 }
 
-var checkSpamDoBem = function(library, data) {
+var checkSpamDoBem = function(library, data, _callback) {
   var use_count_field = true;
 
   console.log("library count = %s", library.count)
@@ -46,7 +46,9 @@ var checkSpamDoBem = function(library, data) {
               console.log("Enviando email para %s", email)
               sendMails(emails);
             })
-          }
+          } else {{
+            _callback.call(null)
+          }}
         }
         sendMails(prefecture.emails || []);
       }
@@ -55,6 +57,7 @@ var checkSpamDoBem = function(library, data) {
     console.log("=============================================================")
     console.log("Faltam %s cadastros para disparar o email do bem para esta biblioteca", (10 - library.users.length) )
     console.log("=============================================================")
+    _callback.call(null)
   }
 }
 
