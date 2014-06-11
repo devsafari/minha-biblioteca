@@ -25,6 +25,9 @@ p {
 	margin:10px 0 10px 0;
 }
 
+.spam-index {
+	margin-top: 30px;
+}
 form .field {
 	margin-bottom: 20px;
 	border-bottom: 2px #eee solid;

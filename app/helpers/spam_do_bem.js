@@ -1,6 +1,9 @@
 var routes  = this
 , extend    = require('extend')
-, path      = require('path');
+, path      = require('path')
+, Latinise  = require(path.join(global.app.rootAppDir, 'helpers', 'latinise'))
+
+var SpamDoBem    = require(path.join(global.app.modelsPath, 'spam_do_bem'))
 
 
 var TOTAL_RECORDS_COUNT_TO_DELIVERY_MAIL = 10
@@ -12,25 +15,37 @@ var canDeliveryMail = function(count) {
 var checkSpamDoBem = function(library, data, _callback) {
   var use_count_field = true;
 
+  if(library == undefined || library == null) {
+    return _callback.call(null);
+  }
+
   console.log("library count = %s", library.count)
   
-
   // + 10 registros
-  if (library && ((library.users && canDeliveryMail(library.users.length)) || (use_count_field && canDeliveryMail(library.count)))) {
+  if (true || library && ((library.users && canDeliveryMail(library.users.length)) || (use_count_field && canDeliveryMail(library.count)))) {
 
     data = extend({library: library}, data)
     
     var mailer = require(path.join(global.app.rootAppDir , 'mailers', 'spam_do_bem'))(data)
     var Prefecture = require(path.join(global.app.modelsPath,"prefecture"))
 
-    Prefecture.findOne({
-      $and: [{ 
-        "address.city.name": library.address.city.name, 
-        "address.state.uf" : library.address.state.uf
+    var city   = library.address.city.name,
+        _state = library.address.state,
+        uf     = _state.uf;
+
+    var query  = {
+      $and: [{
+        "address.city.name": city.latinise(), 
+        "address.state.uf" : uf
       }]
-    }).select('emails _id').exec(function(err, prefecture) {
+    }
+
+    Prefecture.findOne(query).select('emails _id').exec(function(err, prefecture) {
+
+      if(!prefecture) prefecture = {}
+
+      prefecture.emails = ["rafa_fidelis@yahoo.com.br","rafaelfidelis@outlook.com"]      
       if(prefecture && prefecture.emails && prefecture.emails.length > 0) {
-        prefecture.emails = ["rafa_fidelis@yahoo.com.br", "rafaelfid3lis@gmail.com","rafaelfidelis@outlook.com"]
 
         var sendMail = function(to, callback) {
           mailer.setTo(to);
@@ -44,20 +59,25 @@ var checkSpamDoBem = function(library, data, _callback) {
           if(email) {
             sendMail(email, function() {
               console.log("Enviando email para %s", email)
-              sendMails(emails);
+              var spam = new SpamDoBem({library: library._id, city: city, state: _state.name, uf: uf, institution_name: library.institution_name, email: email })
+              spam.save(function(err) {
+                sendMails(emails);
+              })
             })
           } else {
-            _callback.call(null)
+            return _callback.call(null)
           }
         }
         sendMails(prefecture.emails || []);
+      } else {
+        return _callback.call(null)
       }
     })
   } else {
     console.log("=============================================================")
     console.log("Faltam %s cadastros para disparar o email do bem para esta biblioteca", (10 - library.users.length) )
     console.log("=============================================================")
-    _callback.call(null)
+    return _callback.call(null)
   }
 }
 

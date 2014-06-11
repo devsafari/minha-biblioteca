@@ -1,0 +1,77 @@
+{% extends '../layout.html' %}
+
+
+{% block title %}Spam D Bem{% endblock %}
+
+{% block yield %}
+
+<div class="row">
+	<div class="page-header">
+	  <h1>Spam do Bem <small> Emails disparados para prefeituras via Spam do Bem</small></h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<div class="filter span9">
+			<form action="{{host}}/admin/spam" method="get" id="spam_filter_form">
+				<div class="span3">
+					<select name="uf" id="uf" value="{{ uf }}">
+					</select>
+				</div>
+				<div class="span3">
+					<select name="city" id="city" value="{{ city }}">
+					</select>
+				</div>
+				<div class="span3">
+					<input type="submit" name="" value="Filtrar" class="btn btn-primary">
+				</div>
+			</form>
+		</div>
+		<div class="export pull-right span3">
+				<a class="btn btn-success" href="{{ host }}/admin/spam/export.xls?uf={{ uf}}&city={{ city }}"><i class="icon-large icon-download-alt
+			"></i> Exportar XLS</a>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="table-responsive spam-index">
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Data</th>
+		      <th>Escola/Instituição</th>
+		      <th>Estado</th>
+		      <th>Cidade</th>
+		      <th>Email</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for spam in spams %}
+		  		<tr {% if loop.first %} class="first"{% endif %} {% if loop.last %} class="last"{% endif %}>
+		  		  
+		  		  <td>{{ spam.created_at|date('d/M/Y H:i:s') }}</td>
+		  		  <td>{{ spam.institution_name }} </td>
+		  		  <td>{{ spam.state }}</td>
+		  		  <td>{{ spam.city }}</td>
+		  		  <td>{{ spam.email }}</td>
+		  		</tr>
+		  	{% endfor %}
+		  </tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+	<script src="/public/assets/scripts/vendor.js"></script>	
+	<script>
+		$(function() {
+			var states_cities = new dgCidadesEstados({
+			    estado: $(".filter").find('#uf').get(0),
+			    cidade: $(".filter").find('#city').get(0)
+			});
+		})
+	</script>
+{% endblock %}

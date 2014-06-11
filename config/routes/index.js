@@ -8,6 +8,7 @@ routes.contact = require(path.join(__dirname, 'api', 'contacts'));
 routes.school  = require(path.join(__dirname, 'api', 'schools'))
 routes.webapp  = require(path.join(__dirname, 'webapp'));
 routes.admin   = require(path.join(__dirname, 'admin'));
+routes.admin.spam    = require(path.join(__dirname, 'admin', 'spam_do_bem'))
 
 self.setup = function(app) {
 
@@ -36,6 +37,11 @@ self.setup = function(app) {
     
     app.get('/', admin.index)
     app.get('/dashboard/?', admin.index)
+
+    app.namespace("/spam", function() {
+      app.get('/', routes.admin.spam.index);
+      app.get('/export.xls', routes.admin.spam.export);
+    })
     
     app.get('/login/?', admin.sessions.new)
     app.get('/logout/?', admin.sessions.logout)
