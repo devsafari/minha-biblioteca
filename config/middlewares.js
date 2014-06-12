@@ -35,7 +35,7 @@ var Middlewares = (function() {
       // CSFR Token generation
       app.use(function(req, res, next){
         if(req.xhr) {
-          console.log('Skipping CRSF Token generation cuz request is XHR');
+          console.log('Skipping CRSF Token generation cuz request is XHR'.inverse);
         } else {
           res.locals.csrf_token = req.csrfToken();
         }

@@ -1418,7 +1418,7 @@ ul.errors-messages li {
 }
 .form .radio-wrapper input[type=radio]:checked+label {
     background-color:#F3CE51;
-    color:#383838
+    /* color:#383838 */
 }
 .form .circle-radio .radio-wrapper {
     width:150px;
@@ -1437,7 +1437,8 @@ ul.errors-messages li {
     width:225px;
     height:100px
 }
-.form .square-radio .radio-wrapper input:checked+label {
+.form .square-radio .radio-wrapper input:checked+label,
+.form .square-radio .radio-wrapper input:hover + label {
     background-color:#f3ce51;
     color:#383838
 }
@@ -1450,10 +1451,12 @@ ul.errors-messages li {
     font-size:14px;
     text-align:center
 }
-.form .square-small-radio .radio-wrapper input:checked+label {
+.form .square-small-radio .radio-wrapper input:checked+label,
+.form .square-small-radio .radio-wrapper input:hover+label {
     background-color:#1485cc;
     color:#fff
 }
+
 .form .field-wrapper {
     font-family:open_sansregular, sans-serif;
     text-align:left;
@@ -1665,8 +1668,10 @@ ul.errors-messages li {
 input#contact_subject_1 {
 }
 .section.contact .contact-form-wrapper {
-    text-align:center
+    text-align:center;
+    margin-bottom:10px;
 }
+
 .section.contact .contact-form-wrapper header {
     border:5px solid #196ea4;
     display:inline-block;
@@ -1679,6 +1684,21 @@ input#contact_subject_1 {
     font-size:40px;
     font-weight:400
 }
+
+.contact-form-wrapper #back-btn {
+  margin: 20px 0 20px;
+  display: inline-block;
+  font-size: 20px;
+  padding-bottom: 10px;
+  color:#c6cfcf;
+  font-family: ultramagnetic_regular, sans-serif;
+  text-transform: uppercase;
+}
+
+.contact-form-wrapper #back-btn:hover, .contact-form-wrapper #back-btn:focus, .contact-form-wrapper #back-btn:active {
+  text-decoration: underline;
+}
+
 .section.contact .contact-form-wrapper .steps .step {
     display:none
 }
@@ -1686,12 +1706,18 @@ input#contact_subject_1 {
     display:block
 }
 .section.contact #contact_form fieldset.contact-form {
-    margin-bottom:100px
+  /* margin-bottom:100px */
 }
 .section.contact #contact_form fieldset.contact-form nav {
     width:60%;
     margin:0 auto
 }
+
+#contact_form .circle-radio .radio-wrapper input:hover+label {
+    border-color:#1ecf50;
+    background-color:transparent
+}
+
 .form .radio-wrapper input[type=radio], .transparent_class {
     -ms-filter:"alpha(Opacity=0)";
     filter:alpha(opacity=0);

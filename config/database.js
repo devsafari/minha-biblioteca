@@ -9,12 +9,12 @@ self.setupDatabase = function(mongoose, connection_callback) {
 
   var db = mongoose.connection;
   
-  db.on('error', console.error.bind(console, 'connection error: url = ' + connectURL));
+  db.on('error', console.error.bind(console, ('connection error: url = ' + connectURL).red));
 
   db.on('open', function callback () {
-    console.log('====================================================================')
-    console.log('MongoDB Connection with url = ' + connectURL + " successfully opened")
-    console.log('====================================================================')
+    console.log('===================================================================='.yellow)
+    console.log(('MongoDB Connection with url = ' + connectURL + " successfully opened").yellow)
+    console.log('===================================================================='.yellow)
 
     if(connection_callback) connection_callback.call(null)
   })

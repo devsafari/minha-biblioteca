@@ -26,8 +26,14 @@ module.exports = (function() {
         return response_error(res, 'Name must have at least 3 characters')
       }
 
-      var query       = name.replace(/(\?|\*|\^|\$|\]|\[)/ig, "#$1").split("#").join("\\"),
+      function escapeRegExp(str) {
+        return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      }
+
+      var query       = escapeRegExp(name).latinise(),
           queryRegexp = new RegExp(query, 'i');
+
+      console.log(queryRegexp.toString().cyan);
 
       var conditions = {
         $and: [ 

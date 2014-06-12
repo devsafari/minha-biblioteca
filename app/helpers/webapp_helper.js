@@ -2,7 +2,6 @@ module.exports = (function() {
   'use strict';
 
   var path       = require('path')
-
   var Library    = require(path.join(global.app.modelsPath, 'library'))
   ,   Section    = require(path.join(global.app.modelsPath, 'section'))
 
@@ -19,9 +18,9 @@ module.exports = (function() {
   }
 
   var getValuesByKeyInitial = function(section, keys_initial, return_id) {
-    var keys = Object.keys(section || {})
-    ,   regexp = new RegExp("^" + keys_initial, 'i')
-    ,   _keys  = [];
+    var keys    = Object.keys(section || {})
+    ,   regexp  = new RegExp("^" + keys_initial, 'i')
+    ,   _keys   = [];
 
     keys.forEach(function(key, index) {
       var found = key.match(regexp);
@@ -33,10 +32,8 @@ module.exports = (function() {
   }
 
   var getYoutubeVideoID = function(video_url) {
-    var regexp = /watch\?v=([^&]+)/ig;
-
+    var regexp  = /watch\?v=([^&]+)/ig;
     var results = regexp.exec(video_url);
-
     return (results ? results.pop() : null);
   }
 

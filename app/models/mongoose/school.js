@@ -10,19 +10,19 @@ var PrefectureModel = (function() {
   var schoolSchema = new Schema(
   { 
     email: {type: String, default: "" },
-    kind: {type: String, default: "" },
-    name: {type: String, default: "" },
+    kind:  {type: String, default: "" },
+    name:  {type: String, default: "" },
     address: {
       complement: {type: String, default: ""},
-      number: {type: String, default: "" },
-      street: {type: String, default: "" },
-      zipcode: {type: String, default: "" },
-      city:  {
-        name: {type: String, default: ""}
+      number:     {type: String, default: "" },
+      street:     {type: String, default: "" },
+      zipcode:    {type: String, default: "" },
+      city: {
+        name:     {type: String, default: ""}
       },
       state: {
-        name: {type: String, default: ""},
-        uf: {type: String, default: ""},
+        name:   {type: String, default: ""},
+        uf:     {type: String, default: ""},
         region: {type: String, default: ""}
       },
       coordinates: {
@@ -45,8 +45,8 @@ var PrefectureModel = (function() {
       ddd: "",
       tel: ""
     }},
-    education: {type: Array, default: []},
-    others: {type: Array, default: []},
+    education:  {type: Array, default: []},
+    others:     {type: Array, default: []},
     created_at: {type: Date , default: Date.now },
     updated_at: {type: Date , default: Date.now }
   })

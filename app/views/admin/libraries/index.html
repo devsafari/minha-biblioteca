@@ -12,7 +12,7 @@
 	<form action="{{ host}}/admin/libraries" method="GET" class="form-inline" role="form">
 		<fieldset class='form-group'>
 			<label for="library_query">Busca: &nbsp;</label>
-			<input type="search" name="q" placeholder="Buscar por termo..." />
+			<input type="search" name="q" placeholder="Buscar por termo..." value="{{ search_query }}"/>
 		</fieldset>
 	</form>
 </div>
@@ -88,9 +88,9 @@
 	</table>
 
 	<ul class="pagination pagination-lg pull-right">
-	  <li><a href="/admin/libraries/page/{{ first_page }}{% if current_category  %} ?category_id={{ current_category }} {% endif %}">&larr;</a></li>
-	  	{{ pagination_itens|raw }}
-	  <li><a href="/admin/libraries/page/{{ last_page }}{% if current_category %}?category_id={{ current_category }} {% endif %}">&rarr;</a></li>
+	  <li><a href="/admin/libraries/page/{{ first_page }}{% if url_param  %}?{{ url_param }}{% endif %}">&larr;</a></li>
+	  	{{ pagination_html|raw }}
+	  <li><a href="/admin/libraries/page/{{ last_page }}{% if url_param  %}?{{ url_param }}{% endif %}">&rarr;</a></li>
 	</ul>
 
 </div>

@@ -4,9 +4,9 @@ var sessionStore = function(express,app,use_redis) {
     var RedisStore = require('connect-redis')(express),
       redis_auth = require('./dbconfig').getDBURL('redis')
 
-    console.log('--------------------------------------------------------------------')
-    console.log('Trying to connect with redis using = ', redis_auth);
-    console.log('--------------------------------------------------------------------')
+    console.log('--------------------------------------------------------------------'.yellow)
+    console.log('Trying to connect with redis using = %s'.yellow, JSON.stringify(redis_auth));
+    console.log('--------------------------------------------------------------------'.yellow)
     
     // setup redis as session store
     app.use(express.session({

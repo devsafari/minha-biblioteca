@@ -279,6 +279,9 @@ $(document).ready(function() {
 
       self.contactStep = 1;
 
+      var previous_step_btn = $(".contact-form-wrapper #back-btn");
+      previous_step_btn.fadeOut();
+
       $(".contact-form-toggle").on('click', function(ev) {
         ev.preventDefault();
         var form_section = $("#contact_section");
@@ -293,27 +296,32 @@ $(document).ready(function() {
 
       var _changeStep = function() {
         var thisStep = $(".step#step_" + self.contactStep);
+
+        console.log(thisStep.attr('id'));
+
         thisStep.fadeOut(function() {
           var nextQuestion = $(".step#step_" + (self._previousContact ? --self.contactStep : ++self.contactStep) );
-          if(nextQuestion.size() > 0 && (self._previousContact ? self.contactStep > 1 : self.contactStep <= maxSteps) ) {
+
+          console.log("next question id = %s", nextQuestion.attr('id'))
+          console.log("contactStep = %s", self.contactStep)
+
+          if(nextQuestion.size() > 0 && (self._previousContact ? self.contactStep >= 1 : self.contactStep <= maxSteps) ) {
             nextQuestion.fadeIn();
+            if(self.contactStep > 1) { previous_step_btn.fadeIn(); } else { previous_step_btn.hide() ; }
             self._previousContact = false;
-            //self.scrollTo(nextQuestion);
+            self.scrollTo(nextQuestion);
           }
         })
       }
 
-      $(".step input[type='radio']").on('change', function(ev) {
+      $(".step input[type='radio']").on('change, click', function(ev) {
         _changeStep();
       });
 
-      $(".contact-form-wrapper #back-btn").on('click', function(ev) {
+      $(previous_step_btn).on('click', function(ev) {
         ev.preventDefault();
-        if(self.contactStep == 1) {
-          return false;
-        }
         self._previousContact = true;
-        _changeStep();
+        return _changeStep();
       })
     },
 
@@ -364,12 +372,37 @@ $(document).ready(function() {
 
         $("#library_institution_name").val(self.data('value'))
         $("#library_school_id").val(self.data('id'));
-        autocomplete_list.fadeOut('fast');
+        $(autocomplete_wrapper, autocomplete_list).fadeOut('fast');
         $("#signup_form").removeClass('autocomplete-opened');
       })
 
       var clearAutoCompleteResults = function() {
         autocomplete_list.children("li").remove();
+      }
+
+      var currentSchoolData = function() {
+        var current_value = $("#library_institution_name").val(),
+            state         = $("select#library_state").val(),
+            city          = $("select#library_city").val();
+
+        return {
+          address: {city: {name: city}, district: {name: state}, number: "", street: city},
+          label: "Cadastrar " + current_value,
+          name: current_value
+        }
+      }
+
+      var appendSchools = function(results) {
+        var fragment = $(document.createDocumentFragment());
+
+        $.each(results.schools, function(index, school) {
+          var value_to_display = [school.label || school.name, " - ", school.address.street,", ",  school.address.district.name].join("")
+          var li   = $(document.createElement('li')).attr({"data-id": school._id, "data-value": school.name });
+          var span = $("<span />", {class: 'value', html: value_to_display }).appendTo(li);
+          fragment.append(li);
+        })
+
+        return autocomplete_list.append(fragment);
       }
 
       var showAutoCompleteResults = function(results) {
@@ -379,22 +412,16 @@ $(document).ready(function() {
         clearAutoCompleteResults();
 
         if(results && results.success && results.count > 0) {
+          
           signup_form.addClass(autocompleted_opened_class);
           autocomplete_list.fadeIn();
+          results.schools.unshift(currentSchoolData())          
 
-          var fragment = $(document.createDocumentFragment());
-
-          $.each(results.schools, function(index, school) {
-            var value_to_display = [school.name, " - ", school.address.street,", ",  school.address.district.name].join("")
-            var li   = $(document.createElement('li')).attr({"data-id": school._id, "data-value": school.name });
-            var span = $("<span />", {class: 'value', html: value_to_display }).appendTo(li);
-            fragment.append(li);
-          })
-
-          autocomplete_list.append(fragment);
+          appendSchools(results);
         } else {
-          autocomplete_list.hide();
-          signup_form.removeClass(autocompleted_opened_class)
+          autocomplete_wrapper.fadeIn();
+          autocomplete_list.fadeIn();
+          return appendSchools({schools: [currentSchoolData()] });
         }
       }
 
@@ -432,7 +459,7 @@ $(document).ready(function() {
         var _key      = [state, city, value].join("_");
         var has_cache = !!self.autoCompleteCache[_key];
 
-        if(has_cache || delay >= 0.6) {
+        if(has_cache || delay >= 0.3) {
 
           autocomplete_delay         = Date.now();
           if(has_cache) {

@@ -1,8 +1,8 @@
 var path      = require('path'),
     uploader  = require(path.join(global.app.rootAppDir, 'helpers', 'upload'));
 
-var validSection = function(_section) {
-  var SectionModel  = require(path.join(global.app.modelsPath, 'section'))
+var validSection      = function(_section) {
+  var SectionModel    = require(path.join(global.app.modelsPath, 'section'))
 
   var SECTIONS = (new SectionModel()).constants.SECTIONS,
       section  = _section.toLowerCase(),

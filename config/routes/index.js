@@ -39,8 +39,9 @@ self.setup = function(app) {
     app.get('/dashboard/?', admin.index)
 
     app.namespace("/spam", function() {
-      app.get('/', routes.admin.spam.index);
-      app.get('/export.xls', routes.admin.spam.export);
+      app.get('/'             , admin.spam.index);
+      app.get('/page/:page/?' , admin.spam.index)
+      app.get('/export.xls'   , admin.spam.export_data);
     })
     
     app.get('/login/?', admin.sessions.new)

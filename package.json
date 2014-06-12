@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "bcrypt": "0.7.7",
+    "colors": "^0.6.2",
     "connect-flash": "0.1.*",
     "connect-redis": "~1.4.6",
     "consolidate": "0.10.0",

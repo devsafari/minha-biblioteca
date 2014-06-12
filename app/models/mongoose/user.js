@@ -7,7 +7,7 @@ var userModel = (function() {
 
   var userSchema = new Schema({ 
     type: Number,
-    name: String,
+    name:  String,
     email: String,
     occupation: String,
     institution_name: String,

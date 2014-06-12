@@ -4,18 +4,17 @@ var SectionModel = (function() {
   var mongoose = require('mongoose'),
       Schema   = mongoose.Schema,
       uniqueValidator = require('mongoose-unique-validator'),
-      findOrCreate = require('mongoose-findorcreate');
+      findOrCreate    = require('mongoose-findorcreate');
 
   var CONSTANTS = {
     SECTIONS: ["top","campaign","share","orientations","sponsors","advisers","coalizadores"]
   }
 
-  var sectionSchema = new Schema(
-  { 
-    key: { type: String, required: true, default: '', unique: true},
-    fields: {type: Array, default: []},
-    created_at: {type: Date , default: Date.now },
-    updated_at: {type: Date , default: Date.now }
+  var sectionSchema = new Schema({ 
+    key:        {type: String, default: '', required: true, unique: true},
+    fields:     {type: Array,  default: []},
+    created_at: {type: Date ,  default: Date.now },
+    updated_at: {type: Date ,  default: Date.now }
   })
 
   sectionSchema.plugin(uniqueValidator);
@@ -38,7 +37,7 @@ var SectionModel = (function() {
   	var q  = {key: key.toLowerCase()}
 
   	db.findOne(q, function(err, doc) {
-  		callback.call(err,doc);
+  		return callback.call(err,doc);
   	});
   })
 
@@ -47,13 +46,13 @@ var SectionModel = (function() {
 		var q = {"fields.key": key.toLowerCase()}
 
 		db.findOne(q, function(err, doc) {
-  		callback.call(err,doc);
+  		return callback.call(err,doc);
   	});
 	});
 
   sectionSchema.method('postCreate', function(data, callback) {
     var self    = this;
-    callback.call(this);
+    return callback.call(this);
   })
 
   return mongoose.model('Section', sectionSchema)

@@ -5,8 +5,7 @@ var AdminUserModel = (function() {
       Schema   = mongoose.Schema,
       bcrypt   = require('bcrypt');
 
-  var AdminUserSchema = new Schema(
-  { 
+  var AdminUserSchema = new Schema({ 
     name: String,
     email: String,
     hashed_password: String,
@@ -57,9 +56,9 @@ var AdminUserModel = (function() {
   AdminUserSchema.statics.validatePassword = function(password, hashed_password, callback) {
     var self = this
     bcrypt.compare(password, hashed_password, function(err, isMatch) {
-        if(err) return callback(err)
-        callback(isMatch)
-      });
+      if(err) return callback(err)
+      callback(isMatch)
+    });
   }
 
   // try to auth current user

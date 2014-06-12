@@ -5,12 +5,8 @@ var AdminUser = require(path.join(global.app.modelsPath, 'admin_user')),
 module.exports = {
   index: function(req,res,next) {
     AdminUser.find({} , function(err, users) {
-      var count = users.length
-      res.locals = extend(res.locals, { 
-        users: users
-      });
-
-      res.render('admin/users/index', {layout:'admin/layout'})
+      res.locals = extend(res.locals, { users: users });
+      return res.render('admin/users/index', {layout:'admin/layout'})
     })
   },
 
@@ -18,8 +14,9 @@ module.exports = {
     AdminUser.findOne({_id: req.params.id }, function(err, doc) {
       if(doc) {
         res.locals.user = new AdminUser(doc)
-        res.render('admin/users/edit', {layout:'admin/layout'})
-      }     
+        return res.render('admin/users/edit', {layout:'admin/layout'})
+      }
+      return res.redirect("/admin/users/")
     })
   },
 
@@ -58,10 +55,10 @@ module.exports = {
     
     AdminUser.remove({_id: req.params.id }, function(err, numRemoved) {
       if(err || numRemoved === 0) {
-        res.send(200, response);
+        return res.send(200, response);
       } else {
         extend(response, {success: 1, id: req.params.id , message: 'User successfully deleted'});
-        res.send(200, response);
+        return res.send(200, response);
       }
     })
   },

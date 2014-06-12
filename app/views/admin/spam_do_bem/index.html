@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="page-header">
-	  <h1>Spam do Bem <small> Emails disparados para prefeituras via Spam do Bem</small></h1>
+	  <h1>Spam do Bem <small> Emails disparados para prefeituras via Spam do Bem - Página {{ current_page }} de {{ total_pages }} (<strong>Total de emails enviados: {{ total_records }}</strong>)</small></h1>
 	</div>
 </div>
 
@@ -62,6 +62,15 @@
 		</table>
 	</div>
 </div>
+
+<div class="row">
+	<ul class="pagination pagination-lg pull-right">
+	  <li><a href="/admin/spam/page/{{ first_page }}{% if url_param  %}?{{ url_param }}{% endif %}">&larr;</a></li>
+	  	{{ pagination_html|raw }}
+	  <li><a href="/admin/spam/page/{{ last_page }}{% if url_param  %}?{{ url_param }}{% endif %}">&rarr;</a></li>
+	</ul>
+</div>
+
 {% endblock %}
 
 {% block footer_scripts %}

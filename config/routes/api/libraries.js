@@ -5,10 +5,20 @@ var routes  = this
 , Library   = require(path.join(global.app.modelsPath, 'library'))
 , User      = require(path.join(global.app.modelsPath, 'user'))
 , mongoose  = require('mongoose')
+, helper    = require(path.join(global.app.rootAppDir, 'helpers', 'api_helper'))
 , checkSpamDoBem = require(path.join(global.app.rootAppDir, 'helpers', 'spam_do_bem'));
 
 
+var mailUser = function(email, data,callback) {
+  var mailer      = require(path.join(global.app.rootAppDir , 'mailers', 'signup'))(data)
+  mailer.setTo(email)
 
+  console.log("Enviando email de signup para email %s".yellow, email.bold.underline.cyan)
+  
+  mailer.send(function(err) {
+    return callback.call(null)
+  })
+}
 
 libraries.create = function(req, res) {
 
@@ -22,7 +32,12 @@ libraries.create = function(req, res) {
     var school_id  = data.school_id;
     var newLibrary = new Library(data);
 
-    newLibrary._school = mongoose.Types.ObjectId(school_id);
+    try { 
+      newLibrary._school = mongoose.Types.ObjectId(school_id);
+    } catch(e) {
+      console.log("[ERROR][CATCHED]".red)
+      console.log(e.toString().underline.red)
+    }
 
     // normalize librarie data
     newLibrary.postCreate(data, function() {
@@ -33,8 +48,8 @@ libraries.create = function(req, res) {
             if(!user) {
               // if library yet exist, only update the counter and save user email
               var user_data = { type: data.type, email: data.email, name: data.name, occupation: data.occupation, sex: data.sex }
-              user         = new User(user_data);
-              user.extra   = newLibrary.extra
+              user          = new User(user_data);
+              user.extra    = newLibrary.extra
             }
             user.save(function(err, _user) {
               if(!err) {
@@ -42,13 +57,15 @@ libraries.create = function(req, res) {
                 Library.update(update_conditions, {$inc: { count: 1 }, $addToSet: { users: _user._id } }, function(err, num) {
                   extend(response , {success: true , library: doc,  message: 'Seu cadastro foi realizado com sucesso.', only_updated: true });
 
-                  var host = [req.protocol , "://" , req.headers.host].join('')
+                  var host = [req.protocol , "://" , req.headers.host].join(''),
+                      data = {host: host }
 
-                  checkSpamDoBem(doc, {host: host },  function() {
-                    doc.users = undefined;
-                    return res.send(response);
-                  });
-
+                  return mailUser(user.email, data, function() {
+                    return checkSpamDoBem(doc, data,  function() {
+                      doc.users = undefined;
+                      return res.send(response);
+                    });
+                  })
                 })
               }
             })
@@ -71,7 +88,11 @@ libraries.create = function(req, res) {
                 if(_data.error) {
                   return res.send({error: 1 , message: 'Erro no envio do email.'})
                 } else {
-                  return res.send(response);
+                  mailUser(newLibrary.email, {host: res.locals.host }, function() {
+                    return checkSpamDoBem(newLibrary, data,  function() {
+                      return res.send(response);
+                    });
+                  })
                 }
               })
             }
@@ -87,24 +108,16 @@ libraries.create = function(req, res) {
 libraries.search = function(req, res) {
 
   var Validation  = require(path.join(__dirname, '..', '..', 'validators', 'libraries_search')),
-      query       = (req.param('q') || '').replace(/(\?|\*|\^|\$|\]|\[)/ig, "#$1").split("#").join("/"),
+      query       = helper.clearQuery(req.param('q')),
       validation  = Validation({q: query}),
-      queryRegexp = new RegExp(query, 'i'),
       response    = {success: false , libraries: null , message: 'Erro interno do servidor.'};
 
   if(!validation.has_errors) {
-    // mongo db query format  
-    var search_query = {$or: [
-      {'address.district.name': queryRegexp }, 
-      {'address.state.name': queryRegexp}, 
-      {'address.state.uf': queryRegexp}, 
-      {'address.state.region': queryRegexp}, 
-      {'address.city.name': queryRegexp}, 
-      {'name': queryRegexp}, 
-      {'institution_name': queryRegexp}
-    ]}
 
-    Library.find(search_query, 'address.district address.state address.street address.city.name name institution_name', function(err, docs) {
+    var conditions = helper.libSearchFieldsQuery(query)
+    var fields     = 'address.district address.state address.street address.city.name name institution_name'
+
+    Library.find(conditions, fields, function(err, docs) {
       extend(response , {success: true , libraries: docs , message: 'Libraries successfully fetched' , total_records: docs.length})
       return res.send(response);
     })
@@ -114,7 +127,7 @@ libraries.search = function(req, res) {
 }
 
 libraries.all = function(req, res,next) {
-  var response    = {success: false , libraries: [] , message: 'No records found'},
+  var response        = {success: false , libraries: [] , message: 'No records found'},
       callbackExists  = typeof next == 'object';
 
   if(callbackExists) var callback = next.callback;
@@ -125,7 +138,7 @@ libraries.all = function(req, res,next) {
 
   var getLibraries = function(cb) {
     var conditions = req.param('conditions') ? req.param('conditions') : {}
-    var query = Library.find(conditions , filter_fields).limit(limit).skip(offset);
+    var query      = Library.find(conditions , filter_fields).limit(limit).skip(offset).sort({created_at: -1 });
 
     query.exec(function(err, docs) {
       if(err) {
@@ -179,8 +192,7 @@ libraries.read = function(req, res, next) {
         return callback.call(null, response)
       } else {
         doc.email = undefined;
-        res.send(200, response);
-        
+        return res.send(200, response);
       }
     }
   })

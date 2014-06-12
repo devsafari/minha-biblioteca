@@ -2,7 +2,8 @@ var Mailer = (function() {
 
   'use strict';
 
-  var path       = require('path')
+  var path       = require('path'),
+      colors     = require('colors')
 
   var nodemailer = require("nodemailer"),
       auth       = require(path.join(__dirname, 'auth'));
@@ -24,6 +25,17 @@ var Mailer = (function() {
     }
 
     return {
+      addAttachment: function(attachment) {
+        if(!mailOptions.attachments) {
+          mailOptions.attachments = []
+        }
+        console.log("*************************************************".rainbow)
+        console.log("Adicionando anexo: %s".cyan , JSON.stringify(attachment))
+        console.log("*************************************************".rainbow)
+
+        return mailOptions.attachments.push(attachment)
+      },
+
       setTo: function(to_address) {
         mailOptions.to = to_address
       },

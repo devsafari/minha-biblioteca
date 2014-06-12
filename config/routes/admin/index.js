@@ -17,7 +17,7 @@ module.exports = (function() {
         if(!success) response.message = "Erro ao apagar o cache";
         response.success = success;
         req.session.destroy();
-        res.send(200, response);
+        return res.send(200, response);
       })
     },
 

@@ -38,12 +38,12 @@ module.exports = (function() {
 
       if(callbackExists) var callback = next.callback;
 
-      var limit  = req.param('limit') || null ,
-          offset = req.param('offset') || null ;
+      var limit  = req.param('limit'),
+          offset = req.param('offset');
 
       var getContacts = function(cb) {
-        var conditions = req.param('conditions') ? req.param('conditions') : {}
-        var query = Contact.find(conditions, {}).limit(limit).skip(offset).sort({created_at: -1});
+        var conditions  = req.param('conditions') ? req.param('conditions') : {}
+        var query       = Contact.find(conditions, {}).limit(limit).skip(offset).sort({created_at: -1});
 
         query.exec(function(err, docs) {
           if(err) {

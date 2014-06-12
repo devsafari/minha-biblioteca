@@ -32,6 +32,7 @@ module.exports = {
 
   delete_section_key: function(req,res) {
     var section_name = req.params.section;
+    
     var key  = req.params.key,
         keys = req.query._keys;
 
