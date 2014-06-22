@@ -6,12 +6,11 @@ var SpamModel = (function() {
 
 
   var spamSchema = new Schema({ 
-    library: {type: Schema.Types.ObjectId, ref: 'Library'},
+    prefecture:    {type: Schema.Types.ObjectId, ref: 'Prefecture'},
     city:    String,
     state:   String,
     uf:      String,
     email:   String,
-    institution_name: String, 
     created_at: {type: Date , default: Date.now },
     updated_at: {type: Date , default: Date.now },
   }, {collection: "spam_do_bem"})

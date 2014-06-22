@@ -7,7 +7,7 @@ var SpamDoBemMailer = function(data) {
 	var mailOptions = {
     from: "Eu Quero Minha Biblioteca ✔ <contato@euquerominhabiblioteca.org.br>",
     to: "rafa_fidelis@yahoo.com.br", // data.email
-    subject: "[Spam Do Bem] Eu Quero Minha Biblioteca", 
+    subject: "%s pede biblioteca em escola", 
     html_filename: "spam_do_bem.html",
     html_data: data
 	}

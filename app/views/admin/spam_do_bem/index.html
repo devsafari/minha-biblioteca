@@ -41,7 +41,6 @@
 		  <thead>
 		    <tr>
 		      <th>Data</th>
-		      <th>Escola/Instituição</th>
 		      <th>Estado</th>
 		      <th>Cidade</th>
 		      <th>Email</th>
@@ -52,7 +51,6 @@
 		  		<tr {% if loop.first %} class="first"{% endif %} {% if loop.last %} class="last"{% endif %}>
 		  		  
 		  		  <td>{{ spam.created_at|date('d/M/Y H:i:s') }}</td>
-		  		  <td>{{ spam.institution_name }} </td>
 		  		  <td>{{ spam.state }}</td>
 		  		  <td>{{ spam.city }}</td>
 		  		  <td>{{ spam.email }}</td>

@@ -8,7 +8,6 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">Data</Data></Cell>
-        <Cell><Data ss:Type="String">Escola/Instituição</Data></Cell>
         <Cell><Data ss:Type="String">Estado</Data></Cell>
         <Cell><Data ss:Type="String">Cidade</Data></Cell>
         <Cell><Data ss:Type="String">Email</Data></Cell>
@@ -16,7 +15,6 @@
       {% for spam in spams %}
         <Row>
           <Cell><Data ss:Type="String">{{  spam.created_at|date('d/M/Y H:i:s')}}</Data></Cell>
-          <Cell><Data ss:Type="String">{{  spam.institution_name }}</Data></Cell>
           <Cell><Data ss:Type="String">{{  spam.state }}</Data></Cell>
           <Cell><Data ss:Type="String">{{  spam.city }}</Data></Cell>
           <Cell><Data ss:Type="String">{{  spam.email }}</Data></Cell>

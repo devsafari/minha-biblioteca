@@ -7,8 +7,7 @@ var PrefectureModel = (function() {
   var CONSTANTS = {
   }
 
-  var prefectureSchema = new Schema(
-  { 
+  var prefectureSchema = new Schema({ 
     site: String,
     address: {
       city:  {
@@ -39,6 +38,7 @@ var PrefectureModel = (function() {
       name: {type: String, default: ''},
       political_party: {type: String, default: ''}
     },
+    libraries_count: {type: Number, default: 0},
     telephones: {type: Array, default: []},
     created_at: {type: Date , default: Date.now },
     updated_at: {type: Date , default: Date.now }
