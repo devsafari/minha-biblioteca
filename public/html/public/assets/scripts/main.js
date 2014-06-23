@@ -213,13 +213,16 @@ $(document).ready(function() {
     },
 
     setVideoSize:  function() {
-      var ww = $(window).width();
-      var section_home = $("section#home");
-      var preview_video = $("#preview-video");
+      var ww             = $(window).width();
+      var section_home   = $("section#home");
+      var preview_video  = $("#preview-video");
+      var preview_wapper = $("#preview-video-wrapper");
 
+      preview_wapper.show();
+      
       if((ww < 1024) || !preview_video.is(":visible")) {
         section_home.removeAttr('style');
-        $("#preview-video-wrapper").hide();
+        preview_wapper.hide();
         return false;
       }
       var _height = (preview_video.height() + 'px');
