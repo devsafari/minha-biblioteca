@@ -33,8 +33,6 @@ module.exports = (function() {
       var query       = escapeRegExp(name).latinise(),
           queryRegexp = new RegExp(query, 'i');
 
-      console.log(queryRegexp.toString().cyan);
-
       var conditions = {
         $and: [ 
           {'address.state.uf':      _s.clean(state_uf.toUpperCase()) }, 

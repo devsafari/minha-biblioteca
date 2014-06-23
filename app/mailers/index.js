@@ -30,10 +30,6 @@ var Mailer = (function() {
         if(!mailOptions.attachments) {
           mailOptions.attachments = []
         }
-        //console.log("*************************************************".rainbow)
-        //console.log("Adicionando anexo: %s".cyan , JSON.stringify(attachment))
-        //console.log("*************************************************".rainbow)
-
         return mailOptions.attachments.push(attachment)
       },
 

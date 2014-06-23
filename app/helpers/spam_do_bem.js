@@ -17,13 +17,7 @@ var canDeliveryMail = function(count) {
 // data: locals variables to render mail view
 var checkSpamDoBem = function(library, data, _callback) {
 
-  console.log("[SPAM DO BEM] CHECAGEM".bold.blue.underline)
-
   if(library == undefined || library == null) {
-    console.log("===============================".red)
-    console.log("%s Biblioteca invalida ".red, "[SPAM DO BEM]".bold)
-    console.log(data);
-    console.log("===============================".red)
     return _callback.call(null);
   }
 
@@ -40,20 +34,12 @@ var checkSpamDoBem = function(library, data, _callback) {
       "address.state.uf" : uf
     }]
   }
-  console.log("=================================================================".green)
-  console.log("%s Procurando prefeitura: ".green, "[SPAM DO BEM]".bold, JSON.stringify(query).yellow)
-  console.log("=================================================================".green)
 
   Prefecture.findOne(query).select('emails _id libraries_count').exec(function(err, prefecture) {
 
     if(!prefecture) {
-      console.log("===========================================================".red)
-      console.log("%s Prefeitura %s/%s não encontrada no banco de dados!".red, "[SPAM DO BEM]".bold, city, _state.name) 
-      console.log("===========================================================".red)
       return _callback.call(null);
     }
-
-    console.log(JSON.stringify(prefecture).green)
 
     prefecture.update({$inc: { libraries_count: 1 }}, function(err, num) {
 
@@ -86,9 +72,6 @@ var checkSpamDoBem = function(library, data, _callback) {
               var email   = emails.pop();
               if(email) {
                 sendMail(email, function() {
-                  console.log("=====================================================".green)
-                  console.log("Enviando email para %s".green, email.underline.cyan)
-                  console.log("=====================================================".green)
                   var spam = new SpamDoBem({prefecture: prefecture._id, city: city, state: _state.name, uf: uf, email: email })
                   spam.save(function(err) {
                     sendMails(emails);
@@ -106,10 +89,6 @@ var checkSpamDoBem = function(library, data, _callback) {
         })
 
       } else {
-        console.log("=============================================================".italic.blue)
-        console.log("Faltam %s cadastros para disparar o email do bem para esta cidade (_id: %s)".blue, (TOTAL_RECORDS_COUNT_TO_DELIVERY_MAIL - prefecture.libraries_count).toString().green, prefecture._id)
-        console.log("=============================================================".italic.blue)
-
         return _callback.call(null)
       }
     })

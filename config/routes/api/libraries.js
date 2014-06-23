@@ -12,9 +12,7 @@ var routes  = this
 var mailUser = function(email, data,callback) {
   var mailer      = require(path.join(global.app.rootAppDir , 'mailers', 'signup'))(data)
   mailer.setTo(email)
-
-  console.log("Enviando email de signup para email %s".yellow, email.bold.underline.cyan)
-  
+    
   mailer.send(function(err) {
     return callback.call(null)
   })
