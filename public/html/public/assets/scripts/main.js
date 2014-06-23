@@ -7,6 +7,7 @@ $(document).ready(function() {
 
       var self = this;
 
+      this.setVideoSize();
       this.setMap();
       this.bindEvents();
       this.bindScroll();
@@ -211,6 +212,20 @@ $(document).ready(function() {
       });
     },
 
+    setVideoSize:  function() {
+      var ww = $(window).width();
+      var section_home = $("section#home");
+      var preview_video = $("#preview-video");
+
+      if((ww < 1024) || !preview_video.is(":visible")) {
+        section_home.removeAttr('style');
+        $("#preview-video-wrapper").hide();
+        return false;
+      }
+      var _height = (preview_video.height() + 'px');
+      section_home.css('height', _height);
+    },
+
     bindEvents: function() {
       var self = this;
 
@@ -222,13 +237,8 @@ $(document).ready(function() {
         self.scrollTo(target);
       });
 
-      
-      var setVideoSize = function() {
-        $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
-      } 
 
-      setVideoSize();
-      $(window).resize(function(){ setVideoSize(); });
+      $(window).resize(function(){ self.setVideoSize(); });
 
       var preview_video = $("#preview-video-wrapper");
 

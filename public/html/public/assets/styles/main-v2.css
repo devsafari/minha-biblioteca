@@ -149,6 +149,15 @@ section.section .sub-header p {
 section#menu-section {
     padding-top:0
 }
+
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: rgba(0, 0, 0, 0);
+}
 section#home {
     background:url(../images/backgrounds/home-header-bg.jpg) no-repeat center center;
     width:100%;
@@ -161,9 +170,9 @@ section#home {
     background-size:cover;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/home-header-bg.jpg', sizingMethod='scale');
     -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/home-header-bg.jpg', sizingMethod='scale')";
-    height:720px;
     margin-top:0;
     padding-top:0;
+    height:720px;
 }
 
 section#home #video-wrapper {
@@ -178,22 +187,20 @@ section#home #video-wrapper {
 }
 
 section#home #preview-video-wrapper {
-    position: absolute;
-    display: none;
-/* 
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index:5;
-    background: #000000;
-    top:0;
-    left:0;
-    overflow: hidden;
-*/
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top:0;
+  padding:0;
+  z-index: 5;
 }
 
 section#home #preview-video {
-
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 section#home #video-wrapper #video  {
@@ -214,13 +221,15 @@ section#home .header {
     overflow:hidden;
     position: relative;
     z-index:10;
+    height: 100%;
+    top: 22%;
 }
 section#home .header .play-icon {
     background:url(../images/sprites//app-sprites.png) no-repeat;
     width:181px;
     height:181px;
     background-position:0 0;
-    margin:125px auto 50px;
+    margin:0 auto;
     display:inline-block;
     zoom:1;
     *display:inline;
@@ -1727,6 +1736,13 @@ input#contact_subject_1 {
 }
 #contact_section {
     display:none
+
+}
+
+@media only screen and (max-width:1024px) {
+  section#home #preview-video-wrapper {
+    display: none;
+  }
 }
 @media only screen and (max-width:980px) {
     #signup_form {
