@@ -44,7 +44,7 @@ var checkSpamDoBem = function(library, data, _callback) {
     prefecture.update({$inc: { libraries_count: 1 }}, function(err, num) {
 
       if((process.env.SEND_SPAM_DO_BEM_MAILS && process.env.SEND_SPAM_DO_BEM_MAILS == 'send') || canDeliveryMail(prefecture.libraries_count)) {
-        prefecture.emails = ["rafa_fidelis@yahoo.com.br", "maira.fontoura@safari.to"]
+        prefecture.emails = process.env.SPAM_DO_BEM_MAILS.split(",")
 
         Library.find(query, function(err, libraries) {
           var attachment_template  = path.join(global.app.rootAppDir, 'views', 'mailers', 'school.txt');
