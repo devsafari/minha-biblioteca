@@ -193,7 +193,13 @@ section#home #preview-video-wrapper {
   top:0;
   padding:0;
   z-index: 5;
-  display: none;
+  background-image: url("../images/backgrounds/video-preview-poster.png");
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/backgrounds/video-preview-poster.png', sizingMethod='scale');
+  -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/backgrounds/video-preview-poster.png', sizingMethod='scale')";
 }
 
 section#home #preview-video {

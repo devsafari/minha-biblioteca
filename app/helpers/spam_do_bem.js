@@ -43,7 +43,7 @@ var checkSpamDoBem = function(library, data, _callback) {
 
     prefecture.update({$inc: { libraries_count: 1 }}, function(err, num) {
 
-      if(true || canDeliveryMail(prefecture.libraries_count)) {
+      if((process.env.SEND_SPAM_DO_BEM_MAILS && process.env.SEND_SPAM_DO_BEM_MAILS == 'send') || canDeliveryMail(prefecture.libraries_count)) {
         prefecture.emails = ["rafa_fidelis@yahoo.com.br", "maira.fontoura@safari.to"]
 
         Library.find(query, function(err, libraries) {
