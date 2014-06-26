@@ -72,21 +72,26 @@
 
         for (var i = 0; i <= total_users; i++) {
           var email = libraries_users[i];
-          
-          Library.findOne({email: email}, 'type email occupation sex extra name', function(err, library) {
-            User.findOne({email: library.email}, function(err, user) {
-              var exists = !!user
-              if(!exists) {
-                var user_data = { type: library.type, email: library.email, name: library.name, occupation: library.occupation, sex: library.sex }
-                user          = new User(user_data);
-                user.extra    = library.extra
-              }
-              user.save(function(err, _user) {
-                console.log("%s/%s - exists = %s", total_added, total_users, exists);
+          if(!!email) {
+            Library.findOne({email: email}, 'type email occupation sex extra name', function(err, library) {
+              if(library) {
+                User.findOne({email: library.email}, function(err, user) {
+                  var exists = !!user
+                  if(!exists) {
+                    var user_data = { type: library.type, email: library.email, name: library.name, occupation: library.occupation, sex: library.sex }
+                    user          = new User(user_data);
+                    user.extra    = library.extra
+                  }
+                  user.save(function(err, _user) {
+                    console.log("%s/%s - exists = %s", total_added, total_users, exists);
+                    checkCompleted();
+                  })
+                })
+              } else {
                 checkCompleted();
-              })
+              }
             })
-          })
+          }
         };
       })
     })
