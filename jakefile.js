@@ -7,6 +7,7 @@
       Library     = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'library')),
       School      = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'school')),
       Section     = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'section')),
+      User        = require(path.join(__dirname, 'app', 'models', 'mongoose' , 'user')),
       config      = require(path.join(__dirname , 'config')),
       mongoose    = require('mongoose'),
       glob        = require('glob'),
@@ -51,6 +52,44 @@
 
   namespace('db', function() {
     config.setupDatabase(mongoose);
+
+    desc("Normalize users")
+    task("normalize_users", {async:true}, function() {
+      console.time('Normalize users from libraries');
+
+      var total_added       = 0,
+          total_users;
+
+      var checkCompleted = function() {
+        if(++total_added >= total_users) {
+          console.timeEnd('Normalize users from libraries');
+          complete();
+        }
+      }
+
+      Library.find({}).distinct('email').exec(function(err, libraries_users) {
+        total_users = libraries_users.length;
+
+        for (var i = 0; i <= total_users; i++) {
+          var email = libraries_users[i];
+          
+          Library.find({email: email}, 'type email occupation sex extra name', function(err, library) {
+            User.findOne({email: library.email}, function(err, user) {
+              var exists = !!user
+              if(!exists) {
+                var user_data = { type: library.type, email: library.email, name: library.name, occupation: library.occupation, sex: library.sex }
+                user          = new User(user_data);
+                user.extra    = library.extra
+              }
+              user.save(function(err, _user) {
+                console.log("%s/%s - exists = %s", total_added, total_users, exists);
+                checkCompleted();
+              })
+            })
+          })
+        };
+      })
+    })
 
     desc("Import prefectures")
     task("import_prefectures", {async: true}, function() {

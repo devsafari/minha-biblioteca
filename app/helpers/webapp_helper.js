@@ -3,19 +3,20 @@ module.exports = (function() {
 
   var path       = require('path')
   var Library    = require(path.join(global.app.modelsPath, 'library'))
+  ,   User       = require(path.join(global.app.modelsPath, 'user'))
   ,   Section    = require(path.join(global.app.modelsPath, 'section'))
 
-  var countField = function(key,callback) {
+  var countField = function(model, key,callback) {
     var query  = {}
     query[key] = { "$exists": true }
 
-    Library.count(query, function(err, total) { 
+    model.count(query, function(err, total) { 
       return callback.call(null, err, total)
     })
   }
 
-  var countDistinctField = function(key, callback){
-    Library.find().distinct(key, function(err, libraries) { 
+  var countDistinctField = function(model, key, callback){
+    model.find().distinct(key, function(err, libraries) { 
       return callback.call(null, err, libraries.length)
     })
   }
@@ -77,10 +78,10 @@ module.exports = (function() {
 
   // ok, callback hell :/
   var getCounts = function(callback) {
-    countDistinctField('address.city.name', function(err, total_cities) {
-      countDistinctField('address.state.name', function(err, total_states) {
-        countField('email', function(err, total_people) {
-          countField('institution_name', function(err, total_institutions) {
+    countDistinctField(Library, 'address.city.name', function(err, total_cities) {
+      countDistinctField(Library, 'address.state.name', function(err, total_states) {
+        countField(User, 'email', function(err, total_people) {
+          countField(Library, 'institution_name', function(err, total_institutions) {
             return callback.call(null , {
               total_people: total_people , 
               total_cities: total_cities, 

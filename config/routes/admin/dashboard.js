@@ -16,7 +16,7 @@ module.exports = (function() {
         response.on('data', function(d) {
           var fb_data = JSON.parse(d.toString()); 
 
-            Library.count({}, function(err, library_count) {
+          Library.count({}, function(err, library_count) {
             Contact.count({}, function(err, contact_count) {
               return callback.call(null, {fb_total_likes: fb_data.likes , total_libraries: library_count , total_contacts: contact_count })
             })

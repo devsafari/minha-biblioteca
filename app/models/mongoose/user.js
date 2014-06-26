@@ -8,7 +8,7 @@ var userModel = (function() {
   var userSchema = new Schema({ 
     type: Number,
     name:  String,
-    email: String,
+    email: {type: String, index: true},
     occupation: String,
     institution_name: String,
     sex: String,
