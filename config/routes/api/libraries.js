@@ -43,15 +43,22 @@ libraries.create = function(req, res) {
 
         if(exists) { 
           User.findOne({email: data.email}, function(err, user) {
+            console.log("User.findOne(%s) = %s", JSON.stringify({email: data.email}), JSON.stringify(user));
+
             if(!user) {
-              // if library yet exist, only update the counter and save user email
               var user_data = { type: data.type, email: data.email, name: data.name, occupation: data.occupation, sex: data.sex }
               user          = new User(user_data);
               user.extra    = newLibrary.extra
+
+              console.log("user = %s", JSON.stringify(user));
             }
             user.save(function(err, _user) {
               if(!err) {
+
+                console.log("user.save = %s", JSON.stringify(user));
+
                 update_conditions = { "_id": mongoose.Types.ObjectId(doc._id) }
+                // if library yet exist, only update the counter and save user email
                 Library.update(update_conditions, {$inc: { count: 1 }, $addToSet: { users: _user._id } }, function(err, num) {
                   extend(response , {success: true , library: doc,  message: 'Seu cadastro foi realizado com sucesso.', only_updated: true });
 

@@ -11,7 +11,7 @@ var SpamDoBem  = require(path.join(global.app.modelsPath, 'spam_do_bem'))
 
 var TOTAL_RECORDS_COUNT_TO_DELIVERY_MAIL = 10
 var canDeliveryMail = function(count) {
-  return (count % TOTAL_RECORDS_COUNT_TO_DELIVERY_MAIL) == 0
+  return (count > 0 && count % TOTAL_RECORDS_COUNT_TO_DELIVERY_MAIL) == 0
 }
 
 // data: locals variables to render mail view
