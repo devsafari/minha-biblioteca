@@ -14,16 +14,17 @@
             <input type="hidden" name="_method" value="put" />
             <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
             <div id="texts-wrapper">
-                {% for text in range %}
-                    <fieldset class="field span8">
-                        <label for="text_{{ text }}">Texto #{{ loop.index }}</label>
-                        <textarea class="span10" id="text_{{ text }}" name="section[text_{{ text }}]" class="span6"/>{{ section.getKeyValue('text_' + text) }}</textarea>
-                        <div class="span8">
-                            <a href="/admin/manage/{{ current_section}}/text_{{ text }}" data-parent="fieldset" data-method="delete" class="btn btn-danger">
-                                <i class="icon-large icon-remove"></i> Deletar</a>
-                        </div>
-                    </fieldset>
-                {% endfor %}
+              <header><h3>Textos do slide</h3></header><br />
+              {% for text in range %}
+                  <fieldset class="field span8">
+                      <label for="text_{{ text }}">Texto #{{ loop.index }}</label>
+                      <textarea class="span10" id="text_{{ text }}" name="section[text_{{ text }}]" class="span6"/>{{ section.getKeyValue('text_' + text) }}</textarea>
+                      <div class="span8">
+                          <a href="/admin/manage/{{ current_section}}/text_{{ text }}" data-parent="fieldset" data-method="delete" class="btn btn-danger">
+                              <i class="icon-large icon-remove"></i> Deletar</a>
+                      </div>
+                  </fieldset>
+              {% endfor %}
             </div>
             <div class="actions">
                 <a href="#" class="button btn btn-info btn-large" id="add_new_resource" data-template="#new_text_template" data-target="#texts-wrapper" data-limit='5'>
@@ -31,10 +32,16 @@
             </div>
             <hr>
             <header><h3>Textos do "box amarelo"</h3></header><br />
-            {% for box_text in [1,2,3] %}
+            {% for box_id in [1,2,3] %}
                 <fieldset class="field">
-                    <label for="box_text{{ box_text }}">Texto {{ box_text }}</label>
-                    <textarea class="span10" id="box_text{{ box_text }}" name="section[box_text{{ box_text }}]" required="required" class="span6"/>{{ section.getKeyValue('box_text' + box_text) }}</textarea>
+                    <div class="field-wrapper">
+                      <label for="box_title_{{ box_id }}">Titulo do box #{{ box_id }}</label>
+                      <input type="text" class="span10" id="box_title_{{ box_id }}" name="section[box_title_{{ box_id }}]" required="required" class="span6" value="{{ section.getKeyValue('box_title_' + box_id) }}" />
+                    </div>
+                    <div class="field-wrapper">
+                      <label for="box_text_{{ box_id }}">Texto do box #{{ box_id }}</label>
+                      <textarea class="span10" id="box_text_{{ box_id }}" name="section[box_text_{{ box_id }}]" required="required" class="span6"/>{{ section.getKeyValue('box_text_' + box_id) }}</textarea>
+                    </div>
                 </fieldset>  
             {% endfor %}
             <fieldset class="field">

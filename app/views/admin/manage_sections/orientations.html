@@ -14,6 +14,15 @@
             <input type="hidden" name="_method" value="put" />
             <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
             <fieldset class="field">
+                <label for="section_header">Titulo da seção</label>
+                <input type="text" id="section_header" name="section[section_header]" class="span6" value="{{ section.getKeyValue('section_header') }}"/>
+            </fieldset>
+            <fieldset class="field">
+                <label for="section_description">Descrição(subtítulo) da seção</label>
+                <textarea type="text" id="section_description" name="section[section_description]" class="span6"/>{{ section.getKeyValue('section_description') }}</textarea>
+            </fieldset>
+            
+            <fieldset class="field">
                 {% if section.getKeyValue('image') %}
                     <figure class="image-thumb">
                         <a href="/uploads/original/{{ section.getKeyValue('image') }}" target="_blank">

@@ -13,17 +13,25 @@
         <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="put" />
             <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+            <fieldset class="field">
+                <label for="section_header">Titulo da seção</label>
+                <input type="text" id="section_header" name="section[section_header]" class="span6" value="{{ section.getKeyValue('section_header') }}"/>
+            </fieldset>
+            <fieldset class="field">
+                <label for="section_description">Descrição(subtítulo) da seção</label>
+                <textarea type="text" id="section_description" name="section[section_description]" class="span6"/>{{ section.getKeyValue('section_description') }}</textarea>
+            </fieldset>
             {% for banner in [1,2,3,4,5] %}
-                <fieldset class="field row">
-                    <div class="span8">
-                        {% if section.getKeyValue('banner_image_' + banner) %}
-                            <figure class="image-thumb">
-                                <a href="/uploads/original/{{ section.getKeyValue('banner_image_' + banner) }}" target="_blank">
-                                    <img src="/uploads/thumb/{{ section.getKeyValue('banner_image_' + banner) }}">
-                                </a>
-                            </figure>
-                        {% endif %}
-                    </div>
+                <fieldset class="field">
+                    {% if section.getKeyValue('banner_image_' + banner) %}
+                        <div class="span8">
+                          <figure class="image-thumb">
+                              <a href="/uploads/original/{{ section.getKeyValue('banner_image_' + banner) }}" target="_blank">
+                                  <img src="/uploads/thumb/{{ section.getKeyValue('banner_image_' + banner) }}">
+                              </a>
+                          </figure>
+                        </div>
+                    {% endif %}
                     <div class="span4">
                         <label for="banner_image_{{ banner }}">Alterar banner #{{ banner }} - (Dimensões: {{ _dimensions.share[loop.index] }} )</label>
                         <input type="file" id="banner_image_{{ banner }}" name="section[banner_image_{{ banner }}]" class="span6" accept="image/jpg, image/png, image/jpeg"/>
@@ -34,7 +42,7 @@
                     </div>
                 </fieldset>  
             {% endfor %}
-            <fieldset class="field row">
+            <fieldset class="field">
                 <div class="span8">
                     {% if section.getKeyValue('materials') %}
                         <div class="file-thumb pdf">

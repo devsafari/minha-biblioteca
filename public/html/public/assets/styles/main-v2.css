@@ -172,7 +172,8 @@ section#home {
     -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/home-header-bg.jpg', sizingMethod='scale')";
     margin-top:0;
     padding-top:0;
-    height:720px;
+    /* height:720px; */
+    height: 670px;
 }
 
 section#home #video-wrapper {

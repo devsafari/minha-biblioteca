@@ -98,18 +98,12 @@
 	        </article>
 	        <article class="wrapper bg-wrap parallax" data-velocity="3" id="boxes-wrapper"  {% if sections.campaign && sections.campaign.image %} style="background-image: url(/uploads/original/{{ sections.campaign.image }})" {% endif %}>
 	            <ul class="boxes inline-list">
-	                <li class="box first">
-	                    <header><h4>POR QUE TER UMA UMA BIBLIOTECA NA ESCOLA</h4></header>
-	                    <span class="icon"></span>
-	                </li>
-	                <li class='box'>
-	                    <header><h4>O QUE DIZ A LEI?</h4></header>
-	                    <span class="icon"></span>
-	                </li>
-	                <li class="box last">
-	                    <header><h4>LINHAS DE AÇÃO</h4></header>
-	                    <span class="icon"></span>
-	                </li>
+	            		{% for title in getValuesByKeyInitial(sections.campaign, "box_title_") %}
+	            			<li class="box {% if loop.first %} first {% elseif loop.last %} last {% endif %}">
+	            			    <header><h4>{{ title }}</h4></header>
+	            			    <span class="icon"></span>
+	            			</li>
+	            		{% endfor %}
 	            </ul>
 
 	            <div class="box-desc">
@@ -136,10 +130,12 @@
 
 	            <nav id="box-desc-contents" style='display: none;'>
 	                <ul class='contents'>
-	                	{% for text in getValuesByKeyInitial(sections.campaign, "box_text") %}
+	                	{% for text in getValuesByKeyInitial(sections.campaign, "box_text_") %}
 		                	<li>
 	                			<ul class="gray-circle-list">
-	                				{% for line in replaceSymbol(text) %}<li>{{ putsHTML(line); }}</li>{% endfor %}
+	                				{% for line in replaceSymbol(text) %}
+	                					<li>{{ putsHTML(line); }}</li>
+	                				{% endfor %}
 	                			</ul>
 		                	</li>
 	                	{% endfor %}
@@ -151,9 +147,9 @@
 	    <section id="participe" class='section'>
 	        <article class="wrapper">
 	            <header>
-	                <h1>Inscreva-se</h1>
+	                <h1>{{ sections.signup.section_header }}</h1>
 	                <div class="sub-header">
-	                   <p>Inscreva-se para ajudar a construir um mapa da realidade brasileira com relação a universalização de bibliotecas em escola e receber mais informações para participar desta campanha.</p> 
+	                   <p>{{ sections.signup.section_description }}</p> 
 	                </div>
 	            </header>
 
@@ -340,9 +336,9 @@
 	    <section id="resultados" class='section' data-scroll-event='updateCounters' id='scroll-1'>
 	        <article class="wrapper">
 	            <header>
-	                <h1>ADESÕES</h1>
+	                <h1>{{ sections.accessions.section_header }}</h1>
 	                <div class="sub-header">
-	                   <p>Saiba quem participa da Campanha.</p> 
+	                   <p>{{ sections.accessions.section_description|raw }}</p> 
 	                </div>
 	            </header>
 	        </article>
@@ -378,9 +374,9 @@
 	    <section class="section" id="divulgue">
 	        <article class="wrapper">
 	            <header>
-	                <h1>divulgue</h1>
+	                <h1>{{ sections.share.section_header }}</h1>
 	                <div class="sub-header">
-	                   <p>Baixe agora as peças de comunicação e ajude a <br />divulgar a campanha na rede.</p> 
+	                   <p>{{ sections.share.section_description|raw }}</p> 
 	                </div>
 	            </header>
 	            <div class="banners-wrapper">
@@ -423,9 +419,9 @@
 	    <section class="section" id="oriente-se">
 	        <article class="bg-wrap parallax" data-velocity="-.3" {% if sections.orientations && sections.orientations.image %} style="background-image: url(/uploads/original/{{ sections.orientations.image }})" {% endif %}>
 	            <header>
-	                <h1>Orientações</h1>
+	                <h1>{{ sections.orientations.section_header }}</h1>
 	                <div class="sub-header">
-	                   <p>Saiba o que  você pode fazer pela universalização <br />das bibliotecas em escolas</p> 
+	                   <p>{{ sections.orientations.section_description|raw }}</p> 
 	                </div>
 	            </header>
 	            <nav class="boxes">
