@@ -73,7 +73,7 @@
         for (var i = 0; i <= total_users; i++) {
           var email = libraries_users[i];
           
-          Library.find({email: email}, 'type email occupation sex extra name', function(err, library) {
+          Library.findOne({email: email}, 'type email occupation sex extra name', function(err, library) {
             User.findOne({email: library.email}, function(err, user) {
               var exists = !!user
               if(!exists) {
