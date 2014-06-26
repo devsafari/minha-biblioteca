@@ -9,14 +9,14 @@ module.exports = (function() {
     var query  = {}
     query[key] = { "$exists": true }
 
-    Library.find(query, function(err, libraries) { 
-      callback.call(null, err, libraries.length)
+    Library.count(query, function(err, total) { 
+      return callback.call(null, err, total)
     })
   }
 
   var countDistinctField = function(key, callback){
     Library.find().distinct(key, function(err, libraries) { 
-      callback.call(null, err, libraries.length)
+      return callback.call(null, err, libraries.length)
     })
   }
 
@@ -79,7 +79,7 @@ module.exports = (function() {
   var getCounts = function(callback) {
     countDistinctField('address.city.name', function(err, total_cities) {
       countDistinctField('address.state.name', function(err, total_states) {
-        countDistinctField('email', function(err, total_people) {
+        countField('email', function(err, total_people) {
           countField('institution_name', function(err, total_institutions) {
             return callback.call(null , {
               total_people: total_people , 
