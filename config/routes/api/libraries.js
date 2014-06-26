@@ -40,15 +40,14 @@ libraries.create = function(req, res) {
     // normalize librarie data
     newLibrary.postCreate(data, function() {
       newLibrary.yetExists(function(doc, exists) {
-
-        if(exists) { 
-          User.findOne({email: data.email}, function(err, user) {
-            if(!user) {
-              var user_data = { type: data.type, email: data.email, name: data.name, occupation: data.occupation, sex: data.sex }
-              user          = new User(user_data);
-              user.extra    = newLibrary.extra
-            }
-            user.save(function(err, _user) {
+        User.findOne({email: data.email}, function(err, user) {
+          if(!user) {
+            var user_data = { type: data.type, email: data.email, name: data.name, occupation: data.occupation, sex: data.sex }
+            user          = new User(user_data);
+            user.extra    = newLibrary.extra
+          }
+          user.save(function(err, _user) {
+            if(exists) { 
               if(!err) {
                 update_conditions = { "_id": mongoose.Types.ObjectId(doc._id) }
                 // if library yet exist, only update the counter and save user email
@@ -66,36 +65,35 @@ libraries.create = function(req, res) {
                   })
                 })
               }
-            })
+            } else {
+              newLibrary.save(function(err) {
+                if(!err) {
+                  extend(response , {success: true , library: newLibrary , message: 'Seu cadastro foi realizado com sucesso.'})
 
-          })
-        } else {
-          newLibrary.save(function(err) {
-            if(!err) {
-              extend(response , {success: true , library: newLibrary , message: 'Seu cadastro foi realizado com sucesso.'})
+                  // For email 
+                  newLibrary.ip = req.ip
+                  newLibrary.origin = (req.headers.origin || req.headers.referrer || req.url)
 
-              // For email 
-              newLibrary.ip = req.ip
-              newLibrary.origin = (req.headers.origin || req.headers.referrer || req.url)
+                  newLibrary.address.formatted_address = newLibrary.get('address.formatted_address');
 
-              newLibrary.address.formatted_address = newLibrary.get('address.formatted_address');
+                  var mailer = require(path.join(global.app.rootAppDir, 'mailers', 'library'))(newLibrary);
 
-              var mailer = require(path.join(global.app.rootAppDir, 'mailers', 'library'))(newLibrary);
-
-              mailer.send(function(_data) {
-                if(_data.error) {
-                  return res.send({error: 1 , message: 'Erro no envio do email.'})
-                } else {
-                  mailUser(newLibrary.email, {host: res.locals.host }, function() {
-                    return checkSpamDoBem(newLibrary, data,  function() {
-                      return res.send(response);
-                    });
+                  mailer.send(function(_data) {
+                    if(_data.error) {
+                      return res.send({error: 1 , message: 'Erro no envio do email.'})
+                    } else {
+                      return mailUser(newLibrary.email, {host: res.locals.host }, function() {
+                        return checkSpamDoBem(newLibrary, data,  function() {
+                          return res.send(response);
+                        });
+                      })
+                    }
                   })
                 }
               })
             }
           })
-        }
+        })
       })
     });
   } else {
