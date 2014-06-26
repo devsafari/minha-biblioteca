@@ -1637,6 +1637,11 @@ ul.errors-messages li {
     padding:10px 30px 5px 10px;
     text-transform:uppercase
 }
+
+.signup_form .submit-field input[type=submit]:disabled {
+    color: #ffffff;
+}
+
 #signup_form .signup-steps-wrapper .signup_form .submit-field .back-button {
     border:0;
     background:#888887
