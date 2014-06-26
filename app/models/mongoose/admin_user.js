@@ -11,7 +11,7 @@ var AdminUserModel = (function() {
     hashed_password: String,
     created_at: {type: Date , default: Date.now },
     updated_at: {type: Date , default: Date.now }
-  }, {collection: 'admin_user'})
+  }, {collection: 'admin_users'})
 
   AdminUserSchema.virtual('password').set(function(password) {
       this._password = password;
