@@ -1637,6 +1637,8 @@ ul.errors-messages li {
     padding:10px 30px 5px 10px;
     text-transform:uppercase
 }
+
+
 #signup_form .signup-steps-wrapper .signup_form .submit-field .back-button {
     border:0;
     background:#888887
@@ -1654,6 +1656,11 @@ ul.errors-messages li {
     background: #ffffff;
     color: #AFAFAF;
 }
+
+#signup_form .signup-steps-wrapper .signup_form .field-wrapper input:disabled {
+    color: #ffffff;
+}
+
 
 #signup_form .signup-steps-wrapper .signup_form .field-wrapper input, #signup_form .signup-steps-wrapper .signup_form .field-wrapper textarea {
     border-color:#CACACA
