@@ -53,8 +53,17 @@ $(document).ready(function() {
     bindForms: function() {
       var self = this;
       this.submitForm("#new_library_form", {
+        pre_send: function(form) {
+          var submit_btn = $("input[type='submit']", form).first();
+          submit_btn.attr('disabled', 'disabled');
+          submit_btn.attr('data-last-value', submit_btn.val());
+          submit_btn.val("Enviando...");
+        },
         success: function(form,data) {
+          var submit_btn = $("input[type='submit']", form).first();
           $(form).slideUp();
+          submit_btn.removeAttr('disabled');
+          submit_btn.val(submit_btn.attr('data-last-value'));
           $("#signup_step_3").slideDown();
         },
         error: function(form,data) {}
@@ -134,6 +143,10 @@ $(document).ready(function() {
         
         var form = $(this);
         var type = (request_type || form.attr('method') || "POST");
+
+        if(callbacks.pre_send && typeof callbacks.pre_send == 'function') {
+          callbacks.pre_send.call(null, form);
+        }
 
         $.ajax({
           url:  $(form).attr("action"), 

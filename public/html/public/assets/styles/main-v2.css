@@ -351,7 +351,10 @@ a {
 }
 .main-menu {
     overflow:hidden;
-    width:100%
+    width:100%;
+    position: relative;
+    z-index: 999;
+}
 }
 .main-menu .logo {
     margin-top:8px;
