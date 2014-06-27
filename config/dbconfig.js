@@ -20,10 +20,10 @@ var dbConfig =  {
       url: "mongodb://localhost/euquerominhabiblioteca_test"
     },
     development: {
-      url: "mongodb://admin:@localhost/EcoDB"
+      url: "mongodb://localhost/euquerominhabiblioteca_development"
     },
     production: {
-      url: process.env.MONGOHQ_URL
+      url: "mongodb://admin:@localhost/EcoDB"
     }
   },
   redis: {
@@ -40,7 +40,7 @@ var dbConfig =  {
         url: parseRedisURL('redis://admin:5V8Gnx3D@localhost:6379')
     },
     production: {
-      url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL)
+      url: parseRedisURL('redis://admin:5V8Gnx3D@localhost:6379')
     }
   },
     

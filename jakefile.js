@@ -71,6 +71,7 @@
         total_users = libraries_users.length;
 
         for (var i = 0; i <= total_users; i++) {
+          if(total_users == 0) { return complete(); }
           var email = libraries_users[i];
           if(!!email) {
             Library.findOne({email: email}, 'type email occupation sex extra name', function(err, library) {
@@ -94,6 +95,7 @@
           }
         };
       })
+
     })
 
     desc("Import prefectures")
