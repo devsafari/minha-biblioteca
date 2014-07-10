@@ -20,10 +20,10 @@ var dbConfig =  {
       url: "mongodb://localhost/euquerominhabiblioteca_test"
     },
     development: {
-      url: "mongodb://localhost/euquerominhabiblioteca_development"
+      url: process.env.MONGOHQ_URL || "mongodb://localhost/euquerominhabiblioteca_development"
     },
     production: {
-      url: "mongodb://admin:@localhost/EcoDB"
+      url: process.env.MONGOHQ_URL || "mongodb://admin:@localhost/EcoDB"
     }
   },
   redis: {
@@ -37,10 +37,10 @@ var dbConfig =  {
       }
     },
     development: {
-        url: parseRedisURL('redis://admin:5V8Gnx3D@localhost:6379')
+        url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL || 'redis://2:5V8Gnx3D@localhost:6379')
     },
     production: {
-      url: parseRedisURL('redis://admin:5V8Gnx3D@localhost:6379')
+      url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL || 'redis://2:5V8Gnx3D@localhost:6379')
     }
   },
     
