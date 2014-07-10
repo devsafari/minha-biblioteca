@@ -67,6 +67,11 @@ Usamos o [Jakefile](https://github.com/mde/jake) para execução de tasks, sendo
 
 **OBS:** O servidor do mongodb deve estar rodando para que os dados possam ser salvos com sucesso. Em caso de erro execute `mongod` como um processo separado.
 
+**5 - Instalar o Image Magic para redimensionamento de imagens(criacao de thumbs):**
+
+Ubuntu\Debian: `sudo apt-get install imagemagick`   
+CentOS:  `yum install ImageMagick ImageMagick-devel`
+
 
 **4 - Acessar aplicação:**
 
