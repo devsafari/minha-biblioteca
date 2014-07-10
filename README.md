@@ -59,7 +59,7 @@ Usamos o [Jakefile](https://github.com/mde/jake) para execução de tasks, sendo
 `jake db:seed -f jakefile.js`  
 `jake json:generate -f jakefile.js`    
 `jake json:import_libraries -f jakefile.js`  
-`jake db:sections_import -f jakefile.js`  
+`jake db:import_sections -f jakefile.js`  
 `jake db:import_prefectures -f jakefile.js`  
 `jake db:import_schools -f jakefile.js`  
 `jake db:normalize_users -f jakefile.js`  

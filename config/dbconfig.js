@@ -8,7 +8,7 @@ var parseRedisURL = function(url) {
   return {
     host: rtg.hostname,
     port: rtg.port,
-    db: redisAuth[0],
+    db: 0, //redisAuth[0],
     pass: redisAuth[1],
     prefix: '_session'
   }
@@ -37,10 +37,10 @@ var dbConfig =  {
       }
     },
     development: {
-        url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL || 'redis://2:5V8Gnx3D@localhost:6379')
+        url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL || 'redis://admin:5V8Gnx3D@localhost:6379')
     },
     production: {
-      url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL || 'redis://2:5V8Gnx3D@localhost:6379')
+      url: parseRedisURL(process.env.REDISTOGO_URL || process.env.REDIS_URL || 'redis://admin:5V8Gnx3D@localhost:6379')
     }
   },
     
