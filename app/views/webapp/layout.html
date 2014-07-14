@@ -64,7 +64,7 @@
               <ul class="inline-list">
                 <li class="radio-wrapper first">
                   <input type="radio" name="contact[subject]" value="1" id="contact_subject_1" required="required">
-                  <label for="contact_subject_1">PARCERIAS</label>
+                  <label for="contact_subject_1">MATERIAS DE<br />REFERÊNCIA</label>
                 </li>
                 <li class="radio-wrapper">
                   <input type="radio" name="contact[subject]" value="2" id="contact_subject_2" required="required">
@@ -72,7 +72,7 @@
                 </li>
                 <li class="radio-wrapper">
                   <input type="radio" name="contact[subject]" value="3" id="contact_subject_3" required="required">
-                  <label for="contact_subject_3">PEDIDOS DE <br />MATERIAIS</label>
+                  <label for="contact_subject_3">COMO PARTICIPAR</label>
                 </li>
                 <li class="radio-wrapper">
                   <input type="radio" name="contact[subject]" value="4" id="contact_subject_4" required="required">
@@ -246,12 +246,12 @@
           </nav>
         </section>
         <section class="imprensa">
-          <header><h1>IMPRENSA <a href="/public/materiais/imprensa.pdf" target="_blank" title="Acesse aqui o Release da Campanha"><img src="/public/assets/images/common/imprensa_download.png" alt="Baixe informações sobre a campanha." style="margin-bottom: -10px;margin-left: 17px;"></a></h1></header>
+          <header><h1>{{ sections.footer.section_title }} <a href="/public/materiais/imprensa.pdf" target="_blank" title="Acesse aqui o Release da Campanha"><img src="/public/assets/images/common/imprensa_download.png" alt="Baixe informações sobre a campanha." style="margin-bottom: -10px;margin-left: 17px;"></a></h1></header>
           <nav class="imprensa-nav">
             <ul>
-              <li><span style='font-weight:600;'>GWA Comunicação Integrada<br/>Vanessa Fontes</span></li>
-              <li><span>Tel: 3030-3000</span></li>
-              <li><a href="mailto:vanessaf@gwa.com.br?subject=[Imprensa] Eu Quero Minha Biblioteca">E-mail: vanessaf@gwa.com.br</a></li>
+              <li><span style='font-weight:600;'>{{sections.footer.contact_header }}<br/>{{ sections.footer.contact_name }}</span></li>
+              <li><span>Tel: {{ sections.footer.contact_telephone }}</span></li>
+              <li><a href="mailto:vanessaf@gwa.com.br?subject=[Imprensa] Eu Quero Minha Biblioteca">E-mail: {{ sections.footer.contact_email }}</a></li>
             </ul>
           </nav>
         </section>

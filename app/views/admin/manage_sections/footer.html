@@ -1,0 +1,45 @@
+{% extends '../layout.html' %}
+
+{% block title %}Rodapé{% endblock %}
+
+{% block yield %}
+
+<div class="page-header">
+  <h1>Gerenciar <small> rodapé do site</small></h1>
+</div>
+
+<div class="form-container center-block">
+    <div class="content clearfix span10">
+        <form action="/admin/manage/{{ current_section }}" method="post" id="edit_section_{{ current_section }}_form" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="put" />
+            <fieldset class="field">
+                <label for="section_title">Título</label>
+                <input type="text" id="section_title" name="section[section_title]" class="span6" value="{{ section.getKeyValue('section_title') }}"/>
+            </fieldset> 
+            <fieldset class="field">
+                <label for="contact_header">Cabeçalho</label>
+                <input type="text" id="contact_header" name="section[contact_header]" class="span6" value="{{ section.getKeyValue('contact_header') }}"/>
+            </fieldset>
+            <fieldset class="field">
+                <label for="contact_name">Nome responsável</label>
+                <input type="text" id="contact_name" name="section[contact_name]" class="span6" value="{{ section.getKeyValue('contact_name') }}"/>
+            </fieldset> 
+            <fieldset class="field">
+                <label for="contact_telephone">Telefone responsável</label>
+                <input type="text" id="contact_telephone" name="section[contact_telephone]" class="span6" value="{{ section.getKeyValue('contact_telephone') }}"/>
+            </fieldset> 
+            <fieldset class="field">
+                <label for="contact_email">Email responsável</label>
+                <input type="text" id="contact_email" name="section[contact_email]" class="span6" value="{{ section.getKeyValue('contact_email') }}"/>
+            </fieldset> 
+
+            <div class="actions">                                    
+                <input type="hidden" name="_csrf" value='{{ csrf_token }}'>
+                <button class="button btn btn-success btn-large">Salvar</button>
+                <a href="/admin/" class="button btn btn-default btn-large">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

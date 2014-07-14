@@ -7,7 +7,7 @@ var SectionModel = (function() {
       findOrCreate    = require('mongoose-findorcreate');
 
   var CONSTANTS = {
-    SECTIONS: ["top","signup","accessions","campaign","share","orientations","sponsors","advisers","coalizadores"]
+    SECTIONS: ["top","signup","accessions","campaign","share","orientations","sponsors","advisers","coalizadores", "footer"]
   }
 
   var sectionSchema = new Schema({ 

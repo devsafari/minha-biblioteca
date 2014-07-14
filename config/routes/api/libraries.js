@@ -46,6 +46,8 @@ libraries.create = function(req, res) {
             user          = new User(user_data);
             user.extra    = newLibrary.extra
           }
+          var host = [req.protocol , "://" , req.headers.host].join('');
+
           user.save(function(err, _user) {
             if(exists) { 
               if(!err) {
@@ -54,8 +56,7 @@ libraries.create = function(req, res) {
                 Library.update(update_conditions, {$inc: { count: 1 }, $addToSet: { users: _user._id } }, function(err, num) {
                   extend(response , {success: true , library: doc,  message: 'Seu cadastro foi realizado com sucesso.', only_updated: true });
 
-                  var host = [req.protocol , "://" , req.headers.host].join(''),
-                      data = {host: host }
+                  var data = {host: host};
 
                   return mailUser(user.email, data, function() {
                     return checkSpamDoBem(doc, data,  function() {
@@ -82,7 +83,7 @@ libraries.create = function(req, res) {
                     if(_data.error) {
                       return res.send({error: 1 , message: 'Erro no envio do email.'})
                     } else {
-                      return mailUser(newLibrary.email, {host: res.locals.host }, function() {
+                      return mailUser(newLibrary.email, {host: host }, function() {
                         return checkSpamDoBem(newLibrary, data,  function() {
                           return res.send(response);
                         });

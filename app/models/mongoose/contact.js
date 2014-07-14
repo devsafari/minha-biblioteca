@@ -6,9 +6,9 @@ var ContactModel = (function() {
 
   var CONSTANTS = {
     SUBJECTS: {
-      "1": "Parcerias",
+      "1": "Materias de Referência",
       "2": "Dúvidas sobre a campanha",
-      "3": "Pedidos de materias",
+      "3": "Como participar",
       "4": "Dúvidas sobre cadastro",
       "5": "Problemas no site"
     },
