@@ -13,6 +13,7 @@ $(document).ready(function() {
       this.bindScroll();
       this.bindForms();
       this.fixBugs();
+      this.GASetup();
 
       $("[data-modal]").on('click', function(ev) {
         ev.preventDefault();
@@ -21,6 +22,41 @@ $(document).ready(function() {
 
         self.showModal(target);
       });
+    },
+
+    GASetup: function() {
+      var self = this;
+      $("[data-ga]").on('click', function(ev) {
+        var data = $(this).data('ga');
+
+        if(data) {
+          var events = data.events ? data.events : [data]
+          $.each(events, function(index,ev) {
+            self.addGAEvent(ev);
+          })
+        }
+      })
+    },
+
+    addGAEvent: function(ev_data) {
+      var event_data;
+      console.log("ev_data = %s", JSON.stringify(ev_data));
+      if(ev_data.type == "pageview") {
+        event_data = ev_data.data;
+        ga('send','pageview',event_data);
+      } else {
+        event_data = {
+          'hitType':  ev_data.type || 'event',
+          'eventCategory': ev_data.category,
+          'eventAction':ev_data.action,
+          'eventLabel': ev_data.label,
+          'eventValue': ev_data.value || null
+        }
+        ga('send', event_data);
+      } 
+
+      console.log("Enviando dados para [GA]")
+      console.log(event_data);
     },
 
     fixBugs: function() {
@@ -65,6 +101,7 @@ $(document).ready(function() {
           submit_btn.removeAttr('disabled');
           submit_btn.val(submit_btn.attr('data-last-value'));
           $("#signup_step_3").slideDown();
+          self.addGAEvent({ type: "pageview", data: {page: '/inscreva-se/cadastro realizado'}});
         },
         error: function(form,data) {}
       }, true, undefined, false);
@@ -952,7 +989,7 @@ $(document).ready(function() {
       }
     },
 
-    clicSignup: function(){
+    clickSignup: function(){
       $("#cad-signup").click();
     }
   }
