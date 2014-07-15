@@ -21,32 +21,32 @@
 		        </div>
 		    {% endif %}
 	        <article class="header wrapper">
-	            <div class="play-icon" id="video-play" {% if !sections.top.video_link && !getYoutubeVideoID(sections.top.video_link) %} style="background-image: none" {% endif %}></div>
+	            <div class="play-icon" id="video-play" {% if !sections.top.video_link && !getYoutubeVideoID(sections.top.video_link) %} style="background-image: none" {% endif %} data-ga='{"type":"event","category":"destaque video","action":"play","label":"video"}'></div>
 	            <div class="share-text">
 	                <p>Compartilhe este vídeo:</p>
 	                <ul class="social-share inline-list">
 	                    <li class="facebook">
-	                        <a href="#" class='facebook-share' title="Compartilhar no facebook"></a>
+	                        <a href="#" class='facebook-share' title="Compartilhar no facebook" data-ga='{"type":"event","category":"destaque video","action":"share","label":"facebook"}'></a>
 	                    </li>
 	                    <li class="twitter">
-	                        <a href="http://twitter.com/home?status=Veja%20o%20v%C3%ADdeo%20que%20apresenta%20o%20projeto%20Eu%20quero%20minha%20biblioteca%20%23euquerominhabiblioteca.%20http://goo.gl/8oO9u8" title="Compartilhar no Twitter" target="_blank" class='twitter-share'></a>
+	                        <a href="http://twitter.com/home?status=Veja%20o%20v%C3%ADdeo%20que%20apresenta%20o%20projeto%20Eu%20quero%20minha%20biblioteca%20%23euquerominhabiblioteca.%20http://goo.gl/8oO9u8" title="Compartilhar no Twitter" target="_blank" class='twitter-share' data-ga='{"type":"event","category":"destaque video","action":"share","label":"twitter"}'></a>
 	                    </li>
 	                    <li class="youtube">
-	                    	<a href="https://www.youtube.com/watch?v=lchkOT3IIs4" target="_blank"></a>
+	                    	<a href="https://www.youtube.com/watch?v=lchkOT3IIs4" target="_blank" data-ga='{"type":"event","category":"destaque video","action":"share","label":"youtube"}'></a>
 	                    </li>
 	                    <li class="gplus">
-	                    	<a href="https://plus.google.com/share?url={{ host }}" onclick="javascript:window.open(this.href,
+	                    	<a href="https://plus.google.com/share?url={{ host }}" data-ga='{"type":"event","category":"destaque video","action":"share","label":"google plus"}'onclick="javascript:window.open(this.href,
 	                    	  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"></a>
 	                    </li>
 	                </ul>
 	            </div>
-	            <div class="down-button scroll-button" data-target="#sobre-o-projeto"></div>
+	            <div class="down-button scroll-button" data-target="#sobre-o-projeto" data-ga='{"type":"event","category":"icone rolagem","action":"ir para","label":"scroll down"}'></div>
 	        </article>
 	    </section>
 	    <div class="main-menu" data-scroll-event='fixMenu' id='main-menu-fix'>
 	        <div class="wrapper">
 	            <div class="logo">
-	                <a href="#" title="Eu quero minha biblioteca">
+	                <a href="#" title="Eu quero minha biblioteca" data-ga='{"type":"event","category":"topo","action":"ir para","label":"logo voltar para home"}'>
 	                    <figure>
 	                        <img src="/public/assets/images/common/novo-logo-eu-quero-minha-biblioteca.png" alt="Eu quero minha biblioteca" class=''>
 	                    </figure>
@@ -54,11 +54,14 @@
 	            </div>
 	            <nav id="main-menu">
 	                <ul class='inline-list menu'>
-	                    <li class='first'><a href="#sobre-o-projeto" title="Sobre a Campanha">A Campanha</a></li>
-	                    <li onclick="ecoFuturoApp.clicSignup();"><a href="#" title="Inscreva-se na Campanha">Inscreva-se</a></li>
-	                    <li><a href="#resultados" title="Adesões à Campanha">Adesões</a></li>
-	                    <li><a href="#divulgue" title="Divulgue a Campanha">Imprensa</a></li>
-	                    <li class='last'><a href="#oriente-se" title="Participe da Campanha">Participe</a></li>
+	                    <li class='first'><a href="#sobre-o-projeto" title="Sobre a Campanha" 
+	                    data-ga='{"type":"event","category":"topo","action":"ir para","label":"a campanha"}'>A Campanha</a></li>
+	                    <li onclick="ecoFuturoApp.clickSignup();">
+	                    <a href="#" title="Inscreva-se na Campanha" 
+	                    data-ga='{"type":"event","category":"topo","action":"ir para","label":"inscreva-se"}'>Inscreva-se</a></li>
+	                    <li><a href="#resultados" title="Adesões à Campanha" data-ga='{"type":"event","category":"topo","action":"ir para","label":"adesões"}'>Adesões</a></li>
+	                    <li><a href="#divulgue" title="Divulgue a Campanha" data-ga='{"type":"event","category":"topo","action":"ir para","label":"imprensa"}'>Imprensa</a></li>
+	                    <li class='last'><a href="#oriente-se" title="Participe da Campanha" data-ga='{"type":"event","category":"topo","action":"ir para","label":"participe"}'>Participe</a></li>
 	                </ul>
 	            </nav>
 	        </div>
