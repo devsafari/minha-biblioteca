@@ -54,8 +54,8 @@ $(document).ready(function() {
         ga('send', event_data);
       } 
 
-      console.log("Enviando dados para [GA]")
-      console.log(event_data);
+      //console.log("Enviando dados para [GA]")
+      //console.log(JSON.stringify(event_data));
     },
 
     fixBugs: function() {
@@ -982,6 +982,10 @@ $(document).ready(function() {
 
     hideGoTopButton: function() {
       $("button#go-top").fadeOut();
+    },
+
+    trackPageview: function() {
+      ecoFuturoApp.addGAEvent({type: 'pageview', data: { page: $(this).data('ga-page') }})
     },
 
     dFieldLibrary: function(obj){

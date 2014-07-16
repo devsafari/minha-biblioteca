@@ -8,7 +8,7 @@
 	<div class="main-content-container">
 	    <section id="home" class='section parallax' data-scroll-event='hideGoTopButton' data-force='true' {% if sections.top && sections.top.image %} style="background-image: url(/uploads/original/{{ sections.top.image }})" {% endif %}
 	    >
-	    	<div id="preview-video-wrapper">
+	    	<div id="preview-video-wrapper" data-scroll-event='trackPageview' data-ga-page="/home">
 	    		<video id="preview-video" width="1920" height="960" autoplay="autoplay" loop="" poster="{{host}}/public/assets/images/backgrounds/video-preview-poster.png" >
 	    		  <source src="{{host}}/public/assets/videos/preview/eu-querominhabiblioteca-preview.mp4" />
 	    		  <source src="{{host}}/public/assets/videos/preview/eu-querominhabiblioteca-preview.webm" type="video/webm; codecs=vp8,vorbis" />
@@ -68,7 +68,7 @@
 	    </div>
 
 	    <section id="sobre-o-projeto" class='section' data-scroll-event='showGoTopButton' data-force='true'>
-	        <article class="wrapper">
+	        <article class="wrapper" data-scroll-event='trackPageview' data-ga-page="/acampanha">
 	            <header>
 	                <h3 class='box-about'>A Campanha</h3>
 	                <div class="sub-header">
@@ -147,7 +147,7 @@
 	        </article>
 	    </section>
 
-	    <section id="participe" class='section'>
+	    <section id="participe" class='section' data-scroll-event='trackPageview' data-ga-page="/inscreva-se">
 	        <article class="wrapper">
 	            <header>
 	                <h1>{{ sections.signup.section_header }}</h1>
@@ -337,7 +337,7 @@
 	        </div>
 	    </section>
 	    <section id="resultados" class='section' data-scroll-event='updateCounters' id='scroll-1'>
-	        <article class="wrapper">
+	        <article class="wrapper" id="results_wrapper_counter" data-scroll-event='trackPageview' data-ga-page="adesoes">
 	            <header>
 	                <h1>{{ sections.accessions.section_header }}</h1>
 	                <div class="sub-header">
@@ -374,7 +374,7 @@
 	        </article>
 	    </section>
 
-	    <section class="section" id="divulgue">
+	    <section class="section" id="divulgue" data-scroll-event='trackPageview' data-ga-page="imprensa">
 	        <article class="wrapper">
 	            <header>
 	                <h1>{{ sections.share.section_header }}</h1>
@@ -419,7 +419,7 @@
 	            </div>
 	        </aside>
 	    </section>
-	    <section class="section" id="oriente-se">
+	    <section class="section" id="oriente-se" data-scroll-event='trackPageview' data-ga-page="orientacoes">
 	        <article class="bg-wrap parallax" data-velocity="-.3" {% if sections.orientations && sections.orientations.image %} style="background-image: url(/uploads/original/{{ sections.orientations.image }})" {% endif %}>
 	            <header>
 	                <h1>{{ sections.orientations.section_header }}</h1>
@@ -497,7 +497,7 @@
 	            </div>
 	        </article>
 	    </section>
-	    <section class="section" id="realizadores">
+	    <section class="section" id="realizadores" data-scroll-event='trackPageview' data-ga-page="footer-realizadores">
 	        <article class="wrapper">
 	            <header>
 	                <h1>realizadores</h1>
@@ -516,7 +516,7 @@
 	                             {% for coalizador in getIdsByKeyInitial(sections.coalizadores, "coalizador_link_") %}
      	                        		{% if sections.coalizadores['coalizador_link_' + coalizador] %}
      		                            <li {% if !loop.first && loop.last %} class='last' {% endif %}>
-     		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank" data-ga='{"type":"event","category":"realizadores coalização","action":"ir para","label":"{{ sections.coalizadores["coalizador_link_" + coalizador] }}"}'>
+     		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank" data-ga='{"type":"event","category":"realizadores coalização","action":"ir para","label":"{{ sections.coalizadores["coalizador_name_" + coalizador] }}"}'>
    		                                    <img src="/uploads/original/{{ sections.coalizadores['coalizador_image_' + coalizador] }}" alt="{{ sections.coalizadores['coalizador_name_' + coalizador] }}">
      		                                </a>
      		                            </li>
@@ -530,7 +530,7 @@
 	                        {% for sponsor in getIdsByKeyInitial(sections.sponsors, "sponsor_link_") %}
 	                        	{% if sections.sponsors['sponsor_link_' + sponsor] %}
 	                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
-	                                <a href="{{ sections.sponsors['sponsor_link_' + sponsor] }}" title="{{ sections.sponsors['sponsor_name_' + sponsor] }}" target="_blank" data-ga='{"type":"event","category":"patrocionio","action":"ir para","label":"{{ sections.sponsors["sponsor_link_" + sponsor] }}"}'>
+	                                <a href="{{ sections.sponsors['sponsor_link_' + sponsor] }}" title="{{ sections.sponsors['sponsor_name_' + sponsor] }}" target="_blank" data-ga='{"type":"event","category":"patrocionio","action":"ir para","label":"{{ sections.sponsors["sponsor_name_" + sponsor] }}"}'>
                                     <img src="/uploads/original/{{ sections.sponsors['sponsor_image_' + sponsor] }}" alt="{{ sections.sponsors['sponsor_name_' + sponsor] }}">
 	                                </a>
 	                            </li>
@@ -544,7 +544,7 @@
                           {% for adviser in getIdsByKeyInitial(sections.advisers, "adviser_link_") %}
  	                        	{% if sections.advisers['adviser_link_' + adviser] %}
 	                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
-	                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank" data-ga='{"type":"event","category":"divulgação","action":"ir para","label":"{{ sections.advisers["adviser_link_" + adviser] }}"}'>
+	                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank" data-ga='{"type":"event","category":"divulgação","action":"ir para","label":"{{ sections.advisers["adviser_name_" + adviser] }}"}'>
                                   	<img src="/uploads/original/{{ sections.advisers['adviser_image_' + adviser] }}" alt="{{ sections.advisers['adviser_name_' + adviser] }}">
 	                                </a>
 	                            </li>
