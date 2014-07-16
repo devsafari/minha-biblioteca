@@ -4,7 +4,7 @@
 
 {% block yield %}
 <div class="site-container">
-	<button id="go-top"></button>
+	<button id="go-top" data-ga='{"type":"event","category":"icone rolagem","action":"ir para","label":"scroll up"}'></button>
 	<div class="main-content-container">
 	    <section id="home" class='section parallax' data-scroll-event='hideGoTopButton' data-force='true' {% if sections.top && sections.top.image %} style="background-image: url(/uploads/original/{{ sections.top.image }})" {% endif %}
 	    >
@@ -102,7 +102,7 @@
 	        <article class="wrapper bg-wrap parallax" data-velocity="3" id="boxes-wrapper"  {% if sections.campaign && sections.campaign.image %} style="background-image: url(/uploads/original/{{ sections.campaign.image }})" {% endif %}>
 	            <ul class="boxes inline-list">
 	            		{% for title in getValuesByKeyInitial(sections.campaign, "box_title_") %}
-	            			<li class="box {% if loop.first %} first {% elseif loop.last %} last {% endif %}">
+	            			<li class="box {% if loop.first %} first {% elseif loop.last %} last {% endif %}" data-ga='{"type":"event","category":"a campanha","action":"ver mais","label":"{{ title }}"}'>
 	            			    <header><h4>{{ title }}</h4></header>
 	            			    <span class="icon"></span>
 	            			</li>
@@ -118,13 +118,13 @@
 	                        <p>Compartilhe: </p>
 	                         <ul class="share-icons inline-list" id="project_share">
 	                             <li class="facebook">
-	                                 <a href="#" title="Compartilhar no facebook"></a>
+	                                 <a data-ga='{"type":"event","category":"por que ter uma biblioteca na escola","action":"share","label":"facebook"}' href="#" title="Compartilhar no facebook"></a>
 	                             </li>
 	                             <li class="twitter">
-	                                 <a href="#" title="Compartilhar no twitter"></a>
+	                                 <a data-ga='{"type":"event","category":"por que ter uma biblioteca na escola","action":"share","label":"twitter"}' href="#" title="Compartilhar no twitter"></a>
 	                             </li>
 	                             <li class="google">
-	                                 <a href="#" title="Compartilhar no google+"></a>
+	                                 <a data-ga='{"type":"event","category":"por que ter uma biblioteca na escola","action":"share","label":"google plus"}' href="#" title="Compartilhar no google+"></a>
 	                             </li>
 	                         </ul>
 	                    </div>
@@ -156,7 +156,7 @@
 	                </div>
 	            </header>
 
-	            <button class="button signup"><a href="#">cadastrar</a></button>
+	            <button class="button signup" data-ga='{"type":"event","category":"inscreva-se","action":"ir para","label":"cadastro"}'><a href="#">cadastrar</a></button>
 	        </article>
 	        <div class="top-bar">
 	            <div class="wrapper">
@@ -369,7 +369,7 @@
 	                        <div class="counter" id="states_counter" data-value='{{ total_states }}'>0</div>
 	                    </li>
 	                </ul>
-	                <button id="cad-signup" class="button signup"><a href='#'>inscreva-se</a></button>
+	                <button id="cad-signup" class="button signup" data-ga='{"type":"event","category":"adesões","action":"ir para","label":"cadastro"}'><a href='#'>inscreva-se</a></button>
 	            </div>
 	        </article>
 	    </section>
@@ -388,9 +388,9 @@
 	                		{% for banner in getIdsByKeyInitial(sections.share, "banner_image_") %}
 		                		<li class="banner" id="banner-{{ loop.index }}">
 		                			{% if sections.share['banner_image_' + banner] %}
-			                		    <a href="{{ host }}{{ printGA(sections.share['banner_tracking_code_' + banner]) }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="{{host}}/uploads/original/{{ sections.share['banner_image_' + banner] }}" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
+			                		    <a href="{{ host }}{{ printGA(sections.share['banner_tracking_code_' + banner]) }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="{{host}}/uploads/original/{{ sections.share['banner_image_' + banner] }}" alt="Divulgue o projeto 'Eu quero minha biblioteca'" data-ga='{"type":"event","category":"divulgue","action":"clique","label":"gerar embed"}'></a>
 		                			{% else %}
-			                		    <a href="{{ host }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-{{ loop.index}}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'"></a>
+			                		    <a href="{{ host }}" target="_blank" title="Ajude o projeto 'Eu quero a minha biblioteca"><img src="/public/assets/images/banners/banner-{{ loop.index}}.jpg" alt="Divulgue o projeto 'Eu quero minha biblioteca'" data-ga='{"type":"event","category":"divulgue","action":"clique","label":"gerar embed"}'></a>
 		                			{% endif %}
 		                		</li>
 	                		{% endfor %}
@@ -411,9 +411,9 @@
 	                <span class="text text-instructions">MATERIAIS DE APOIO EM DIVULGAÇÃO</span>
 	                <span class="text text-download-button">
 	                	{% if sections.share && sections.share.materials %}
-	                		<a href="{{ host }}/uploads/original/{{ sections.share.materials }}"><div class="icon"></div>download</a>
+	                		<a href="{{ host }}/uploads/original/{{ sections.share.materials }}" data-ga='{"type":"event","category":"divulgue","action":"download","label":"materiais de apoio"}'><div class="icon"></div>download</a>
 	                	{% else %}
-	                		<a href="{{ host }}/materiais/material_divulgacao.zip"><div class="icon"></div>download</a>
+	                		<a href="{{ host }}/materiais/material_divulgacao.zip" data-ga='{"type":"event","category":"divulgue","action":"download","label":"materiais de apoio"}'><div class="icon"></div>download</a>
 	                	{% endif %}
 	                </span>
 	            </div>
@@ -431,17 +431,17 @@
 	                <ul class="inline-list">
 	                    <li class="box">
 	                    	{% if sections.orientations && sections.orientations.file_orientiations_citizens %}
-	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_citizens }}" target="_blank">Cidadãos</a>
+	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_citizens }}" target="_blank" data-ga='{"type":"event","category":"orientações","action":"ir para","label":"cidadãos"}'>Cidadãos</a>
 	                    	{% else %}
-	                    		<a href="{{ host }}/public/materiais/infografico_14042014.pdf" target="_blank">Cidadãos</a>
+	                    		<a href="{{ host }}/public/materiais/infografico_14042014.pdf" target="_blank" data-ga='{"type":"event","category":"orientações","action":"ir para","label":"cidadãos"}'>Cidadãos</a>
 	                    	{% endif %}
 	                    </li>
 	                    <li class="box-text">ou</li>
 	                    <li class="box">
 	                    	{% if sections.orientations && sections.orientations.file_orientiations_public_managers %}
-	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank">Gestores<br />Públicos</a>
+	                    		<a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank" data-ga='{"type":"event","category":"orientações","action":"ir para","label":"gestores públicos"}'>Gestores<br />Públicos</a>
 	                    	{% else %}
-	                    		<a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank">Gestores<br />Públicos</a>
+	                    		<a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank" data-ga='{"type":"event","category":"orientações","action":"ir para","label":"gestores públicos"}'>Gestores<br />Públicos</a>
 	                    	{% endif %}
 	                    </li>
 	                </ul>
@@ -509,19 +509,19 @@
 	                         <h2>Iniciativa: <span style="margin-left: 50px">Coalizão:</span></h2>
 	                         <ul class='inline-list'>
 	                         	<li class='first'>
-	                                 <a href="http://www.ecofuturo.org.br/" title="ECO FUTURO" target="_blank">
-	                                     <img width="125" src="/public/assets/images/realizadores/ecofuturo.jpg" alt="Ecofuturo" style="margin-top: 20px;">
+	                                 <a href="http://www.ecofuturo.org.br/" title="ECO FUTURO" target="_blank" data-ga='{"type":"event","category":"realizadores iniciativa","action":"ir para","label":"http://www.ecofuturo.org.br/"}'>
+                                     <img width="125" src="/public/assets/images/realizadores/ecofuturo.jpg" alt="Ecofuturo" style="margin-top: 20px;">
 	                                 </a>
 	                             </li>
 	                             {% for coalizador in getIdsByKeyInitial(sections.coalizadores, "coalizador_link_") %}
-     	                        	{% if sections.coalizadores['coalizador_link_' + coalizador] %}
+     	                        		{% if sections.coalizadores['coalizador_link_' + coalizador] %}
      		                            <li {% if !loop.first && loop.last %} class='last' {% endif %}>
-     		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank">
-     		                                    <img src="/uploads/original/{{ sections.coalizadores['coalizador_image_' + coalizador] }}" alt="{{ sections.coalizadores['coalizador_name_' + coalizador] }}">
+     		                                <a href="{{ sections.coalizadores['coalizador_link_' + coalizador] }}" title="{{ sections.coalizadores['coalizador_name_' + coalizador] }}" target="_blank" data-ga='{"type":"event","category":"realizadores coalização","action":"ir para","label":"{{ sections.coalizadores["coalizador_link_" + coalizador] }}"}'>
+   		                                    <img src="/uploads/original/{{ sections.coalizadores['coalizador_image_' + coalizador] }}" alt="{{ sections.coalizadores['coalizador_name_' + coalizador] }}">
      		                                </a>
      		                            </li>
-     		                         {% endif %}
-                                 {% endfor %}
+     		                         	{% endif %}
+                               {% endfor %}
 	                         </ul>
 	                    </nav>
 	                    <nav class="patrocinio">
@@ -529,28 +529,28 @@
 	                        <ul class='inline-list'>
 	                        {% for sponsor in getIdsByKeyInitial(sections.sponsors, "sponsor_link_") %}
 	                        	{% if sections.sponsors['sponsor_link_' + sponsor] %}
-		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
-		                                <a href="{{ sections.sponsors['sponsor_link_' + sponsor] }}" title="{{ sections.sponsors['sponsor_name_' + sponsor] }}" target="_blank">
-		                                    <img src="/uploads/original/{{ sections.sponsors['sponsor_image_' + sponsor] }}" alt="{{ sections.sponsors['sponsor_name_' + sponsor] }}">
-		                                </a>
-		                            </li>
+	                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
+	                                <a href="{{ sections.sponsors['sponsor_link_' + sponsor] }}" title="{{ sections.sponsors['sponsor_name_' + sponsor] }}" target="_blank" data-ga='{"type":"event","category":"patrocionio","action":"ir para","label":"{{ sections.sponsors["sponsor_link_" + sponsor] }}"}'>
+                                    <img src="/uploads/original/{{ sections.sponsors['sponsor_image_' + sponsor] }}" alt="{{ sections.sponsors['sponsor_name_' + sponsor] }}">
+	                                </a>
+	                            </li>
 		                         {% endif %}
-                            {% endfor %}
+                          {% endfor %}
 	                        </ul>
 	                    </nav>
 	                    <nav class="divulgacao">
-							<h2>Divulgação:</h2>
-							<ul class='inline-list'>
-	                            {% for adviser in getIdsByKeyInitial(sections.advisers, "adviser_link_") %}
-     	                        	{% if sections.advisers['adviser_link_' + adviser] %}
-     		                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
-     		                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank">
-     		                                    <img src="/uploads/original/{{ sections.advisers['adviser_image_' + adviser] }}" alt="{{ sections.advisers['adviser_name_' + adviser] }}">
-     		                                </a>
-     		                            </li>
- 		                         	{% endif %}
-                                {% endfor %}
-	                        </ul>
+												<h2>Divulgação:</h2>
+												<ul class='inline-list'>
+                          {% for adviser in getIdsByKeyInitial(sections.advisers, "adviser_link_") %}
+ 	                        	{% if sections.advisers['adviser_link_' + adviser] %}
+	                            <li {% if loop.first %} class='first' {% endif %} {% if !loop.first && loop.last %} class='last' {% endif %}>
+	                                <a href="{{ sections.advisers['adviser_link_' + adviser] }}" title="{{ sections.advisers['adviser_name_' + adviser] }}" target="_blank" data-ga='{"type":"event","category":"divulgação","action":"ir para","label":"{{ sections.advisers["adviser_link_" + adviser] }}"}'>
+                                  	<img src="/uploads/original/{{ sections.advisers['adviser_image_' + adviser] }}" alt="{{ sections.advisers['adviser_name_' + adviser] }}">
+	                                </a>
+	                            </li>
+	                         	{% endif %}
+                          {% endfor %}
+                        </ul>
 	                    </nav>
 	                </div>
 	            </div>

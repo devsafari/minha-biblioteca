@@ -40,7 +40,6 @@ $(document).ready(function() {
 
     addGAEvent: function(ev_data) {
       var event_data;
-      console.log("ev_data = %s", JSON.stringify(ev_data));
       if(ev_data.type == "pageview") {
         event_data = ev_data.data;
         ga('send','pageview',event_data);
@@ -126,6 +125,8 @@ $(document).ready(function() {
 
             var first_marker
             , markers = [];
+
+            self.addGAEvent({type: "event", category: "mapa", action: "buscar", label: $("#search_query").val() });
 
             var ids = $.map(data.libraries, function(item,index) { return  item._id; })
 
@@ -358,15 +359,8 @@ $(document).ready(function() {
 
       var _changeStep = function() {
         var thisStep = $(".step#step_" + self.contactStep);
-
-        console.log(thisStep.attr('id'));
-
         thisStep.fadeOut(function() {
           var nextQuestion = $(".step#step_" + (self._previousContact ? --self.contactStep : ++self.contactStep) );
-
-          console.log("next question id = %s", nextQuestion.attr('id'))
-          console.log("contactStep = %s", self.contactStep)
-
           if(nextQuestion.size() > 0 && (self._previousContact ? self.contactStep >= 1 : self.contactStep <= maxSteps) ) {
             nextQuestion.fadeIn();
             if(self.contactStep > 1) { previous_step_btn.fadeIn(); } else { previous_step_btn.hide() ; }
@@ -598,10 +592,20 @@ $(document).ready(function() {
         $(this).addClass('opened');
        
         var positions = ['15%', '50%', '85%'];
+        var ga_data = [{category: "porque ter uma biblioteca"}, {category: "o que diz a lei"}, {category: "linhas de ação"}];
 
         arrow.animate({left: positions[index]}, function(){ 
           var content = $("#box-desc-contents > ul.contents").find('> li').get(index);
           $("#desc-content").html($(content).html());
+
+          var ga = ga_data[index];
+          $(".share .share-icons li a").each(function(index,element) {
+            element = $(element);
+            var data = element.data('ga');
+            $.extend(data, ga);
+            element.attr('data-ga', JSON.stringify(data));
+          })
+
         });
       });
 
@@ -625,7 +629,7 @@ $(document).ready(function() {
         }, function(response){
         });
       });
-
+      
       $("nav.banners .banner").on('click', 'a', function(ev) {
         ev.preventDefault();
         var self = $(this);

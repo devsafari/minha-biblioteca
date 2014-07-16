@@ -29,8 +29,10 @@ module.exports = (function() {
           res.locals.printGA               = helper.printGA;
           res.locals.getYoutubeVideoID     = helper.getYoutubeVideoID;
           res.locals.putsHTML              = function(text) { return text ; }
+          res.locals.toDowncase            = function(text) { return text.toLowerCase(); }
            
           return res.render('webapp/index');
+
         })
        });
         
