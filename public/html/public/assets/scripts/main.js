@@ -54,8 +54,8 @@ $(document).ready(function() {
         ga('send', event_data);
       } 
 
-      //console.log("Enviando dados para [GA]")
-      //console.log(JSON.stringify(event_data));
+      console.log("%c Enviando dados para [GA]", "color: #FF6B6B; font-weight:bold;")
+      console.log("%c %s", "color: #6B75FF; font-style: italic;", JSON.stringify(event_data));
     },
 
     fixBugs: function() {
