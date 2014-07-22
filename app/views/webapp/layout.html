@@ -218,16 +218,16 @@
               </li>
               <li>
                 {% if sections.orientations && sections.orientations.file_orientiations_citizens %}
-                <a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_citizens }}" target="_blank" data-ga='{"type":"event","category":"rodape","action":"ir para","label":"material de apoio cidadãos"}'>
+                <a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_citizens }}" target="_blank" data-ga='{"type":"event","category":"rodape","action":"download","label":"material de apoio cidadãos"}'>&gt; Cidadãos</a>
                 {% else %}
-                  <a href="{{ host }}/public/materiais/infografico_14042014.pdf" target="_blank" data-ga='{"type":"event","category":"rodape","action":"ir para","label":"material de apoio cidadãos"}'>&gt; Cidadãos</a>
+                  <a href="{{ host }}/public/materiais/infografico_14042014.pdf" target="_blank" data-ga='{"type":"event","category":"rodape","action":"download","label":"material de apoio cidadãos"}'>&gt; Cidadãos</a>
                 {% endif %}
               </li>
               <li>
                 {% if sections.orientations && sections.orientations.file_orientiations_public_managers %}
-                  <a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank" data-ga='{"type":"event","category":"rodape","action":"ir para","label":"material de apoio gestores públicos"}'>&gt; Gestores Públicos</a>
+                  <a href="{{ host }}/uploads/original/{{ sections.orientations.file_orientiations_public_managers }}" target="_blank" data-ga='{"type":"event","category":"rodape","action":"download","label":"material de apoio gestores públicos"}'>&gt; Gestores Públicos</a>
                 {% else %}
-                  <a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank" data-ga='{"type":"event","category":"rodape","action":"ir para","label":"material de apoio gestores públicos"}'>&gt; Gestores Públicos</a>
+                  <a href="{{ host }}/public/materiais/GUIA_GESTORES_VF_3.pdf" target="_blank" data-ga='{"type":"event","category":"rodape","action":"download","label":"material de apoio gestores públicos"}'>&gt; Gestores Públicos</a>
                 {% endif %}
               </li>
             </ul>
@@ -237,9 +237,9 @@
               <li class="header">
 
                 {% if sections.share && sections.share.materials %}
-                  <a href="{{ host }}/uploads/original/{{ sections.share.materials }}" target="_blank" data-ga='{"type":"event","category":"rodape","action":"ir para","label":"material divulgação"}'><span class="header-text">Material de divulgação</span></a>
+                  <a href="{{ host }}/uploads/original/{{ sections.share.materials }}" target="_blank" data-ga='{"type":"event","category":"rodape","action":"download","label":"material divulgação"}'><span class="header-text">Material de divulgação</span></a>
                 {% else %}
-                  <a href="{{host}}/public/materiais/material_divulgacao.zip" target="_blank" data-ga='{"type":"event","category":"rodape","action":"ir para","label":"material divulgação"}'><span class="header-text">Material de divulgação</span></a>
+                  <a href="{{host}}/public/materiais/material_divulgacao.zip" target="_blank" data-ga='{"type":"event","category":"rodape","action":"download","label":"material divulgação"}'><span class="header-text">Material de divulgação</span></a>
                 {% endif %}
               </li>
               <li><a href="#divulgue">&gt; Banners de divulgação</a></li>

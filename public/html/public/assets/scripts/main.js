@@ -100,7 +100,7 @@ $(document).ready(function() {
           submit_btn.removeAttr('disabled');
           submit_btn.val(submit_btn.attr('data-last-value'));
           $("#signup_step_3").slideDown();
-          self.addGAEvent({ type: "pageview", data: {page: '/inscreva-se/cadastro realizado'}});
+          self.addGAEvent({ type: "pageview", data: {page: '/inscreva-se/cadastrar/cadastro concluído'}});
         },
         error: function(form,data) {}
       }, true, undefined, false);

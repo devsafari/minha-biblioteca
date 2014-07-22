@@ -58,7 +58,7 @@
 	                    data-ga='{"events" : [{ "type":"event","category":"topo","action":"ir para","label":"a campanha"},{"type":"pageview", "data": {"page": "/acampanha"}}]}'>A Campanha</a></li>
 	                    <li onclick="ecoFuturoApp.clickSignup();">
 	                    <a href="#" title="Inscreva-se na Campanha" 
-	                    data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"inscreva-se"},{"type":"pageview", "data": {"page": "/inscreva-se"}}]}'>Inscreva-se</a></li>
+	                    data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"inscreva-se"},{"type":"pageview", "data": {"page": "/inscreva-se/cadastrar"}}]}'>Inscreva-se</a></li>
 	                    <li><a href="#resultados" title="Adesões à Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"adesões"},{"type":"pageview", "data": {"page": "/adesoes"}}]}'>Adesões</a></li>
 	                    <li><a href="#divulgue" title="Divulgue a Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"imprensa"},{"type":"pageview", "data": {"page": "/impresa"}}]}'>Imprensa</a></li>
 	                    <li class='last'><a href="#oriente-se" title="Participe da Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"participe"},{"type":"pageview", "data": {"page": "/participe"}}]}'>Participe</a></li>
@@ -156,7 +156,7 @@
 	                </div>
 	            </header>
 
-	            <button class="button signup" data-ga='{"type":"event","category":"inscreva-se","action":"ir para","label":"cadastro"}'><a href="#">cadastrar</a></button>
+	            <button class="button signup" data-ga='{"type":"event","category":"inscreva-se","action":"ir para","label":"formulário de cadastro"}'><a href="#">cadastrar</a></button>
 	        </article>
 	        <div class="top-bar">
 	            <div class="wrapper">
@@ -411,9 +411,9 @@
 	                <span class="text text-instructions">MATERIAIS DE APOIO EM DIVULGAÇÃO</span>
 	                <span class="text text-download-button">
 	                	{% if sections.share && sections.share.materials %}
-	                		<a href="{{ host }}/uploads/original/{{ sections.share.materials }}" data-ga='{"type":"event","category":"divulgue","action":"download","label":"materiais de apoio"}'><div class="icon"></div>download</a>
+	                		<a href="{{ host }}/uploads/original/{{ sections.share.materials }}" data-ga='{"type":"event","category":"divulgue","action":"download","label":"materiais de divulgação"}'><div class="icon"></div>download</a>
 	                	{% else %}
-	                		<a href="{{ host }}/materiais/material_divulgacao.zip" data-ga='{"type":"event","category":"divulgue","action":"download","label":"materiais de apoio"}'><div class="icon"></div>download</a>
+	                		<a href="{{ host }}/materiais/material_divulgacao.zip" data-ga='{"type":"event","category":"divulgue","action":"download","label":"materiais de divulgação"}'><div class="icon"></div>download</a>
 	                	{% endif %}
 	                </span>
 	            </div>
