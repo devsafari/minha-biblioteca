@@ -41,8 +41,8 @@ $(document).ready(function() {
     addGAEvent: function(ev_data) {
       var event_data;
       if(ev_data.type == "pageview") {
-        event_data = ev_data.data;
-        ga('send','pageview',event_data);
+        var event_data = ev_data;
+        ga('send','pageview',ev_data.data);
       } else {
         event_data = {
           'hitType':  ev_data.type || 'event',
@@ -93,6 +93,7 @@ $(document).ready(function() {
           submit_btn.attr('disabled', 'disabled');
           submit_btn.attr('data-last-value', submit_btn.val());
           submit_btn.val("Enviando...");
+          self.addGAEvent({ type: "event", category: "formulário de cadastro", action: "ir para", label: "cadastrar"});
         },
         success: function(form,data) {
           var submit_btn = $("input[type='submit']", form).first();
@@ -120,13 +121,14 @@ $(document).ready(function() {
       })
 
       this.submitForm("#search_form", {
+        pre_send: function() {
+          self.addGAEvent({type: "event", category: "mapa", action: "buscar", label: $("#search_query").val() });
+        },
         success: function(form,data) {
           if(data.success && data.total_records > 0) {
 
             var first_marker
             , markers = [];
-
-            self.addGAEvent({type: "event", category: "mapa", action: "buscar", label: $("#search_query").val() });
 
             var ids = $.map(data.libraries, function(item,index) { return  item._id; })
 

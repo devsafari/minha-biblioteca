@@ -60,7 +60,7 @@
 	                    <a href="#" title="Inscreva-se na Campanha" 
 	                    data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"inscreva-se"},{"type":"pageview", "data": {"page": "/inscreva-se/cadastrar"}}]}'>Inscreva-se</a></li>
 	                    <li><a href="#resultados" title="Adesões à Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"adesões"},{"type":"pageview", "data": {"page": "/adesoes"}}]}'>Adesões</a></li>
-	                    <li><a href="#divulgue" title="Divulgue a Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"imprensa"},{"type":"pageview", "data": {"page": "/impresa"}}]}'>Imprensa</a></li>
+	                    <li><a href="#divulgue" title="Divulgue a Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"imprensa"},{"type":"pageview", "data": {"page": "/imprensa"}}]}'>Imprensa</a></li>
 	                    <li class='last'><a href="#oriente-se" title="Participe da Campanha" data-ga='{"events":[{"type":"event","category":"topo","action":"ir para","label":"participe"},{"type":"pageview", "data": {"page": "/participe"}}]}'>Participe</a></li>
 	                </ul>
 	            </nav>
@@ -337,7 +337,7 @@
 	        </div>
 	    </section>
 	    <section id="resultados" class='section' data-scroll-event='updateCounters' id='scroll-1'>
-	        <article class="wrapper" id="results_wrapper_counter" data-scroll-event='trackPageview' data-ga-page="adesoes">
+	        <article class="wrapper" id="results_wrapper_counter" data-scroll-event='trackPageview' data-ga-page="/adesoes">
 	            <header>
 	                <h1>{{ sections.accessions.section_header }}</h1>
 	                <div class="sub-header">
@@ -374,7 +374,7 @@
 	        </article>
 	    </section>
 
-	    <section class="section" id="divulgue" data-scroll-event='trackPageview' data-ga-page="imprensa">
+	    <section class="section" id="divulgue" data-scroll-event='trackPageview' data-ga-page="/imprensa">
 	        <article class="wrapper">
 	            <header>
 	                <h1>{{ sections.share.section_header }}</h1>
@@ -419,7 +419,7 @@
 	            </div>
 	        </aside>
 	    </section>
-	    <section class="section" id="oriente-se" data-scroll-event='trackPageview' data-ga-page="orientacoes">
+	    <section class="section" id="oriente-se" data-scroll-event='trackPageview' data-ga-page="/orientacoes">
 	        <article class="bg-wrap parallax" data-velocity="-.3" {% if sections.orientations && sections.orientations.image %} style="background-image: url(/uploads/original/{{ sections.orientations.image }})" {% endif %}>
 	            <header>
 	                <h1>{{ sections.orientations.section_header }}</h1>
@@ -497,7 +497,7 @@
 	            </div>
 	        </article>
 	    </section>
-	    <section class="section" id="realizadores" data-scroll-event='trackPageview' data-ga-page="footer-realizadores">
+	    <section class="section" id="realizadores" data-scroll-event='trackPageview' data-ga-page="/footer-realizadores">
 	        <article class="wrapper">
 	            <header>
 	                <h1>realizadores</h1>
