@@ -6,7 +6,7 @@ var SignupMailer = function(data) {
 
   var mailOptions = {
     from: "Eu Quero Minha Biblioteca ✔ <contato@euquerominhabiblioteca.org.br>",
-    to: "rafa_fidelis@yahoo.com.br", // data.email
+    to: "fernando.raych@safari.to", // data.email
     subject: "Obrigado! - Eu Quero Minha Biblioteca", 
     html_filename: "signup.html",
     html_data: data

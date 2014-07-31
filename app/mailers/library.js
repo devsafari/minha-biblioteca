@@ -6,7 +6,7 @@ var LibraryMailer = function(data) {
 
   var mailOptions = {
     from: "Eu Quero Minha Biblioteca ✔ <contato@euquerominhabiblioteca.org.br>",
-    to: "rafa_fidelis@yahoo.com.br", 
+    to: "fernando.raych@safari.to", 
     subject: "[Site] Novo Cadastro de Biblioteca", 
     html_filename: "library_type_" + data.type + ".html",
     html_data: data
