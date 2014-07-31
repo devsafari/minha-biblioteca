@@ -14,7 +14,13 @@ var Middlewares = (function() {
   }
   return {
     setup: function(app) {
-      
+      app.use(function(req,res,next) {
+        res.locals.host = [req.protocol , "://" , req.headers.host].join('')
+        res.locals.devEnv = ('development' === process.env.NODE_ENV)
+        res.locals.prodEnv = ('production' == process.env.NODE_ENV)
+        next();
+      })
+
       // Auth
       // only logged users can access admin
       app.use('/admin', function(req,res,next) {
@@ -26,9 +32,6 @@ var Middlewares = (function() {
           if (path == '') path = 'dashboard'
           res.locals = extend(res.locals , {current_path: path, user_id: req.session.user_id, user_name: req.session.user_name})
         }
-        res.locals.host = [req.protocol , "://" , req.headers.host].join('')
-        res.locals.devEnv = ('development' === app.get('env'))
-        res.locals.prodEnv = !res.locals.devEnv
         next();
       })
       

@@ -1,4 +1,6 @@
 var ecoFuturoApp;
+var console=console||{ log: function(){}};
+
 $(document).ready(function() {
   'use strict';
 
